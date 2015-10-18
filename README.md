@@ -6,8 +6,7 @@ Take control over the action.
 
 * `git clone git@github.com:calderalabs/knockout.git`
 * `cd knockout`
-* `npm install`
-* `bower install`
+* `bin/install`
 
 ## Running / Development
 
