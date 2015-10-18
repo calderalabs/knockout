@@ -5,4 +5,8 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
+Router.map(function() {
+  this.route('tournament', { path: 'tournaments/:id' });
+});
+
 export default Router;

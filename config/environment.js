@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'knockout',
+    podModulePrefix: 'knockout/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
