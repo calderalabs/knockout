@@ -140,7 +140,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: strict_BEM 
+    convention: strict_BEM
 
   Shorthand:
     enabled: true
@@ -200,7 +200,7 @@ linters:
     enabled: true
 
   UnnecessaryParentReference:
-    enabled: true
+    enabled: false
 
   UrlFormat:
     enabled: true
