@@ -1,0 +1,9 @@
+<ul class="tournaments__list">
+  {{#each model as |tournament|}}
+    <li class="tournaments__tournament">
+      {{#link-to "tournament" tournament.id}}
+        {{tournament.name}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
