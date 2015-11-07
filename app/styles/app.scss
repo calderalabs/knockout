@@ -4,6 +4,26 @@
 @import 'settings';
 @import 'pod-styles';
 
+html, .ember-view, body, .application, .ko-filters__aside {
+  height: 100%;
+}
+
 body {
   font-family: 'museo-sans';
+
+  margin: 0;
+}
+
+.application {
+  @include outer-container;
+}
+
+main {
+  @include span-columns(10);
+
+  padding: 8px;
+}
+
+.ko-filters__aside {
+  @include span-columns(2);
 }

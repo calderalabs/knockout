@@ -1,11 +1,11 @@
-.tournaments__list {
+.ko-tournaments__list {
   @include outer-container;
 
   list-style: none;
   padding: 0;
 }
 
-.tournaments__tournament {
+.ko-tournaments__tournament {
   @include span-columns(4);
 
   > a {

@@ -1,0 +1,19 @@
+.ko-filters__aside {
+  > div {
+    background-color: $ko-background-color;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+.ko-filters__watch {
+  display: inline-block;
+  padding: 10px;
+  background-color: $ko-action-color;
+  border-radius: 3px;
+  margin-top: 10px;
+  line-height: initial;
+}
