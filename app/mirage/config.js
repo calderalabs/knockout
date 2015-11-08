@@ -1,6 +1,6 @@
 export default function() {
   this.get('/tournaments/:id', function(db, request) {
-    const id = request.params.id;
+    const { id } = request.params;
 
     return {
       tournament: db.tournaments.find(id),
