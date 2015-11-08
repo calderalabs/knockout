@@ -5,7 +5,11 @@
 
   <ul class="ko-filters__teams">
     {{#each tournament.teams as |team|}}
-      <li class="ko-filters_team">{{team.name}}</li>
+      <li class="ko-filters_team">
+        {{#ko-filter}}
+          {{team.name}}
+        {{/ko-filter}}
+      </li>
     {{/each}}
   </ul>
 
@@ -13,7 +17,11 @@
 
   <ul class="ko-filters__players">
     {{#each tournament.players as |player|}}
-      <li class="ko-filters__player">{{player.name}}</li>
+      <li class="ko-filters__player">
+        {{#ko-filter}}
+          {{player.name}}
+        {{/ko-filter}}
+      </li>
     {{/each}}
   </ul>
 </aside>
