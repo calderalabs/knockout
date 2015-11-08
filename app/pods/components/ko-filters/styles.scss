@@ -5,16 +5,20 @@
   bottom: 0;
   width: $filters-width;
   background-color: $ko-background-color;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  padding: 20px;
 }
 
 .ko-filters__watch {
-  display: inline-block;
+  display: block;
   padding: 10px;
   background-color: $ko-action-color;
   border-radius: 3px;
-  margin-top: 40px;
-  line-height: initial;
+  width: 100px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.ko-filters__teams {
+  margin-top: 30px;
+  color: #fff;
 }
