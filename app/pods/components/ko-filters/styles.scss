@@ -6,6 +6,7 @@
   width: $filters-width;
   background-color: $ko-background-color;
   padding: 20px;
+  color: $white;
 }
 
 .ko-filters__watch {
@@ -16,9 +17,15 @@
   width: 100px;
   margin: 20px auto;
   text-align: center;
+  color: $ko-background-color;
+  font-weight: 800;
 }
 
-.ko-filters__teams {
-  margin-top: 30px;
-  color: $white;
+.ko-filters__teams, .ko-filters__players {
+  margin-top: 20px;
+}
+
+.ko-filters_team, .ko-filters__player {
+  margin-bottom: 10px;
+  cursor: pointer;
 }

@@ -4,9 +4,10 @@ export default function() {
 
     return {
       tournament: db.tournaments.find(id),
-      teams: db.teams
+      teams: db.teams,
+      players: db.players
     };
   });
 
-  this.get('/tournaments', ['tournaments', 'teams']);
+  this.get('/tournaments', ['tournaments', 'teams', 'players']);
 }

@@ -1,9 +1,19 @@
 <aside class="ko-filters__aside">
   <a class="ko-filters__watch">Watch</a>
 
+  <h1>Teams</h1>
+
   <ul class="ko-filters__teams">
     {{#each tournament.teams as |team|}}
-      <li>{{team.name}}</li>
+      <li class="ko-filters_team">{{team.name}}</li>
+    {{/each}}
+  </ul>
+
+  <h1>Players</h1>
+
+  <ul class="ko-filters__players">
+    {{#each tournament.players as |player|}}
+      <li class="ko-filters__player">{{player.name}}</li>
     {{/each}}
   </ul>
 </aside>
