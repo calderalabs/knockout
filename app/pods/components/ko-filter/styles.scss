@@ -1,4 +1,5 @@
 &.selected {
+  animation-name: pulse;
   background-color: $ko-highlight-color;
   color: $ko-background-color;
   padding: 5px;

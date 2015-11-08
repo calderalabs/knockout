@@ -2,7 +2,6 @@
   "name": "knockout",
   "dependencies": {
     "Faker": "~3.0.0",
-    "animate.css": "~3.4.0",
     "bourbon": "~4.2.6",
     "ember": "~2.1.0",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
