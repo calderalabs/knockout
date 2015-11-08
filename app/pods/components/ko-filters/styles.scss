@@ -22,11 +22,12 @@
   cursor: pointer;
 }
 
-.ko-filters__teams, .ko-filters__players {
+.ko-filters__teams,
+.ko-filters__players {
   margin-top: 20px;
 }
 
-.ko-filters_team, .ko-filters__player {
+.ko-filters__team,
+.ko-filters__player {
   margin-bottom: 15px;
-  cursor: pointer;
 }
