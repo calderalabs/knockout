@@ -3,7 +3,7 @@ import DS from 'ember-data';
 const { Model, belongsTo } = DS;
 
 export default Model.extend({
-  series: belongsTo('series'),
+  matchGroup: belongsTo('match-group'),
   teamOne: belongsTo('team'),
   teamTwo: belongsTo('team'),
   winner: belongsTo('team')

@@ -5,5 +5,5 @@ const { computed } = Ember;
 export default Ember.Component.extend({
   tagName: 'section',
   model: null,
-  series: computed.reads('model.series')
+  matchGroups: computed.reads('model.matchGroups')
 });

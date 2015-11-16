@@ -6,9 +6,16 @@ export default function() {
       tournament: db.tournaments.find(id),
       teams: db.teams,
       players: db.players,
-      series: db.series
+      matchGroups: db['match-groups']
     };
   });
 
-  this.get('/tournaments', ['tournaments', 'teams', 'players', 'series']);
+  this.get('/tournaments', function(db) {
+    return {
+      tournaments: db.tournaments,
+      teams: db.teams,
+      players: db.players,
+      matchGroups: db['match-groups']
+    };
+  });
 }

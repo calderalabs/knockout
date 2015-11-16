@@ -1,17 +1,17 @@
 <ul class="ko-timeline__list">
-  {{#each model as |series|}}
-    <li class="ko-timeline-series">
+  {{#each matchGroups as |matchGroup|}}
+    <li class="ko-timeline-match-group">
       <article>
-        <div class="ko-timeline-series__team-name">
-          {{series.teamOne.name}}
+        <div class="ko-timeline-match-group__team-name">
+          {{matchGroup.teamOne.name}}
         </div>
 
-        <div class="ko-timeline-series__team-name">
-          {{series.teamTwo.name}}
+        <div class="ko-timeline-match-group__team-name">
+          {{matchGroup.teamTwo.name}}
         </div>
 
-        <div class="ko-timeline-series__team-score">
-          {{series.teamOneScore}}
+        <div class="ko-timeline-match-group__team-score">
+          {{matchGroup.teamOneScore}}
         </div>
       </article>
     </li>
