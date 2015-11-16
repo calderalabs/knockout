@@ -7,5 +7,6 @@ export default Model.extend({
   teamOne: belongsTo('team'),
   teamTwo: belongsTo('team'),
   matches: hasMany('matches'),
-  bestOf: attr('number')
+  bestOf: attr('number'),
+  isElimination: attr('boolean')
 });
