@@ -9,6 +9,6 @@ export default function(server) {
   server.createList('tournament', 3, {
     'team_ids': teams.map((team) => team.id),
     'player_ids': players.map((player) => player.id),
-    'series_ids': series.map((series) => series.id),
+    'series_ids': series.map((series) => series.id)
   });
 }
