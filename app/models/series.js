@@ -8,5 +8,5 @@ export default Model.extend({
   teamTwo: belongsTo('team'),
   matches: hasMany('matches'),
   bestOf: attr('number'),
-  isElimination: attr('boolean')
+  elimination: attr('boolean')
 });
