@@ -1,4 +1,4 @@
-.ko-filters__aside {
+.ko-filter-list__aside {
   position: absolute;
   top: 0;
   right: 0;
@@ -9,7 +9,7 @@
   color: $white;
 }
 
-.ko-filters__watch {
+.ko-filter-list__watch {
   display: block;
   padding: 10px;
   background-color: $ko-action-color;
@@ -22,12 +22,12 @@
   cursor: pointer;
 }
 
-.ko-filters__teams,
-.ko-filters__players {
+.ko-filter-list__teams,
+.ko-filter-list__players {
   margin-top: 20px;
 }
 
-.ko-filters__team,
-.ko-filters__player {
+.ko-filter-list__team,
+.ko-filter-list__player {
   margin-bottom: 15px;
 }

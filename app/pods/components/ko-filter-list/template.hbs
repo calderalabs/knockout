@@ -1,11 +1,11 @@
-<aside class="ko-filters__aside">
-  <a class="ko-filters__watch">Watch</a>
+<aside class="ko-filter-list__aside">
+  <a class="ko-filter-list__watch">Watch</a>
 
   <h1>Teams</h1>
 
-  <ul class="ko-filters__teams">
+  <ul class="ko-filter-list__teams">
     {{#each tournament.teams as |team|}}
-      <li class="ko-filters__team">
+      <li class="ko-filter-list__team">
         {{#ko-filter}}
           {{team.name}}
         {{/ko-filter}}
@@ -15,9 +15,9 @@
 
   <h1>Players</h1>
 
-  <ul class="ko-filters__players">
+  <ul class="ko-filter-list__players">
     {{#each tournament.players as |player|}}
-      <li class="ko-filters__player">
+      <li class="ko-filter-list__player">
         {{#ko-filter}}
           {{player.name}}
         {{/ko-filter}}

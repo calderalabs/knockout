@@ -1,0 +1,4 @@
+@mixin ko-icon($name) {
+  @include fa-icon;
+  @extend .fa-#{$name};
+}

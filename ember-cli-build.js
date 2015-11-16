@@ -6,7 +6,8 @@ module.exports = function(defaults) {
     sassOptions: {
       includePaths: [
         'bower_components/neat/app/assets/stylesheets',
-        'bower_components/bourbon/app/assets/stylesheets'
+        'bower_components/bourbon/app/assets/stylesheets',
+        'bower_components/font-awesome/scss'
       ]
     }
   });

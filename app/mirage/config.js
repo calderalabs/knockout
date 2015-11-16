@@ -5,9 +5,10 @@ export default function() {
     return {
       tournament: db.tournaments.find(id),
       teams: db.teams,
-      players: db.players
+      players: db.players,
+      series: db.series
     };
   });
 
-  this.get('/tournaments', ['tournaments', 'teams', 'players']);
+  this.get('/tournaments', ['tournaments', 'teams', 'players', 'series']);
 }

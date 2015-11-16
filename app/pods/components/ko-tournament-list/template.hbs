@@ -1,8 +1,8 @@
 <h1>Tournaments</h1>
 
-<ul class="ko-tournaments__list">
+<ul class="ko-tournament-list__list">
   {{#each model as |tournament|}}
-    <li class="ko-tournaments__tournament">
+    <li class="ko-tournament-list__tournament">
       {{#link-to "tournament" tournament.id}}
         {{tournament.name}}
       {{/link-to}}

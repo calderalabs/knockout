@@ -1,8 +1,8 @@
-.ko-tournaments__list {
+.ko-tournament-list__list {
   @include outer-container;
 }
 
-.ko-tournaments__tournament {
+.ko-tournament-list__tournament {
   @include span-columns(4);
 
   > a {

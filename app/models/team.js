@@ -1,5 +1,9 @@
 import DS from 'ember-data';
 
-export default DS.Model.extend({
-  name: DS.attr('string')
+const { Model, belongsTo, hasMany, attr } = DS;
+
+export default Model.extend({
+  name: attr('string'),
+  reference: belongsTo('team'),
+  players: hasMany('player')
 });
