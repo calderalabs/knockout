@@ -6,7 +6,7 @@ export default function(server) {
     'team_two_id': teams[1].id
   });
 
-  server.createList('tournament', 3, {
+  server.createList('tournament', 6, {
     'team_ids': teams.map((team) => team.id),
     'player_ids': players.map((player) => player.id),
     'match_group_ids': matchGroups.map((matchGroup) => matchGroup.id)

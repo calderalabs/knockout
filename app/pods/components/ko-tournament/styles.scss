@@ -1,3 +1,7 @@
-& {
-  margin-right: $filters-width;
+.ko-tournament__header {
+  @include ko-header;
+}
+
+.ko-tournament__content {
+  position: relative;
 }

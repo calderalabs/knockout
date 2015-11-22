@@ -7,12 +7,21 @@
 @import 'pod-styles';
 
 body {
+  @include outer-container;
+
+  background-color: $ko-background-color;
+  margin: 0;
+  padding: 0;  
   font-family: 'museo-sans';
 }
 
 ul {
   list-style: none;
   padding: 0;
+}
+
+h1 {
+  margin: 0;
 }
 
 @keyframes pulse {

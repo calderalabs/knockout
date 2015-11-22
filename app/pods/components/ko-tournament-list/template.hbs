@@ -1,11 +1,21 @@
-<h1>Tournaments</h1>
+<header class="ko-tournament-list__header">
+  <h1>Tournaments</h1>
+</header>
 
 <ul class="ko-tournament-list__list">
   {{#each model as |tournament|}}
-    <li class="ko-tournament-list__tournament">
-      {{#link-to "tournament" tournament.id}}
-        {{tournament.name}}
-      {{/link-to}}
+    <li class="ko-tournament-list-item">
+      <div>
+        <div class="ko-tournament-list-item__content">
+          {{#link-to "tournament" tournament.id}}
+            {{tournament.name}}
+          {{/link-to}}
+        </div>
+        
+        <figure class="ko-tournament-list-item__game">
+          <img src="{{concat "images/" tournament.game ".png"}}" />
+        </figure>
+      </div>
     </li>
   {{/each}}
 </ul>

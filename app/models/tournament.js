@@ -6,5 +6,6 @@ export default Model.extend({
   name: attr('string'),
   teams: hasMany('team'),
   matchGroups: hasMany('match-group'),
-  format: attr('string')
+  format: attr('string'),
+  game: attr('string')
 });
