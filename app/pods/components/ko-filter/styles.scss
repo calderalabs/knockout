@@ -4,10 +4,10 @@
 }
 
 &.selected {
+  animation-duration: .5s;
   animation-name: pulse;
   background-color: $ko-main-color;
+  border-radius: 3px;
   color: $ko-background-color;
   padding: 5px;
-  border-radius: 3px;
-  animation-duration: .5s;
 }

@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNameBindings: ['selected'],
-  selected: false,
+  classNameBindings: ['isSelected:selected'],
+  isSelected: false,
 
   click() {
-    this.toggleProperty('selected');
+    this.toggleProperty('isSelected');
   }
 });

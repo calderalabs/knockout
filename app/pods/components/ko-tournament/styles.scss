@@ -1,7 +1,4 @@
-.ko-tournament__header {
-  @include ko-header;
-}
-
-.ko-tournament__content {
-  position: relative;
+& {
+  @include span-columns(12);
+	height: 100%;
 }

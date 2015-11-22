@@ -1,8 +1,6 @@
-<header class="ko-tournament__header">
-	<h1>{{model.name}}</h1>
-</header>
+{{#portal-content for="header"}}
+  <h1>{{model.name}}</h1>
+{{/portal-content}}
 
-<div class="ko-tournament__content">
- 	{{ko-timeline matchGroups=matchGroups}}
-	{{ko-filter-list tournament=model}}
-</div>
+{{ko-timeline matchGroups=matchGroups}}
+{{ko-filter-list tournament=model}}

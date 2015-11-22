@@ -12,10 +12,3 @@
   
   box-shadow: #{$prefix} 0 0 8px 0 $color;
 }
-
-@mixin ko-header {
-  @include ko-box;
-  
-  padding: 15px;
-  background-color: $ko-action-color;
-}

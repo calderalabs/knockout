@@ -1,10 +1,8 @@
-.ko-filter-list__aside {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: $filters-width;
-  background-color: $ko-background-color;
+& {
+  @include span-columns(3);
+  @include ko-box;
+  
+  height: 100%;
   padding: 20px;
   color: $white;
 }
