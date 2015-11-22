@@ -1,3 +1,53 @@
 & {
 	@include span-columns(9);
+  
+  height: 100%;
+  overflow: auto;
+}
+
+.ko-timeline__list {
+  margin: 15px 0;
+}
+
+.ko-timeline-match-group {  
+  > article {
+    @include span-columns(12);
+    
+    border-radius: 3px;
+    padding: 25px;
+    color: #fff;
+    border-bottom: 1px solid lighten($ko-background-color, 5%);
+    position: relative;
+  }
+}
+
+.ko-timeline-match-group__team-names {
+  @include span-columns(10);
+}
+
+.ko-timeline-match-group__team-scores {
+  @include span-columns(2);
+  text-align: right;
+}
+
+.ko-timeline-match-group__team-name {
+  display: inline-block;
+  background-color: darken($ko-background-color, 5%);
+  border-radius: 3px;
+  margin: 0 10px;
+  padding: 5px;
+}
+
+.ko-timeline-match-group__team-name-separator {
+  display: inline-block;
+  color: $ko-border-color;
+}
+
+.ko-timeline-match-group__team-score-separator {
+  display: inline-block;
+  color: $ko-border-color;
+}
+
+.ko-timeline-match-group__team-score {
+  display: inline-block;
 }

@@ -17,6 +17,13 @@
     border-radius: 3px;
     overflow: hidden;
   }
+  
+  &:hover {
+    .ko-tournament-list-item__content {
+      @include ko-box($inset: true, $color: $ko-action-color);
+      background-color: rgba(darken($ko-background-color, 8%), 0);
+    }
+  }
 }
 
 .ko-tournament-list-item__content {
@@ -35,11 +42,6 @@
       display: block;
       height: 100%;
     }
-    
-    &:hover {
-      @include ko-box($inset: true, $color: $ko-action-color);
-      background-color: rgba(darken($ko-background-color, 8%), 0);
-    }
  }
 
 .ko-tournament-list-item__game {
@@ -49,7 +51,7 @@
   right: 0;
   bottom: 0;
   margin: 0;
-  
+
   > img {
     width: 100%;
   }

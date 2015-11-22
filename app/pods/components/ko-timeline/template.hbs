@@ -2,17 +2,29 @@
   {{#each matchGroups as |matchGroup|}}
     <li class="ko-timeline-match-group">
       <article>
-        <div class="ko-timeline-match-group__team-name">
-          {{matchGroup.teamOne.name}}
-        </div>
+        <div class="ko-timeline-match-group__team-names">
+          <div class="ko-timeline-match-group__team-name">
+            {{matchGroup.teamOne.name}}
+          </div>
+          
+          <div class="ko-timeline-match-group__team-name-separator">vs</div>
+  
+          <div class="ko-timeline-match-group__team-name">
+            {{matchGroup.teamTwo.name}}
+          </div>
+         </div>
 
-        <div class="ko-timeline-match-group__team-name">
-          {{matchGroup.teamTwo.name}}
-        </div>
-
-        <div class="ko-timeline-match-group__team-score">
-          {{matchGroup.teamOneScore}}
-        </div>
+         <div class="ko-timeline-match-group__team-scores">
+          <div class="ko-timeline-match-group__team-score">
+            {{matchGroup.teamOneScore}}
+          </div>
+          
+          <div class="ko-timeline-match-group__team-score-separator">-</div>
+          
+          <div class="ko-timeline-match-group__team-score">
+            {{matchGroup.teamTwoScore}}
+          </div>
+         </div>
       </article>
     </li>
   {{/each}}
