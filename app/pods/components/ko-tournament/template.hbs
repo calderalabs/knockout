@@ -2,5 +2,8 @@
   <h1>{{model.name}}</h1>
 {{/portal-content}}
 
-{{ko-timeline matchGroups=matchGroups}}
+{{#ko-timeline matchGroups=matchGroups class="ko-tournament__timeline"}}
+  {{ko-time-range-select class="ko-tournament__time-range-select"}}
+{{/ko-timeline}}
+
 {{ko-filter-list tournament=model}}

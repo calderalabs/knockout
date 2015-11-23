@@ -2,10 +2,8 @@
   @include span-columns(3);
 
   height: 100%;
-  padding: 20px;
+  padding: 15px 25px;
   color: $white;
-
-  background-color: lighten($ko-background-color, 8%);
 }
 
 .ko-filter-list__watch {

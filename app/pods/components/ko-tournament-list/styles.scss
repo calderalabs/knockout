@@ -20,23 +20,27 @@
   
   &:hover {
     .ko-tournament-list-item__content {
-      @include ko-box($inset: true, $color: $ko-action-color);
       background-color: rgba(darken($ko-background-color, 8%), 0);
+    }
+    
+    .ko-tournament-list-item__game {
+      filter: none;
     }
   }
 }
 
 .ko-tournament-list-item__content {
-    @include ko-box($inset: true, $color: $ko-border-color);
+    @include ko-box($inset: true, $color: $ko-action-color);
     
     transition: all 150ms ease-in-out;
     z-index: 1;
-    background-color: rgba(darken($ko-background-color, 8%), 0.8);
+    background-color: rgba(darken($ko-background-color, 8%), 0.3);
     position: relative;
     height: 100%;
+    font-size: 20px;
   
     > a {
-      padding: 10px;
+      padding: 15px;
       text-decoration: none;
       color: #fff;
       display: block;
@@ -51,6 +55,7 @@
   right: 0;
   bottom: 0;
   margin: 0;
+  filter: grayscale(100%);
 
   > img {
     width: 100%;

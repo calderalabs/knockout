@@ -2,3 +2,14 @@
   @include span-columns(12);
 	height: 100%;
 }
+
+.ko-tournament__timeline {
+  display: flex;
+  flex-direction: column;
+  
+  .ko-timeline__list {
+    flex: 1;
+    overflow: auto;
+    padding: 10px 0;
+  }
+}
