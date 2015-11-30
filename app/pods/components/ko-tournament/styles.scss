@@ -13,3 +13,29 @@
     padding: 10px 0;
   }
 }
+
+.ko-tournament-actions {
+  @include span-columns(3);
+
+  height: 100%;
+  padding: 15px 25px;
+  color: $white;
+}
+
+.ko-tournament-actions__watch {
+  transition: all 150ms ease-in-out;
+  display: block;
+  padding: 10px;
+  background-color: $ko-action-color;
+  border-radius: 3px;
+  width: 100px;
+  margin: 20px auto;
+  margin-bottom: 40px;
+  text-align: center;
+  color: $ko-background-color;
+  font-weight: 800;
+  
+  &:hover {
+    background-color: lighten($ko-action-color, 8%);
+  }
+}

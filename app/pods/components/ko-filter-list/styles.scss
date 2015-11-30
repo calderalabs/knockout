@@ -1,30 +1,3 @@
-& {
-  @include span-columns(3);
-
-  height: 100%;
-  padding: 15px 25px;
-  color: $white;
-}
-
-.ko-filter-list__watch {
-  transition: all 150ms ease-in-out;
-  display: block;
-  padding: 10px;
-  background-color: $ko-action-color;
-  border-radius: 3px;
-  width: 100px;
-  margin: 20px auto;
-  margin-bottom: 40px;
-  text-align: center;
-  color: $ko-background-color;
-  font-weight: 800;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: lighten($ko-action-color, 8%);
-  }
-}
-
 .ko-filter-list__teams,
 .ko-filter-list__players {
   margin-top: 20px;

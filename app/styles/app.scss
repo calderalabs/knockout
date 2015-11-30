@@ -29,6 +29,11 @@ h1 {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @keyframes pulse {
   from {
     transform: scale3d(1, 1, 1);
