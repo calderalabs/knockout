@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { on, run } = Ember;
+const { on } = Ember;
 
 export default Ember.Component.extend({
   close: on('click', function() {
@@ -8,7 +8,7 @@ export default Ember.Component.extend({
       this.onClose();
     }
   }),
-  
+
   actions: {
     preventBubbling(event) {
       event.stopPropagation();

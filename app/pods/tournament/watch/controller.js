@@ -6,10 +6,10 @@ export default Ember.Controller.extend({
   tournamentController: inject.controller('tournament'),
   tournament: computed.reads('tournamentController.model'),
   matchGroups: computed.reads('tournamentController.matchGroups'),
-  
+
   actions: {
     close() {
-      this.transitionToRoute('tournament', this.get('tournament.id'))
+      this.transitionToRoute('tournament', this.get('tournament.id'));
     }
   }
 });
