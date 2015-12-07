@@ -2,8 +2,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .ko-matches-player__title {
+  margin: 0 15px 40px 15px;
+}
+
+.ko-matches-player__next {
+  @include ko-icon('caret-right');
+  font-size: 1.5rem;
+  color: $ko-action-color;
+}
+
+.ko-matches-player__previous {
+  @include ko-icon('caret-left');
+  font-size: 1.5rem;
+  color: $ko-action-color;
+}
+
+.ko-matches-player__back, .ko-matches-player__next, .ko-matches-player__title {
+  display: inline-block;
+  line-height: 30px;
+}
+
+& {
   color: #fff;
 }

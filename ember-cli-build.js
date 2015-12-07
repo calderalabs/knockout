@@ -25,5 +25,13 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  ['eot', 'svg', 'ttf', 'woff', 'woff2'].forEach(function(ext) {
+    app.import('bower_components/font-awesome/fonts/fontawesome-webfont.' + ext, {
+      destDir: '/fonts'
+    });
+  });
+
+  app.import('bower_components/font-awesome/fonts/FontAwesome.otf', { destDir: '/fonts' });
+
   return app.toTree();
 };

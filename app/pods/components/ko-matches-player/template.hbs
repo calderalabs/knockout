@@ -1,3 +1,13 @@
 {{#ko-overlay onClose=onClose class="ko-matches-player__overlay"}}
-  <h1 class="ko-matches-player__title">Model: {{model}}</h1>
+  <header>
+    <a class="ko-matches-player__previous" onclick={{action (action "previous")}}></a>
+
+    <h1 class="ko-matches-player__title">
+      {{match.teamOne.name}} vs {{match.teamTwo.name}}
+    </h1>
+
+    <a class="ko-matches-player__next" onclick={{action (action "next")}}></a>
+  </header>
+
+  {{component vodComponent model=vod class="ko-matches-player__vod"}}
 {{/ko-overlay}}

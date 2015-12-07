@@ -1,14 +1,36 @@
+import { faker } from 'ember-cli-mirage';
+
+const { random } = faker;
+
 export default function(server) {
   const teams = server.createList('team', 2);
-  const players = server.createList('player', 2);
-  const matchGroups = server.createList('match-group', 10, {
-    'team_one_id': teams[0].id,
-    'team_two_id': teams[1].id
+
+  teams.forEach(function(team) {
+    server.createList('player', 2, { team_id: team.id });
   });
 
-  server.createList('tournament', 6, {
-    'team_ids': teams.map((team) => team.id),
-    'player_ids': players.map((player) => player.id),
-    'match_group_ids': matchGroups.map((matchGroup) => matchGroup.id)
+  const tournaments = server.createList('tournament', 6, {
+    team_ids: teams.mapBy('id')
+  });
+
+  tournaments.forEach(function(tournament) {
+    const matchGroups = server.createList('match-group', 5, {
+      team_one_id: teams[0].id,
+      team_two_id: teams[1].id,
+      tournament_id: tournament.id
+    });
+
+    matchGroups.forEach(function(matchGroup) {
+      const matches = server.createList('match', random.number({ min: 1, max: matchGroup.bestOf }), {
+        'match_group_id': matchGroup.id,
+        'winner_id': () => random.arrayElement(teams).id,
+        'team_one_id': teams[0].id,
+        'team_two_id': teams[1].id
+      });
+
+      matches.forEach(function(match) {
+        server.create('vod', { match_id: match.id });
+      });
+    });
   });
 }

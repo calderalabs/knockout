@@ -1,9 +1,11 @@
-import Mirage/*, { faker }*/ from 'ember-cli-mirage';
+import Mirage, { faker } from 'ember-cli-mirage';
 
-const { random, round } = Math;
+const { random } = faker;
 
 export default Mirage.Factory.extend({
+  elimination: false,
+
   bestOf() {
-    return [1, 3, 5][round(random() * 2)];
+    return random.arrayElement([1, 3, 5]);
   }
 });

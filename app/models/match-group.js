@@ -12,11 +12,11 @@ export default Model.extend({
   bestOf: attr('number'),
   elimination: attr('boolean'),
 
-  teamOneScore: computed('matches.@each.winner', function() {
-    return this.get('matches').filterBy('winner', this.get('teamOne')).length;
+  teamOneScore: computed('matches.@each.winner', 'teamOne', function() {
+    return this.get('matches').filterBy('winner.id', this.get('teamOne.id')).length;
   }),
 
-  teamTwoScore: computed('matches.@each.winner', function() {
-    return this.get('matches').filterBy('winner', this.get('teamTwo')).length;
+  teamTwoScore: computed('matches.@each.winner', 'teamTwo', function() {
+    return this.get('matches').filterBy('winner.id', this.get('teamTwo.id')).length;
   })
 });

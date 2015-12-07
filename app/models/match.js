@@ -6,5 +6,6 @@ export default Model.extend({
   matchGroup: belongsTo('match-group'),
   teamOne: belongsTo('team'),
   teamTwo: belongsTo('team'),
-  winner: belongsTo('team')
+  winner: belongsTo('team'),
+  vod: belongsTo('vod')
 });
