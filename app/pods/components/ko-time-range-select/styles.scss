@@ -1,10 +1,10 @@
 & {
-  background-color: lighten($ko-background-color, 5%);
   padding: 25px;
   user-select: none;
+  border-top: 1px solid lighten($ko-background-color, 5%);
 }
 
 .ko-time-range-select__line {
   position: relative;
-  border-bottom: 3px inset lighten($ko-background-color, 10%);
+  border-bottom: 10px solid #000;
 }
