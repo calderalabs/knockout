@@ -4,9 +4,16 @@ const { computed } = Ember;
 
 export default Ember.Component.extend({
   model: null,
-  match: computed.reads('matches.firstObject'),
-  vod: computed.reads('match.vod'),
+  vod: computed.reads('matchGroupsWithVods.firstObject.vods.firstObject'),
   vodType: computed.reads('vod.type'),
+
+  matchGroupsWithVods: computed('model', function() {
+    return this.get('model').filter(function(matchGroup) {
+      return matchGroup.get('vods.length') && matchGroup.get('vods').filter(function(vod) {
+        return vod.type === 'youtube';
+      }).length > 0;
+    });
+  }),
 
   matches: computed('model.@each.matches', function() {
     return this.get('model').reduce(function(memo, matchGroup) {

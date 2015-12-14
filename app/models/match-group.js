@@ -18,5 +18,7 @@ export default Model.extend({
 
   teamTwoScore: computed('matches.@each.winner', 'teamTwo', function() {
     return this.get('matches').filterBy('winner.id', this.get('teamTwo.id')).length;
-  })
+  }),
+
+  vods: DS.attr()
 });
