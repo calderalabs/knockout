@@ -4,17 +4,17 @@
 
 <ul class="ko-tournament-list__list">
   {{#each model as |tournament|}}
-    <li class="ko-tournament-list-item">
+    <li class="ko-tournament-list-item" onclick={{action onShow tournament}}>
       <div>
         <div class="ko-tournament-list-item__content">
-          {{#link-to "tournament" tournament.id}}
-            {{tournament.name}}
-          {{/link-to}}
+          <a>{{tournament.name}}</a>
         </div>
-        
-        <figure class="ko-tournament-list-item__game">
-          <img src="{{concat "images/" tournament.game ".png"}}" />
-        </figure>
+
+        <div class="ko-tournament-list-item__game">
+          <figure>
+            <img src="{{concat "images/" tournament.game ".png"}}" />
+          </figure>
+        </div>
       </div>
     </li>
   {{/each}}

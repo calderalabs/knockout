@@ -2,13 +2,3 @@
   @include fa-icon;
   @extend .fa-#{$name};
 }
-
-@mixin ko-box($inset: false, $color: $ko-action-color) {
-  @if ($inset) {
-    $prefix: 'inset';
-  } @else {
-    $prefix: '';
-  }
-  
-  box-shadow: #{$prefix} 0 0 8px 0 $color;
-}

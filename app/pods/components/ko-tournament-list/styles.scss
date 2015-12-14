@@ -1,6 +1,6 @@
 .ko-tournament-list__list {
   @include span-columns(12);
-  
+
   padding: 0 10px;
   margin-top: 10px;
 }
@@ -10,54 +10,55 @@
 
   height: 300px;
   padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    > div {
+      background-color: lighten($ko-background-color, 3%);
+    }
+
+    .ko-tournament-list-item__content {
+      > a {
+        color: $ko-action-color;
+      }
+    }
+  }
 
   > div {
+    @include span-columns(12);
+    transition: 150ms background-color ease-in-out;
+    background-color: darken($ko-background-color, 3%);
     height: 100%;
-    position: relative;
     border-radius: 3px;
-    overflow: hidden;
-  }
-  
-  &:hover {
-    .ko-tournament-list-item__content {
-      background-color: rgba(darken($ko-background-color, 8%), 0);
-    }
-    
-    .ko-tournament-list-item__game {
-      filter: none;
-    }
   }
 }
 
 .ko-tournament-list-item__content {
-    @include ko-box($inset: true, $color: $ko-action-color);
-    
-    transition: all 150ms ease-in-out;
-    z-index: 1;
-    background-color: rgba(darken($ko-background-color, 8%), 0.3);
-    position: relative;
-    height: 100%;
+    @include span-columns(6);
     font-size: 20px;
-  
+
     > a {
-      padding: 15px;
+      margin: 15px;
       text-decoration: none;
-      color: #fff;
       display: block;
       height: 100%;
     }
  }
 
 .ko-tournament-list-item__game {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  filter: grayscale(100%);
+  @include span-columns(6);
+  text-align: right;
+  height: 100%;
 
-  > img {
-    width: 100%;
+  > figure {
+    height: 150px;
+    overflow: hidden;
+    display: inline-block;
+    margin: 15px;
+    border-radius: 3px;
+
+    > img {
+      height: 100%;
+    }
   }
 }

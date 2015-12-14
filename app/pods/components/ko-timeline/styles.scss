@@ -1,18 +1,17 @@
 & {
 	@include span-columns(9);
-  
+
   height: 100%;
   overflow: auto;
   box-shadow: 1px 0 6px rgba(0,0,0,.3);
 }
 
-.ko-timeline-match-group {  
+.ko-timeline-match-group {
   > article {
     @include span-columns(12);
-    
+
     border-radius: 3px;
     padding: 25px;
-    color: #fff;
     border-bottom: 1px solid lighten($ko-background-color, 5%);
     position: relative;
   }

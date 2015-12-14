@@ -10,13 +10,18 @@ body {
   @include outer-container;
 
   background-color: $ko-background-color;
+  color: $ko-text-color;
   margin: 0;
-  padding: 0;  
-  font-family: 'museo-sans';
-  
+  padding: 0;
+  font-family: 'Arial';
+
   &.dragging {
     cursor: grabbing;
   }
+}
+
+a {
+  color: $ko-text-color;
 }
 
 ul {
@@ -25,13 +30,18 @@ ul {
   margin: 0;
 }
 
-h1 {
+h1, figure {
   margin: 0;
 }
 
 a {
+  transition: color 150ms ease-in-out;
   text-decoration: none;
   cursor: pointer;
+
+  &:hover {
+    color: $ko-action-color;
+  }
 }
 
 @keyframes pulse {
