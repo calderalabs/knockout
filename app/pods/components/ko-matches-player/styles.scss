@@ -6,7 +6,7 @@
 }
 
 .ko-matches-player__title {
-  margin: 0 15px 40px 15px;
+  margin: 0 15px 40px;
 }
 
 .ko-matches-player__next {
@@ -21,7 +21,9 @@
   color: $ko-action-color;
 }
 
-.ko-matches-player__back, .ko-matches-player__next, .ko-matches-player__title {
+.ko-matches-player__back,
+.ko-matches-player__next,
+.ko-matches-player__title {
   display: inline-block;
   line-height: 30px;
 }

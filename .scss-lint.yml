@@ -16,7 +16,7 @@ linters:
     enabled: true
 
   ColorVariable:
-    enabled: true
+    enabled: false
 
   Comment:
     enabled: true
@@ -98,7 +98,7 @@ linters:
     ignore_parent_selectors: false
 
   PlaceholderInExtend:
-    enabled: true
+    enabled: false
 
   PropertyCount:
     enabled: false
@@ -219,7 +219,7 @@ linters:
     excluded_identifiers: []
 
   ZeroUnit:
-    enabled: true
+    enabled: false
 
   Compass::*:
     enabled: false

@@ -5,7 +5,7 @@ const { computed, on, Handlebars, $ } = Ember;
 
 export default Ember.Component.extend({
   attributeBindings: ['style'],
-  classNameBindings: ['isDragging:ko-time-range-select-point_dragging'],
+  classNameBindings: ['isDragging:ko-time-range-select-point-dragging'],
   model: null,
   select: null,
   startDate: computed.reads('select.startDate'),

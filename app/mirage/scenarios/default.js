@@ -6,18 +6,18 @@ export default function(server) {
   const teams = server.createList('team', 2);
 
   teams.forEach(function(team) {
-    server.createList('player', 2, { team_id: team.id });
+    server.createList('player', 2, { 'team_id': team.id });
   });
 
   const tournaments = server.createList('tournament', 6, {
-    team_ids: teams.mapBy('id')
+    'team_ids': teams.mapBy('id')
   });
 
   tournaments.forEach(function(tournament) {
     const matchGroups = server.createList('match-group', 5, {
-      team_one_id: teams[0].id,
-      team_two_id: teams[1].id,
-      tournament_id: tournament.id
+      'team_one_id': teams[0].id,
+      'team_two_id': teams[1].id,
+      'tournament_id': tournament.id
     });
 
     matchGroups.forEach(function(matchGroup) {
@@ -29,7 +29,7 @@ export default function(server) {
       });
 
       matches.forEach(function(match) {
-        server.create('vod', { match_id: match.id });
+        server.create('vod', { 'match_id': match.id });
       });
     });
   });

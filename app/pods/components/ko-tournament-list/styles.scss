@@ -17,10 +17,8 @@
       background-color: lighten($ko-background-color, 3%);
     }
 
-    .ko-tournament-list-item__content {
-      > a {
-        color: $ko-action-color;
-      }
+    .ko-tournament-list-item__content > a {
+      color: $ko-action-color;
     }
   }
 
@@ -34,15 +32,15 @@
 }
 
 .ko-tournament-list-item__content {
-    @include span-columns(6);
-    font-size: 20px;
+  @include span-columns(6);
+  font-size: 20px;
 
-    > a {
-      margin: 15px;
-      text-decoration: none;
-      display: block;
-      height: 100%;
-    }
+  > a {
+    margin: 15px;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+  }
  }
 
 .ko-tournament-list-item__game {

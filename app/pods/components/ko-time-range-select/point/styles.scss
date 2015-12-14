@@ -11,8 +11,8 @@
   &:hover {
     background-color: lighten($ko-action-color, 15%);
   }
-}
 
-&.ko-time-range-select-point_dragging {
-  cursor: grabbing;
+  &.ko-time-range-select-point-dragging {
+    cursor: grabbing;
+  }
 }

@@ -1,15 +1,15 @@
 & {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	display: flex;
-	flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .ko-application__content {
-	flex: 1;
+  flex: 1;
   position: relative;
 
   > div {
@@ -20,9 +20,9 @@
 }
 
 .ko-application__header {
-	padding: 15px;
+  padding: 15px;
   z-index: 1;
-	background-color: #000;
+  background-color: #000;
 }
 
 .ko-application__overlay {
