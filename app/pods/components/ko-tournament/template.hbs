@@ -1,5 +1,5 @@
 {{#portal-content for="header"}}
-  <h1>{{model.name}}</h1>
+  <h1>{{tournament.name}}</h1>
 {{/portal-content}}
 
 {{#ko-timeline matchGroups=matchGroups class="ko-tournament__timeline"}}
@@ -10,11 +10,10 @@
   {{#link-to "tournament.watch" class="ko-tournament-actions__watch"}}
     Watch
   {{/link-to}}
-  
-  {{ko-filter-list tournament=model}}
+
+  {{ko-filter-list tournament=tournament}}
 </div>
 
 {{#portal-content for="overlay"}}
   {{liquid-outlet use="crossFade" containerless=true}}
 {{/portal-content}}
-

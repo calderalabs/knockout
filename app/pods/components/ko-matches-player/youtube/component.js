@@ -3,9 +3,9 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Component.extend({
-  model: null,
+  vod: null,
 
-  url: computed('model.url', function() {
-    return this.get('model.url').replace('watch?v=', 'embed/');
+  url: computed('vod.url', function() {
+    return this.get('vod.url').replace('watch?v=', 'embed/');
   })
 });

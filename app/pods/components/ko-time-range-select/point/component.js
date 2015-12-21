@@ -6,7 +6,7 @@ const { computed, on, Handlebars, $ } = Ember;
 export default Ember.Component.extend({
   attributeBindings: ['style'],
   classNameBindings: ['isDragging:ko-time-range-select-point-dragging'],
-  model: null,
+  selection: null,
   select: null,
   startDate: computed.reads('select.startDate'),
   endDate: computed.reads('select.endDate'),
@@ -16,14 +16,14 @@ export default Ember.Component.extend({
     return moment(this.get('endDate')).diff(this.get('startDate'));
   }),
 
-  style: computed('model', 'startDate', 'dateRange', function() {
-    const diff = moment(this.get('model')).diff(this.get('startDate'));
+  style: computed('selection', 'startDate', 'dateRange', function() {
+    const diff = moment(this.get('selection')).diff(this.get('startDate'));
     return new Handlebars.SafeString(`left: ${diff / this.get('dateRange') * 100}%`);
   }),
 
   startDrag: on('mouseDown', function(event) {
     const startX = event.pageX;
-    const startModel = this.get('model');
+    const startModel = this.get('selection');
 
     const mouseMoveHandler = (event) => {
       const diff = event.pageX - startX;

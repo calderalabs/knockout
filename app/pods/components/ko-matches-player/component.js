@@ -3,20 +3,20 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Component.extend({
-  model: null,
+  matchGroups: null,
   vod: computed.reads('matchGroupsWithVods.firstObject.vods.firstObject'),
   vodType: computed.reads('vod.type'),
 
-  matchGroupsWithVods: computed('model', function() {
-    return this.get('model').filter(function(matchGroup) {
+  matchGroupsWithVods: computed('matchGroups', function() {
+    return this.get('matchGroups').filter(function(matchGroup) {
       return matchGroup.get('vods.length') && matchGroup.get('vods').filter(function(vod) {
         return vod.type === 'youtube';
       }).length > 0;
     });
   }),
 
-  matches: computed('model.@each.matches', function() {
-    return this.get('model').reduce(function(memo, matchGroup) {
+  matches: computed('matchGroups.@each.matches', function() {
+    return this.get('matchGroups').reduce(function(memo, matchGroup) {
       return memo.concat(matchGroup.get('matches').toArray());
     }, []);
   }),
