@@ -24,6 +24,6 @@ export default Model.extend({
   hasVods: computed('vods.[]', function() {
     return this.get('vods').filter(function(vod) {
       return vod.type === 'youtube';
-    }).length > 0
+    }).length > 0;
   })
 });
