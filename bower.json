@@ -3,16 +3,15 @@
   "dependencies": {
     "Faker": "~3.0.0",
     "bourbon": "~4.2.6",
-    "ember": "~2.1.0",
+    "ember": "2.2.0",
     "ember-cli-shims": "0.0.6",
     "ember-cli-test-loader": "0.2.1",
-    "ember-data": "~2.1.0",
+    "ember-data": "^2.2.1",
     "ember-load-initializers": "0.1.7",
-    "ember-qunit": "0.4.16",
     "ember-qunit-notifications": "0.1.0",
     "ember-resolver": "~0.1.20",
     "jquery": "^1.11.3",
-    "loader.js": "ember-cli/loader.js#3.2.1",
+    "loader.js": "^3.5.0",
     "lodash": "~3.7.0",
     "neat": "~1.7.2",
     "pretender": "~0.10.1",
@@ -20,5 +19,8 @@
     "moment": ">= 2.8.0",
     "moment-timezone": ">= 0.1.0",
     "font-awesome": "~4.4.0"
+  },
+  "resolutions": {
+    "ember": "2.2.0"
   }
 }
