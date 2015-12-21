@@ -10,7 +10,6 @@ export default Model.extend({
   teamTwo: belongsTo('team'),
   matches: hasMany('matches'),
   bestOf: attr('number'),
-  elimination: attr('boolean'),
 
   teamOneScore: computed('matches.@each.winner', 'teamOne', function() {
     return this.get('matches').filterBy('winner.id', this.get('teamOne.id')).length;
