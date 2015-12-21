@@ -19,5 +19,11 @@ export default Model.extend({
     return this.get('matches').filterBy('winner.id', this.get('teamTwo.id')).length;
   }),
 
-  vods: DS.attr()
+  vods: DS.attr(),
+
+  hasVods: computed('vods.[]', function() {
+    return this.get('vods').filter(function(vod) {
+      return vod.type === 'youtube';
+    }).length > 0
+  })
 });

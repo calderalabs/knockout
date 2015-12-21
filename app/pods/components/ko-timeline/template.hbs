@@ -6,11 +6,12 @@
           <div class="ko-timeline-match-group__team-name">
             {{matchGroup.teamOne.name}}
           </div>
-          
+
           <div class="ko-timeline-match-group__team-scores">
              {{matchGroup.teamOneScore}} - {{matchGroup.teamTwoScore}}
+             {{if matchGroup.hasVods "(Has Vods)" ""}}
           </div>
-  
+
           <div class="ko-timeline-match-group__team-name">
             {{matchGroup.teamTwo.name}}
           </div>
