@@ -5,7 +5,7 @@ const { random } = faker;
 export default function(server) {
   const teams = server.createList('team', 2);
 
-  const tournaments = server.createList('tournament', 6, {
+  const tournaments = server.createList('tournament', 15, {
     'team_ids': teams.mapBy('id')
   });
 

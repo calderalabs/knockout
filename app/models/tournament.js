@@ -7,8 +7,12 @@ const { computed } = Ember;
 
 export default Model.extend({
   name: attr('string'),
+  game: attr('string'),
   matchGroups: hasMany('match-group'),
-  game: attr('string', { defaultValue: 'dota2' }),
+
+  gameName: computed('game', function() {
+    return this.get('game').replace(/-/g, ' ').capitalize();
+  }),
 
   teams: computed('matchGroups.@each.{teamOne,teamTwo}', function() {
     return _.uniq(this.get('matchGroups').reduce(function(memo, matchGroup) {

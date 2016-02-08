@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const { Component, computed } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
+  classNames: ['ko-matches-player-youtube'],
   vod: null,
 
   url: computed('vod.url', function() {

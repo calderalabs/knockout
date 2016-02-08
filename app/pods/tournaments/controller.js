@@ -1,8 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const { Controller } = Ember;
+
+export default Controller.extend({
   actions: {
-    onShow(tournament) {
+    show(tournament) {
       this.transitionToRoute('tournament', tournament.get('id'));
     }
   }

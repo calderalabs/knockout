@@ -1,0 +1,50 @@
+$ko-application-header-height: 5em;
+
+.ko-application {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &__content, &__header {
+    @include outer-container;
+  }
+
+  &__header {
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: $ko-application-header-height;
+    line-height: $ko-application-header-height;
+
+    &-content {
+      @include span-columns(12);
+      padding: 0 $gutter;
+    }
+  }
+
+  &__title {
+    @include span-columns(2);
+  }
+
+  &__nav {
+    @include span-columns(10);
+
+    &-item {
+      display: inline-block;
+      margin-right: $gutter;
+    }
+
+    &-link {
+      vertical-align: middle;
+    }
+  }
+
+  &__content {
+    padding: $ko-application-header-height + $gutter / 2 $gutter $gutter $gutter;
+  }
+}

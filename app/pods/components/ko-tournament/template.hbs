@@ -1,19 +1,19 @@
-{{#portal-content for="header"}}
-  <h1>{{tournament.name}}</h1>
-{{/portal-content}}
+<h1 class="ko-tournament__title">{{tournamentName}}</h1>
 
-{{#ko-timeline matchGroups=matchGroups class="ko-tournament__timeline"}}
-  {{ko-time-range-select class="ko-tournament__time-range-select"}}
-{{/ko-timeline}}
-
-<div class="ko-tournament-actions">
-  {{#link-to "tournament.watch" class="ko-tournament-actions__watch"}}
+<div class="ko-tournament__actions">
+  <button
+    onclick={{action "watch"}}
+    disabled={{isWatchDisabled}} class="ko-tournament__actions-watch">
     Watch
-  {{/link-to}}
+  </button>
 
   {{ko-filter-list tournament=tournament}}
 </div>
 
-{{#portal-content for="overlay"}}
-  {{liquid-outlet use="crossFade" containerless=true}}
-{{/portal-content}}
+{{ko-timeline tournament=tournament}}
+
+{{#if isWatching}}
+  {{#ko-modal onClose=(action "stopWatching")}}
+    {{ko-matches-player matchGroups=matchGroupsToPlay}}
+  {{/ko-modal}}
+{{/if}}

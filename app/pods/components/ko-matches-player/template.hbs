@@ -1,13 +1,13 @@
-{{#ko-overlay onClose=onClose class="ko-matches-player__overlay"}}
-  <header>
-    <a class="ko-matches-player__previous" onclick={{action (action "previous")}}></a>
+<header class="ko-matches-player__header">
+  {{#unless isFirstVodActive}}
+    <a class="ko-matches-player__previous" onclick={{action "previous"}}></a>
+  {{/unless}}
 
-    <h1 class="ko-matches-player__title">
-      {{vod.label}}
-    </h1>
+  <h1 class="ko-matches-player__title">{{activeVod.label}}</h1>
 
-    <a class="ko-matches-player__next" onclick={{action (action "next")}}></a>
-  </header>
+  {{#unless isLastVodActive}}
+    <a class="ko-matches-player__next" onclick={{action "next"}}></a>
+  {{/unless}}
+</header>
 
-  {{component vodComponent vod=vod class="ko-matches-player__vod"}}
-{{/ko-overlay}}
+{{component activeVodComponent vod=activeVod class="ko-matches-player__vod"}}

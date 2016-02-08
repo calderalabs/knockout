@@ -1,0 +1,50 @@
+.ko-tournament-list {
+  &__title {
+    margin: $gutter / 2 0 $gutter 0;
+  }
+
+  &__list {
+    @include span-columns(12);
+  }
+
+  &__item {
+    @include span-columns(3);
+    @include omega(4n);
+
+    margin-bottom: $gutter;
+    height: 300px;
+    position: relative;
+
+    &:hover .ko-tournament-list__item-content {
+      border-color: lighten($ko-action-color, 20%);
+    }
+
+    &-link {
+      display: block;
+      height: 100%;
+    }
+
+    &-game {
+      font-size: 0.7rem;
+      font-weight: bolder;
+      background-color: rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      color: lighten($ko-action-color, 20%);
+      padding: 4px;
+      margin-top: $gutter / 2;
+    }
+
+    &-game, &-name {
+      text-transform: uppercase;
+    }
+
+    &-content {
+      border: 1px solid $ko-border-color;
+      height: 100%;
+      padding: $gutter / 2;
+      cursor: pointer;
+      transition: border-color 200ms;
+      background: radial-gradient(circle at top center, #444 1%, #222 100%);
+    }
+  }
+}

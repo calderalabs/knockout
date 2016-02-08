@@ -1,9 +1,23 @@
-{{portal-for name="header" class="ko-application__header" tagName="header"}}
+<header class="ko-application__header">
+  <div class="ko-application__header-content">
+    <h1 class="ko-application__title">Knockout</h1>
+    
+    <nav class="ko-application__nav">
+      <ul>
+        <li class="ko-application__nav-item">
+          {{#link-to "tournaments" class="ko-application__nav-link"}}
+            Tournaments
+          {{/link-to}}
+        </li>
+
+        <li class="ko-application__nav-item">
+          <a class="ko-application__nav-link">Following</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <main class="ko-application__content">
-  <div>
-	 {{outlet}}
-  </div>
+  {{yield}}
 </main>
-
-{{portal-for name="overlay" class="ko-application__overlay"}}

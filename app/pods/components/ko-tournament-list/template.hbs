@@ -1,21 +1,17 @@
-{{#portal-content for="header"}}
-  <h1>Tournaments</h1>
-{{/portal-content}}
+<h1 class="ko-tournament-list__title">All Tournaments</h1>
 
 <ul class="ko-tournament-list__list">
   {{#each tournaments as |tournament|}}
-    <li class="ko-tournament-list-item" onclick={{action onShow tournament}}>
-      <div>
-        <div class="ko-tournament-list-item__content">
-          <a>{{tournament.name}}</a>
-        </div>
+    <li class="ko-tournament-list__item">
+      {{#link-to "tournament" tournament.id class="ko-tournament-list__item-link"}}
+        <div class="ko-tournament-list__item-content">
+          <div class="ko-tournament-list__item-name">{{tournament.name}}</div>
 
-        <div class="ko-tournament-list-item__game">
-          <figure>
-            <img src="{{concat "images/" tournament.game ".png"}}" />
-          </figure>
+          <div class="ko-tournament-list__item-game">
+            {{tournament.gameName}}
+          </div>
         </div>
-      </div>
+      {{/link-to}}
     </li>
   {{/each}}
 </ul>

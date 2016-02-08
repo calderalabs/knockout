@@ -1,56 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,300,500);
+
 @import 'bourbon';
 @import 'neat-settings';
 @import 'neat';
 @import 'settings';
 @import 'font-awesome';
 @import 'mixins';
+@import 'globals';
 
-body {
-  @include outer-container;
-
-  background-color: $ko-background-color;
-  color: $ko-text-color;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial';
-
-  &.dragging {
-    cursor: grabbing;
-  }
-}
-
-a {
-  color: $ko-text-color;
-  transition: color 150ms ease-in-out;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: $ko-action-color;
-  }
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-h1,
-figure {
-  margin: 0;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  100% {
-    transform: scale3d(1, 1, 1);
-  }
-}
+@import 'components/ko-application';
+@import 'components/ko-modal';
+@import 'components/ko-tournament-list';

@@ -6,6 +6,6 @@ export default Mirage.Factory.extend({
   name: faker.commerce.productName,
 
   game() {
-    return random.arrayElement(['dota2', 'league-of-legends', 'hearthstone']);
+    return random.arrayElement(['dota-2', 'league-of-legends']);
   }
 });

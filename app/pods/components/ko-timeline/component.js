@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  matchGroups: null
+const { Component, computed } = Ember;
+
+export default Component.extend({
+  classNames: ['ko-timeline'],
+  tournament: null,
+  matchGroups: computed.readOnly('tournament.matchGroups')
 });

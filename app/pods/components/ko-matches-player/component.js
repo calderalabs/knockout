@@ -1,51 +1,43 @@
 import Ember from 'ember';
 import _ from 'lodash/lodash';
 
-const { computed } = Ember;
+const { Component, computed } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
+  tagName: 'section',
+  classNames: ['ko-matches-player'],
   matchGroups: null,
-  matchGroup: computed.reads('matchGroupsWithVods.firstObject'),
-  vod: computed.reads('vods.firstObject'),
-  vodType: computed.reads('vod.type'),
+  activeMatchGroup: computed.reads('matchGroups.firstObject'),
+  activeVod: computed.reads('activeMatchGroup.vods.firstObject'),
 
-  matchGroupsWithVods: computed('matchGroups', function() {
-    return this.get('matchGroups').filter(function(matchGroup) {
-      return matchGroup.get('hasVods');
-    });
+  activeVodComponent: computed('activeVod.type', function() {
+    return `ko-matches-player/${this.get('activeVod.type')}`;
   }),
 
-  vods: computed('matchGroupsWithVods', function() {
-    return _.flatten(this.get('matchGroupsWithVods').map(function(matchGroup) {
-      return matchGroup.get('vods');
-    }));
+  isFirstVodActive: computed('_vods.firstObject', 'activeVod', function() {
+    return this.get('_vods.firstObject') === this.get('activeVod');
   }),
 
-  vodComponent: computed('vodType', function() {
-    return `ko-matches-player/${this.get('vodType')}`;
+  isLastVodActive: computed('_vods.lastObject', 'activeVod', function() {
+    return this.get('_vods.lastObject') === this.get('activeVod');
   }),
 
-  isFirstVod: computed('vods.firstObject', 'vod', function() {
-    return this.get('vods.firstObject') === this.get('vod');
+  _vods: computed('matchGroups.@each.vods', function() {
+    return _.flatten(this.get('matchGroups').mapBy('activeVod'));
   }),
 
-  isLastVod: computed('vods.lastObject', 'vod', function() {
-    return this.get('vods.lastObject') === this.get('vod');
-  }),
+  _navigate(index) {
+    const vods = this.get('vods');
+    this.set('activeVod', vods[vods.indexOf(this.get('activeVod')) + index]);
+  },
 
   actions: {
     previous() {
-      if (!this.get('isFirstVod')) {
-        const vods = this.get('vods');
-        this.set('vod', vods[vods.indexOf(this.get('vod')) - 1]);
-      }
+      this._navigate(-1);
     },
 
     next() {
-      if (!this.get('isLastVod')) {
-        const vods = this.get('vods');
-        this.set('vod', vods[vods.indexOf(this.get('vod')) + 1]);
-      }
+      this._navigate(1);
     }
   }
 });
