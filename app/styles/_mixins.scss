@@ -2,3 +2,12 @@
   @include fa-icon;
   @extend .fa-#{$name};
 }
+
+@mixin ko-badge($color: $ko-action-color) {
+  font-size: 0.7rem;
+  font-weight: bolder;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  color: $color;
+  padding: 4px;
+}

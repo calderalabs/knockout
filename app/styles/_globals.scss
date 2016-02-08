@@ -60,7 +60,7 @@ a, button {
   transition: color 200ms;
 
   &::before {
-	  background: radial-gradient(center, ellipse, rgba($ko-action-color, .9) 0%, rgba(0, 0, 0, .0) 80%);
+	  background: radial-gradient(center, ellipse, rgba($ko-active-color, .9) 0%, rgba(0, 0, 0, .0) 80%);
 	  content: '';
 	  height: 10px;
 	  left: 0;

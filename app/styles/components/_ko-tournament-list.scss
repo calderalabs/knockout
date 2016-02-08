@@ -1,6 +1,33 @@
 .ko-tournament-list {
+  &__header {
+    @include span-columns(12);
+    padding: $gutter 0;
+  }
+
   &__title {
-    margin: $gutter / 2 0 $gutter 0;
+    @include span-columns(2);
+  }
+
+  &__nav {
+    @include span-columns(10);
+
+    text-align: right;
+
+    &-item {
+      display: inline-block;
+    }
+
+    &-link {
+      @include ko-badge($ko-text-color);
+
+      &.active {
+        color: $ko-action-color;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
   }
 
   &__list {
@@ -16,7 +43,7 @@
     position: relative;
 
     &:hover .ko-tournament-list__item-content {
-      border-color: lighten($ko-action-color, 20%);
+      border-color: lighten($ko-active-color, 20%);
     }
 
     &-link {
@@ -25,13 +52,11 @@
     }
 
     &-game {
-      font-size: 0.7rem;
-      font-weight: bolder;
-      background-color: rgba(0, 0, 0, 0.2);
-      display: inline-block;
-      color: lighten($ko-action-color, 20%);
-      padding: 4px;
-      margin-top: $gutter / 2;
+      @include ko-badge;
+
+      position: absolute;
+      bottom: $gutter;
+      left: $gutter;
     }
 
     &-game, &-name {
