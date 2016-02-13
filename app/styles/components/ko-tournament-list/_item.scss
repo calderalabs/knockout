@@ -63,10 +63,6 @@
     transition: opacity 200ms;
 
     &:hover {
-      .ko-tournament-list-item__star-icon {
-        color: $ko-action-color;
-      }
-
       &::before {
         display: none;
       }
