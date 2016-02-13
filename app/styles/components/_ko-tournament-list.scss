@@ -5,11 +5,11 @@
   }
 
   &__title {
-    @include span-columns(2);
+    @include span-columns(3);
   }
 
   &__nav {
-    @include span-columns(10);
+    @include span-columns(9);
 
     text-align: right;
 
@@ -32,44 +32,5 @@
 
   &__list {
     @include span-columns(12);
-  }
-
-  &__item {
-    @include span-columns(3);
-    @include omega(4n);
-
-    margin-bottom: $gutter;
-    height: 300px;
-    position: relative;
-
-    &:hover .ko-tournament-list__item-content {
-      border-color: lighten($ko-active-color, 20%);
-    }
-
-    &-link {
-      display: block;
-      height: 100%;
-    }
-
-    &-game {
-      @include ko-badge;
-
-      position: absolute;
-      bottom: $gutter;
-      left: $gutter;
-    }
-
-    &-game, &-name {
-      text-transform: uppercase;
-    }
-
-    &-content {
-      border: 1px solid $ko-border-color;
-      height: 100%;
-      padding: $gutter / 2;
-      cursor: pointer;
-      transition: border-color 200ms;
-      background: radial-gradient(circle at top center, #444 1%, #222 100%);
-    }
   }
 }

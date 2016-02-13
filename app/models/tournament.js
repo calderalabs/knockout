@@ -7,18 +7,14 @@ const { computed } = Ember;
 
 export default Model.extend({
   name: attr('string'),
-  game: attr('string'),
+  game: attr('string', { defaultValue: 'dota-2' }),
   matchGroups: hasMany('match-group'),
+
+  stage: computed(function() {
+    return _.sample(['Group Stages', 'Qualifiers', 'Main Event', 'Finals']);
+  }),
 
   gameName: computed('game', function() {
     return this.get('game').replace(/-/g, ' ').capitalize();
-  }),
-
-  teams: computed('matchGroups.@each.{teamOne,teamTwo}', function() {
-    return _.uniq(this.get('matchGroups').reduce(function(memo, matchGroup) {
-      return memo.concat(matchGroup.get('teamOne'), matchGroup.get('teamTwo'));
-    }, []), function(team) {
-      return team.get('name');
-    });
   })
 });

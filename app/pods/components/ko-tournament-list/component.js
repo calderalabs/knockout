@@ -8,8 +8,10 @@ export default Component.extend({
   activeGame: null,
   tournaments: null,
   onShow: null,
+  arrangedTournaments: computed.sort('_filteredTournaments', 'tournamentsSorting'),
+  tournamentsSorting: ['id:desc'],
 
-  arrangedTournaments: computed('tournaments.@each.game', 'activeGame', function() {
+  _filteredTournaments: computed('tournaments.@each.game', 'activeGame', function() {
     const activeGame = this.get('activeGame');
     const tournaments = this.get('tournaments');
 

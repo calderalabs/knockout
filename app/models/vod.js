@@ -6,5 +6,6 @@ const { attr } = DS;
 export default MF.Fragment.extend({
   url: attr('string'),
   type: attr('string'),
-  label: attr('string')
+  label: attr('string'),
+  isWatched: attr('boolean', { defaultValue: false })
 });

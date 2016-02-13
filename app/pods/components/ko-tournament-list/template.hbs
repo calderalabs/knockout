@@ -1,5 +1,5 @@
 <header class="ko-tournament-list__header">
-  <h1 class="ko-tournament-list__title">All Tournaments</h1>
+  <h1 class="ko-tournament-list__title">Browse Tournaments</h1>
 
   <nav class="ko-tournament-list__nav">
     <ul>
@@ -20,16 +20,6 @@
 
 <ul class="ko-tournament-list__list">
   {{#each arrangedTournaments as |tournament|}}
-    <li class="ko-tournament-list__item">
-      {{#link-to "tournament" tournament.id class="ko-tournament-list__item-link"}}
-        <div class="ko-tournament-list__item-content">
-          <div class="ko-tournament-list__item-name">{{tournament.name}}</div>
-
-          <div class="ko-tournament-list__item-game">
-            {{tournament.gameName}}
-          </div>
-        </div>
-      {{/link-to}}
-    </li>
+    {{ko-tournament-list/item tournament=tournament}}
   {{/each}}
 </ul>

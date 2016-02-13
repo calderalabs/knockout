@@ -1,0 +1,80 @@
+.ko-tournament-list-item {
+  @include span-columns(3);
+  @include omega(4n);
+
+  margin-bottom: $gutter;
+  height: 200px;
+  position: relative;
+
+  &:hover {
+    .ko-tournament-list-item__star {
+      opacity: 1;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+  }
+
+  &__info {
+    position: absolute;
+    bottom: $gutter / 2;
+    left: $gutter / 2;
+    right: $gutter / 2;
+
+    &-item {
+      @include ko-badge;
+      text-transform: uppercase;
+
+      &--vods {
+        color: $ko-text-color;
+      }
+    }
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-size: 1.2em;
+  }
+
+  &__content {
+    height: 100%;
+    padding: $gutter / 2;
+    cursor: pointer;
+    transition: border-color 200ms;
+    background: radial-gradient(circle at top center, #444 1%, #222 100%);
+  }
+
+  &__stage {
+    color: $ko-border-color;
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+
+  &__star {
+    background-color: transparent;
+    position: absolute;
+    bottom: $gutter / 2;
+    right: $gutter / 2;
+    display: inline-block;
+    padding: 4px;
+    opacity: 0;
+    transition: opacity 200ms;
+
+    &:hover {
+      .ko-tournament-list-item__star-icon {
+        color: $ko-action-color;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &-icon {
+      @include ko-icon('heart');
+      transition: color 200ms;
+    }
+  }
+}
