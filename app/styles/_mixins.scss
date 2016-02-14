@@ -10,4 +10,10 @@
   display: inline-block;
   color: $color;
   padding: 4px;
+  text-transform: uppercase;
+}
+
+@mixin ko-list-item {
+  padding: $gutter / 2;
+  background: radial-gradient(circle at top center, #444 1%, #222 100%);
 }

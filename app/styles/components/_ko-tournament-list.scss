@@ -1,7 +1,7 @@
 .ko-tournament-list {
   &__header {
     @include span-columns(12);
-    padding: $gutter 0;
+    margin-bottom: $gutter;
   }
 
   &__title {
@@ -30,7 +30,7 @@
     }
   }
 
-  &__list {
+  &__content {
     @include span-columns(12);
   }
 }

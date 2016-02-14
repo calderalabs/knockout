@@ -1,14 +1,42 @@
 <h1 class="ko-tournament__title">{{tournamentName}}</h1>
 
-<div class="ko-tournament__actions">
-  <button
-    onclick={{action "watch"}}
-    disabled={{isWatchDisabled}} class="ko-tournament__actions-watch">
-    Watch
-  </button>
-</div>
+<ul class="ko-tournament__timeline">
+  {{#each matchGroups as |matchGroup|}}
+    <li class="ko-tournament__timeline-item">
+      <a class="ko-tournament__timeline-item-link">
+        <article class="ko-tournament__timeline-item-content">
+          <div class="ko-tournament__timeline-item-info">
+            <div class="ko-tournament__timeline-item-stage">
+              {{matchGroup.tournament.stage}}
+            </div>
+          </div>
 
-{{ko-timeline tournament=tournament}}
+          <div class="ko-tournament__timeline-item-teams">
+            <img class="ko-tournament__timeline-item-team-logo"
+                 src={{matchGroup.teamOne.logo.w72xh72}} />
+
+            <div class="ko-tournament__timeline-item-scores">
+               {{matchGroup.teamOneScore}} - {{matchGroup.teamTwoScore}}
+            </div>
+
+            <img class="ko-tournament__timeline-item-team-logo"
+                 src={{matchGroup.teamTwo.logo.w72xh72}} />
+          </div>
+
+          <div class="ko-tournament__timeline-item-watch">
+            <div class="ko-tournament__timeline-item-watched">
+              Not Watched
+            </div>
+
+            <div class="ko-tournament__timeline-item-likes">
+              24 <i class="ko-tournament__timeline-item-likes-icon"></i>
+            </div>
+          </div>
+        </article>
+      </a>
+    </li>
+  {{/each}}
+</ul>
 
 {{#if isWatching}}
   {{#ko-modal onClose=(action "stopWatching")}}

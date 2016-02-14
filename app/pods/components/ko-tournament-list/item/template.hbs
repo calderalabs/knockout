@@ -1,6 +1,6 @@
 {{#link-to "tournament" tournament.id class="ko-tournament-list-item__link"}}
-  <div class="ko-tournament-list-item__content">
-    <div class="ko-tournament-list-item__name">{{tournament.name}}</div>
+  <article class="ko-tournament-list-item__content">
+    <h1 class="ko-tournament-list-item__name">{{tournament.name}}</h1>
 
     <div class="ko-tournament-list-item__stage">
       {{tournament.stage}}
@@ -19,5 +19,5 @@
     <button class="ko-tournament-list-item__star">
       <i class="ko-tournament-list-item__star-icon"></i>
     </button>
-  </div>
+  </article>
 {{/link-to}}

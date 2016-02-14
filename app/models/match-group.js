@@ -13,6 +13,7 @@ export default Model.extend({
   teamOne: belongsTo('team'),
   teamTwo: belongsTo('team'),
   matches: hasMany('match'),
+  startAt: attr('date'),
 
   teamOneScore: computed('matches.@each.winner', 'teamOne', function() {
     return this.get('matches').filterBy('winner.id', this.get('teamOne.id')).length;

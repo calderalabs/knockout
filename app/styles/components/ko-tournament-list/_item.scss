@@ -25,7 +25,6 @@
 
     &-item {
       @include ko-badge;
-      text-transform: uppercase;
 
       &--vods {
         color: $ko-text-color;
@@ -34,16 +33,15 @@
   }
 
   &__name {
-    text-transform: uppercase;
     font-size: 1.2em;
+    font-weight: lighter;
   }
 
   &__content {
+    @include ko-list-item;
+
     height: 100%;
-    padding: $gutter / 2;
     cursor: pointer;
-    transition: border-color 200ms;
-    background: radial-gradient(circle at top center, #444 1%, #222 100%);
   }
 
   &__stage {

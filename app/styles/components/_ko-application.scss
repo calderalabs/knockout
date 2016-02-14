@@ -55,6 +55,6 @@ $ko-application-header-height: 5em;
   }
 
   &__content {
-    padding: $ko-application-header-height $gutter $gutter $gutter;
+    padding: $ko-application-header-height + $gutter $gutter $gutter $gutter;
   }
 }
