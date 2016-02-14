@@ -1,0 +1,13 @@
+.ko-header {
+  @include span-columns(12);
+  margin-bottom: $gutter;
+
+  &__title {
+    @include span-columns(3);
+  }
+
+  &__nav {
+    @include span-columns(9);
+    text-align: right;
+  }
+}

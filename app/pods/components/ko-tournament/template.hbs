@@ -1,14 +1,37 @@
-<h1 class="ko-tournament__title">{{tournamentName}}</h1>
+{{#ko-header title=name}}
+  <li class="ko-tournament__sort">
+    {{#power-select
+      class="ko-tournament__sort-select"
+      searchEnabled=false
+      options=sortingOptions
+      selected=sortingOption
+      onchange=(action "selectSortingOption") as |option|}}
+      Sort by: {{option.label}}
+    {{/power-select}}
+  </li>
+
+  {{#ko-header/nav-item}}
+    {{#link-to "tournament" id (query-params filter=null)}}All Matches{{/link-to}}
+  {{/ko-header/nav-item}}
+
+  {{#ko-header/nav-item}}
+    {{#link-to "tournament" id (query-params filter="unwatched")}}To Watch{{/link-to}}
+  {{/ko-header/nav-item}}
+
+  {{#ko-header/nav-item}}
+    {{#link-to "tournament" id (query-params filter="saved")}}Saved{{/link-to}}
+  {{/ko-header/nav-item}}
+{{/ko-header}}
 
 <ul class="ko-tournament__timeline">
-  {{#each matchGroups as |matchGroup|}}
+  {{#each timeline as |timelineItem|}}
+    {{moment-from-now timelineItem.day}}
+
     <li class="ko-tournament__timeline-item">
       <a class="ko-tournament__timeline-item-link">
         <article class="ko-tournament__timeline-item-content">
-          <div class="ko-tournament__timeline-item-info">
-            <div class="ko-tournament__timeline-item-stage">
-              {{matchGroup.tournament.stage}}
-            </div>
+          <div class="ko-tournament__timeline-item-stage">
+            {{matchGroup.tournament.stage}}
           </div>
 
           <div class="ko-tournament__timeline-item-teams">
@@ -23,13 +46,9 @@
                  src={{matchGroup.teamTwo.logo.w72xh72}} />
           </div>
 
-          <div class="ko-tournament__timeline-item-watch">
+          <div class="ko-tournament__timeline-item-info">
             <div class="ko-tournament__timeline-item-watched">
-              Not Watched
-            </div>
-
-            <div class="ko-tournament__timeline-item-likes">
-              24 <i class="ko-tournament__timeline-item-likes-icon"></i>
+              To Watch
             </div>
           </div>
         </article>
@@ -37,9 +56,3 @@
     </li>
   {{/each}}
 </ul>
-
-{{#if isWatching}}
-  {{#ko-modal onClose=(action "stopWatching")}}
-    {{ko-matches-player matchGroups=matchGroupsToPlay}}
-  {{/ko-modal}}
-{{/if}}

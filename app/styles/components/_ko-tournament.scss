@@ -1,22 +1,25 @@
 .ko-tournament {
-  &__title {
-    margin-bottom: $gutter;
+  &__sort {
+    display: inline-block;
   }
 
   &__timeline {
+    @include span-columns(12);
+
     &-item {
       &-content {
         display: table;
         width: 100%;
       }
 
-      &-teams, &-info, &-watch {
+      &-teams, &-stage, &-info {
         @include span-columns(4, $display: table);
         text-align: center;
       }
 
       &-link {
         @include ko-list-item;
+
         border: 1px solid $ko-border-color;
         margin-bottom: $gutter / 2;
         display: block;
@@ -27,13 +30,9 @@
         }
       }
 
-      &-info {
+      &-stage {
         text-transform: uppercase;
         color: $ko-border-color;
-      }
-
-      &-stage {
-        display: inline-block;
       }
 
       &-team-logo {
@@ -49,21 +48,11 @@
         vertical-align: middle;
       }
 
-      &-likes, &-watched {
+      &-watched {
         @include ko-badge($ko-text-color);
+
         padding: 10px;
         font-size: 0.8rem;
-      }
-
-      &-likes {
-        &-icon {
-          @include ko-icon('thumbs-up');
-          margin-left: $gutter / 2;
-        }
-      }
-
-      &-watched {
-        margin-right: $gutter / 2;
       }
     }
   }

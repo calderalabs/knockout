@@ -1,23 +1,23 @@
-{{#link-to "tournament" tournament.id class="ko-tournament-list-item__link"}}
+{{#link-to "tournament" id class="ko-tournament-list-item__link"}}
   <article class="ko-tournament-list-item__content">
-    <h1 class="ko-tournament-list-item__name">{{tournament.name}}</h1>
+    <h1 class="ko-tournament-list-item__name">{{name}}</h1>
 
     <div class="ko-tournament-list-item__stage">
-      {{tournament.stage}}
+      {{stage}}
     </div>
 
     <ul class="ko-tournament-list-item__info">
       <li class="ko-tournament-list-item__info-item ko-tournament-list-item__info-item--game">
-        {{tournament.gameName}}
+        {{gameName}}
       </li>
 
       <li class="ko-tournament-list-item__info-item ko-tournament-list-item__info-item--vods">
-        {{unwatchedVods.length}} unwatched
+        {{unwatchedVods.length}} to watch
       </li>
     </ul>
 
-    <button class="ko-tournament-list-item__star">
-      <i class="ko-tournament-list-item__star-icon"></i>
+    <button class="ko-tournament-list-item__follow">
+      <i class="ko-tournament-list-item__follow-icon"></i>
     </button>
   </article>
 {{/link-to}}
