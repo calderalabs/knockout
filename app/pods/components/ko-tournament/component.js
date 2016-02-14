@@ -10,8 +10,6 @@ export default Component.extend({
   sortBy: null,
   name: computed.readOnly('tournament.name'),
   id: computed.readOnly('tournament.id'),
-  matchGroups: computed.sort('_filteredMatchGroups', '_matchGroupsSorting'),
-  _filteredMatchGroups: computed.filterBy('tournament.matchGroups', 'isWatched', null),
 
   sortingOptions: [{
     label: 'Recent',
@@ -26,17 +24,22 @@ export default Component.extend({
   }),
 
   timeline: computed(function() {
-    return [];
-  }),
-
-  _matchGroupsSorting: computed('sortBy', function() {
-    const sortBy = this.get('sortBy');
-
-    if (sortBy === 'recent') {
-      return ['id:desc'];
-    } else if (sortBy === 'popular') {
-      return ['likes:desc'];
-    }
+    return [{
+      title: moment().calendar(null, {
+        sameDay: '[Today]',
+        nextDay: '[Tomorrow]',
+        nextWeek: 'dddd',
+        lastDay: '[Yesterday]',
+        lastWeek: '[Last] dddd',
+        sameElse: 'DD/MM/YYYY'
+      }),
+      groupedMatches: [{
+        matchGroup: this.get('tournament.matchGroups.firstObject'),
+        matches: this.get('tournament.matchGroups.firstObject.matches')
+          .toArray().concat(this.get('tournament.matchGroups.firstObject.matches').toArray())
+          .toArray().concat(this.get('tournament.matchGroups.firstObject.matches').toArray())
+      }]
+    }];
   }),
 
   actions: {

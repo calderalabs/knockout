@@ -17,3 +17,20 @@
   padding: $gutter / 2;
   background: radial-gradient(circle at top center, #444 1%, #222 100%);
 }
+
+@mixin ko-glow($color: $ko-action-color) {
+  position: relative;
+  
+  &::before {
+	  background: radial-gradient(center, ellipse, rgba($color, .9) 0%, rgba(0, 0, 0, .0) 80%);
+	  content: '';
+	  height: 10px;
+	  left: 0;
+	  pointer-events: none;
+	  position: absolute;
+	  width: 100%;
+    right: 0;
+    top: 100%;
+    transition: opacity 200ms;
+	}
+}

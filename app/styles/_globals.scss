@@ -44,10 +44,6 @@ button {
 }
 
 a {
-  &::before {
-    top: 100%;
-  }
-
   &, &:visited {
     color: $ko-text-color;
     text-decoration: none;
@@ -55,22 +51,15 @@ a {
 }
 
 a, button {
+  @include ko-glow($ko-active-color);
+
   cursor: pointer;
   position: relative;
   transition: color 200ms;
 
   &::before {
-	  background: radial-gradient(center, ellipse, rgba($ko-active-color, .9) 0%, rgba(0, 0, 0, .0) 80%);
-	  content: '';
-	  height: 10px;
-	  left: 0;
-	  opacity: 0;
-	  pointer-events: none;
-	  position: absolute;
-	  width: 100%;
-    right: 0;
-    transition: opacity 200ms;
-	}
+    opacity: 0;
+  }
 
   &:hover, &.active {
     color: #fff;

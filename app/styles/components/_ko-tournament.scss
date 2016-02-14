@@ -3,56 +3,22 @@
     display: inline-block;
   }
 
-  &__timeline {
+  &__day {
     @include span-columns(12);
 
-    &-item {
-      &-content {
-        display: table;
-        width: 100%;
-      }
+    &-match-group-list-item {
+      @include span-columns(12);
+    }
 
-      &-teams, &-stage, &-info {
-        @include span-columns(4, $display: table);
-        text-align: center;
-      }
+    &-title {
+      @include ko-glow($ko-border-color);
+      
+      margin-bottom: $gutter / 2;
+      padding-bottom: $gutter / 2;
+      text-align: center;
 
-      &-link {
-        @include ko-list-item;
-
-        border: 1px solid $ko-border-color;
-        margin-bottom: $gutter / 2;
-        display: block;
-        transition: 200ms border-color;
-
-        &:hover {
-          border-color: lighten($ko-active-color, 20%);
-        }
-      }
-
-      &-stage {
-        text-transform: uppercase;
-        color: $ko-border-color;
-      }
-
-      &-team-logo {
-        display: inline-block;
-        vertical-align: middle;
-      }
-
-      &-scores {
-        display: inline-block;
-        font-size: 1.8rem;
-        font-weight: bolder;
-        padding: 0 $gutter;
-        vertical-align: middle;
-      }
-
-      &-watched {
-        @include ko-badge($ko-text-color);
-
-        padding: 10px;
-        font-size: 0.8rem;
+      &::before {
+        height: 4px;
       }
     }
   }

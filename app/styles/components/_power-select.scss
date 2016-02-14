@@ -2,7 +2,6 @@
   &--opened {
     .ember-power-select-trigger {
       &, &:focus {
-        border: 1px solid $ko-border-color;
         margin: 0;
       }
     }
@@ -23,7 +22,6 @@
 
     &, &:focus {
       border: 0;
-      margin: 1px;
     }
   }
 
@@ -33,22 +31,24 @@
   }
 
   &-dropdown {
-    border-radius: 0;
-    line-height: inherit;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    border-color: $ko-border-color;
-    background-color: transparent;
+    &, &.ember-basic-dropdown--below {
+      border: 0;
+      border-radius: 0;
+      line-height: inherit;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      border-color: $ko-border-color;
+      background-color: transparent;
+    }
   }
 
   &-option {
     color: $ko-text-color;
-    padding: 4px;
+    padding: 6px 4px;
     background-color: rgba(0, 0, 0, 0.8);
 
     &:hover {
-      color: $ko-text-color;
-      background-color: rgba($ko-background-color, 0.8);
+      color: #fff;
     }
   }
 }

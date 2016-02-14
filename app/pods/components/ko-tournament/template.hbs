@@ -15,6 +15,10 @@
   {{/ko-header/nav-item}}
 
   {{#ko-header/nav-item}}
+    {{#link-to "tournament" id (query-params filter="new")}}New{{/link-to}}
+  {{/ko-header/nav-item}}
+
+  {{#ko-header/nav-item}}
     {{#link-to "tournament" id (query-params filter="unwatched")}}To Watch{{/link-to}}
   {{/ko-header/nav-item}}
 
@@ -23,36 +27,22 @@
   {{/ko-header/nav-item}}
 {{/ko-header}}
 
-<ul class="ko-tournament__timeline">
-  {{#each timeline as |timelineItem|}}
-    {{moment-from-now timelineItem.day}}
+{{#each timeline as |day|}}
+  <section class="ko-tournament__day">
+    <h1 class="ko-tournament__day-title">{{day.title}}</h1>
 
-    <li class="ko-tournament__timeline-item">
-      <a class="ko-tournament__timeline-item-link">
-        <article class="ko-tournament__timeline-item-content">
-          <div class="ko-tournament__timeline-item-stage">
-            {{matchGroup.tournament.stage}}
-          </div>
+    <ul class="ko-tournament__day-match-group-list">
+      {{#each day.groupedMatches as |groupedMatches|}}
+        <li class="ko-tournament__day-match-group-list-item">
+          {{ko-tournament/match-group matchGroup=groupedMatches.matchGroup}}
 
-          <div class="ko-tournament__timeline-item-teams">
-            <img class="ko-tournament__timeline-item-team-logo"
-                 src={{matchGroup.teamOne.logo.w72xh72}} />
-
-            <div class="ko-tournament__timeline-item-scores">
-               {{matchGroup.teamOneScore}} - {{matchGroup.teamTwoScore}}
-            </div>
-
-            <img class="ko-tournament__timeline-item-team-logo"
-                 src={{matchGroup.teamTwo.logo.w72xh72}} />
-          </div>
-
-          <div class="ko-tournament__timeline-item-info">
-            <div class="ko-tournament__timeline-item-watched">
-              To Watch
-            </div>
-          </div>
-        </article>
-      </a>
-    </li>
-  {{/each}}
-</ul>
+          <ul class="ko-tournament__day-match-group-match-list">
+            {{#each groupedMatches.matches as |match|}}
+              {{ko-tournament/match-list-item match=match}}
+            {{/each}}
+          </ul>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+{{/each}}

@@ -1,0 +1,39 @@
+.ko-tournament-match-group {
+  @include ko-list-item;
+
+  display: table;
+  width: 100%;
+  padding: $gutter / 4;
+
+  &__teams, &__stage, &__info {
+    @include span-columns(4, $display: table);
+
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  &__stage {
+    text-transform: uppercase;
+    color: $ko-border-color;
+    font-size: 0.8rem;
+  }
+
+  &__team-logo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__score {
+    display: inline-block;
+    font-weight: bolder;
+    padding: 0 $gutter / 2;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+
+  &__format {
+    text-transform: uppercase;
+    color: $ko-border-color;
+    font-size: 0.8rem;
+  }
+}

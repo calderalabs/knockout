@@ -15,6 +15,10 @@ export default Model.extend({
   matches: hasMany('match'),
   startAt: attr('date'),
 
+  stage: attr('string', { defaultValue: function() {
+    return _.sample(['Group Stages', 'Qualifiers', 'Main Event', 'Finals']);
+  } }),
+
   teamOneScore: computed('matches.@each.winner', 'teamOne', function() {
     return this.get('matches').filterBy('winner.id', this.get('teamOne.id')).length;
   }),
