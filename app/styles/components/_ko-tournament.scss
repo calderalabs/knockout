@@ -12,10 +12,9 @@
 
     &-title {
       @include ko-glow($ko-border-color);
-      
-      margin-bottom: $gutter / 2;
+
+      margin: $gutter 0;
       padding-bottom: $gutter / 2;
-      text-align: center;
 
       &::before {
         height: 4px;

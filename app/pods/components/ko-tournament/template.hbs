@@ -31,17 +31,9 @@
   <section class="ko-tournament__day">
     <h1 class="ko-tournament__day-title">{{day.title}}</h1>
 
-    <ul class="ko-tournament__day-match-group-list">
-      {{#each day.groupedMatches as |groupedMatches|}}
-        <li class="ko-tournament__day-match-group-list-item">
-          {{ko-tournament/match-group matchGroup=groupedMatches.matchGroup}}
-
-          <ul class="ko-tournament__day-match-group-match-list">
-            {{#each groupedMatches.matches as |match|}}
-              {{ko-tournament/match-list-item match=match}}
-            {{/each}}
-          </ul>
-        </li>
+    <ul class="ko-tournament__day-collection-list">
+      {{#each day.collections as |collection|}}
+        {{ko-tournament/collection-list-item collection=collection}}
       {{/each}}
     </ul>
   </section>

@@ -1,0 +1,44 @@
+<article class="ko-tournament-collection-list-item__content">
+  <header class="ko-tournament-collection-list-item__header">
+    <div class="ko-tournament-collection-list-item__teams">
+      <img class="ko-tournament-collection-list-item__team-logo" src={{teamOneLogo}} />
+      <div class="ko-tournament-collection-list-item__score">{{teamOneScore}} - {{teamTwoScore}}</div>
+      <img class="ko-tournament-collection-list-item__team-logo" src={{teamTwoLogo}} />
+    </div>
+
+    <div class="ko-tournament-collection-list-item__stage">{{stage}}</div>
+    <div class="ko-tournament-collection-list-item__format">Best of {{bestOf}}</div>
+  </header>
+
+  <ul class="ko-tournament-collection-list-item__match-list">
+    {{#each matches as |match|}}
+      <li class="ko-tournament-collection-list-item__match-list-item">
+        {{#link-to "tournaments" class="ko-tournament-collection-list-item__match-list-item-link"}}
+          <article class="ko-tournament-collection-list-item__match-list-item-content">
+            <div class="ko-tournament-collection-list-item__match-list-item-number">
+              Game {{match.matchNumber}}
+            </div>
+
+            <div class="ko-tournament-collection-list-item__match-list-item-winner">
+              {{match.winner.fullName}} Wins
+            </div>
+
+            <div class="ko-tournament-collection-list-item__match-list-item-info">
+              <div class="ko-tournament-collection-list-item__match-list-item-watched">
+                {{#if match.isWatched}}
+                  Watched
+                {{else}}
+                  To Watch
+                {{/if}}
+              </div>
+
+              <div class="ko-tournament-collection-list-item__match-list-item-likes">
+                {{match.likes}} Likes
+              </div>
+            </div>
+          </article>
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+</article>

@@ -19,5 +19,11 @@ export default Model.extend({
 
   gameName: computed('game', function() {
     return this.get('game').replace(/-/g, ' ').capitalize();
+  }),
+
+  matches: computed('matchGroups.@each.matches.[]', function() {
+    return this.get('matchGroups').reduce(function(memo, matchGroup) {
+      return memo.concat(matchGroup.get('matches').toArray());
+    }, []);
   })
 });

@@ -13,14 +13,14 @@
   text-transform: uppercase;
 }
 
-@mixin ko-list-item {
+@mixin ko-list-item($inner-color: #444, $outer-color: #222) {
   padding: $gutter / 2;
-  background: radial-gradient(circle at top center, #444 1%, #222 100%);
+  background: radial-gradient(circle at top center, $inner-color 1%, $outer-color 100%);
 }
 
 @mixin ko-glow($color: $ko-action-color) {
   position: relative;
-  
+
   &::before {
 	  background: radial-gradient(center, ellipse, rgba($color, .9) 0%, rgba(0, 0, 0, .0) 80%);
 	  content: '';

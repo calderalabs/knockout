@@ -1,0 +1,115 @@
+.ko-tournament-collection-list-item {
+  @include span-columns(12);
+  margin-bottom: $gutter / 2;
+
+  &__content {
+    @include span-columns(12);
+  }
+
+  &__header {
+    @include span-columns(4);
+    @include ko-list-item;
+
+    text-align: center;
+  }
+
+  &__score, &__team-logo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__score {
+    padding: $gutter / 2;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.3rem;
+  }
+
+  &__teams {
+    text-align: center;
+  }
+
+  &__stage, &__format {
+    text-align: center;
+  }
+
+  &__stage {
+    text-transform: uppercase;
+    padding: $gutter / 2;
+  }
+
+  &__format {
+    color: $ko-border-color;
+    text-transform: uppercase;
+    margin-bottom: $gutter / 2;
+    font-size: 0.8rem;
+  }
+
+  &__match-list {
+    @include span-columns(8);
+
+    &-item {
+      @include span-columns(12);
+      @include ko-glow($ko-border-color);
+
+      &::before {
+        height: 1px;
+        top: 0;
+      }
+
+      &-link {
+        display: block;
+        height: 100%;
+        padding: $gutter / 2 0;
+        position: relative;
+
+        &::after {
+          @include ko-list-item($ko-active-color);
+
+          display: block;
+          content: ' ';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: -1;
+          opacity: 0;
+          transition: opacity 200ms;
+        }
+
+        &:hover::after {
+          opacity: 1;
+        }
+
+        &:hover::before {
+          display: none;
+        }
+      }
+
+      &-content {
+        display: table;
+        width: 100%;
+      }
+
+      &-number, &-winner, &-info {
+        @include span-columns(4, $display: table);
+
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      &-number {
+        text-transform: uppercase;
+      }
+
+      &-watched {
+        @include ko-badge;
+      }
+
+      &-likes {
+        @include ko-badge($ko-text-color);
+      }
+    }
+  }
+}
