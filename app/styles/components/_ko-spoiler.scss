@@ -1,12 +1,17 @@
 .ko-spoiler {
   position: relative;
 
-  &--revealed &__overlay {
+  &--revealed > &__overlay {
     opacity: 0;
   }
 
-  &:hover {
+  &:hover > &__overlay {
     color: #fff;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 0;
   }
 
   &__overlay {
@@ -19,17 +24,19 @@
     bottom: 0;
     cursor: pointer;
     transition: 300ms opacity;
+    font-size: 1rem;
+    font-weight: lighter;
+  }
 
-    &::before {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      top: 0;
-      content: ' ';
-      background-color: #222;
-      z-index: 0;
-    }
+  &__background {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    content: ' ';
+    background-color: #222;
+    z-index: -1;
   }
 
   &__title {
@@ -37,6 +44,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    z-index: 2;
 
     &-content {
       display: table-cell;

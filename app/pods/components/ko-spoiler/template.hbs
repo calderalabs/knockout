@@ -1,7 +1,10 @@
 <div class="ko-spoiler__overlay" onclick={{action "reveal"}}>
   <div class="ko-spoiler__title">
+    <div class="ko-spoiler__background"></div>
     <div class="ko-spoiler__title-content">{{title}}</div>
   </div>
 </div>
 
-{{yield}}
+<div class="ko-spoiler__content">
+  {{yield}}
+</div>
