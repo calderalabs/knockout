@@ -1,10 +1,12 @@
 <article class="ko-tournament-collection-list-item__content">
   <header class="ko-tournament-collection-list-item__header">
-    <div class="ko-tournament-collection-list-item__teams">
-      <img class="ko-tournament-collection-list-item__team-logo" src={{teamOneLogo}} />
-      <div class="ko-tournament-collection-list-item__score">{{teamOneScore}} - {{teamTwoScore}}</div>
-      <img class="ko-tournament-collection-list-item__team-logo" src={{teamTwoLogo}} />
-    </div>
+    {{#ko-spoiler title="Show Score"}}
+      <div class="ko-tournament-collection-list-item__teams">
+        <img class="ko-tournament-collection-list-item__team-logo" src={{teamOneLogo}} />
+        <div class="ko-tournament-collection-list-item__score">{{teamOneScore}} - {{teamTwoScore}}</div>
+        <img class="ko-tournament-collection-list-item__team-logo" src={{teamTwoLogo}} />
+      </div>
+    {{/ko-spoiler}}
 
     <div class="ko-tournament-collection-list-item__stage">{{stage}}</div>
     <div class="ko-tournament-collection-list-item__format">Best of {{bestOf}}</div>
@@ -20,7 +22,9 @@
             </div>
 
             <div class="ko-tournament-collection-list-item__match-list-item-winner">
-              {{match.winner.fullName}} Wins
+              {{#ko-spoiler title="Show Winner"}}
+                {{match.winner.fullName}} Wins
+              {{/ko-spoiler}}
             </div>
 
             <div class="ko-tournament-collection-list-item__match-list-item-info">
