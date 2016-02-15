@@ -1,0 +1,7 @@
+.ko-badge {
+  @include ko-badge($ko-text-color);
+
+  &--primary {
+    color: $ko-action-color;
+  }
+}

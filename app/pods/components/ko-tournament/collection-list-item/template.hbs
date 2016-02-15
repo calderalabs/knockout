@@ -17,27 +17,31 @@
       <li class="ko-tournament-collection-list-item__match-list-item">
         {{#link-to "tournaments" class="ko-tournament-collection-list-item__match-list-item-link"}}
           <article class="ko-tournament-collection-list-item__match-list-item-content">
-            <div class="ko-tournament-collection-list-item__match-list-item-number">
-              Game {{match.matchNumber}}
+            <div class="ko-tournament-collection-list-item__match-list-item-info">
+              <div class="ko-tournament-collection-list-item__match-list-item-info-content">
+                Game {{match.matchNumber}}
+              </div>
             </div>
 
-            <div class="ko-tournament-collection-list-item__match-list-item-winner">
+            <div class="ko-tournament-collection-list-item__match-list-item-info">
               {{#ko-spoiler title="Show Winner"}}
-                {{match.winner.fullName}} Wins
+                <div class="ko-tournament-collection-list-item__match-list-item-info-content">
+                  {{match.winner.fullName}} Wins
+                </div>
               {{/ko-spoiler}}
             </div>
 
             <div class="ko-tournament-collection-list-item__match-list-item-info">
-              <div class="ko-tournament-collection-list-item__match-list-item-watched">
-                {{#if match.isWatched}}
-                  Watched
-                {{else}}
-                  To Watch
-                {{/if}}
-              </div>
+              <div class="ko-tournament-collection-list-item__match-list-item-info-content">
+                {{#ko-badge isPrimary=true}}
+                  {{#if match.isWatched}}
+                    Watched
+                  {{else}}
+                    To Watch
+                  {{/if}}
+                {{/ko-badge}}
 
-              <div class="ko-tournament-collection-list-item__match-list-item-likes">
-                {{match.likes}} Likes
+                {{#ko-badge}}{{match.likes}} Likes{{/ko-badge}}
               </div>
             </div>
           </article>

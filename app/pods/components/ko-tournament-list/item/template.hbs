@@ -6,15 +6,10 @@
       {{stage}}
     </div>
 
-    <ul class="ko-tournament-list-item__info">
-      <li class="ko-tournament-list-item__info-item ko-tournament-list-item__info-item--game">
-        {{gameName}}
-      </li>
-
-      <li class="ko-tournament-list-item__info-item ko-tournament-list-item__info-item--vods">
-        {{unwatchedMatchesCount}} to watch
-      </li>
-    </ul>
+    <div class="ko-tournament-list-item__info">
+      {{#ko-badge isPrimary=true}}{{gameName}}{{/ko-badge}}
+      {{#ko-badge}}{{unwatchedMatchesCount}} to watch{{/ko-badge}}
+    </div>
 
     <button class="ko-tournament-list-item__follow">
       <i class="ko-tournament-list-item__follow-icon"></i>

@@ -22,14 +22,6 @@
     bottom: $gutter / 2;
     left: $gutter / 2;
     right: $gutter / 2;
-
-    &-item {
-      @include ko-badge;
-
-      &--vods {
-        color: $ko-text-color;
-      }
-    }
   }
 
   &__name {

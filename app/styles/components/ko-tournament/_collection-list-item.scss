@@ -60,8 +60,8 @@
       &-link {
         display: block;
         height: 100%;
-        padding: $gutter / 2 0;
         position: relative;
+        padding: $gutter / 4 0;
 
         &::after {
           @include ko-list-item($ko-active-color);
@@ -92,23 +92,16 @@
         width: 100%;
       }
 
-      &-number, &-winner, &-info {
+      &-info {
         @include span-columns(4, $display: table);
 
         text-align: center;
         vertical-align: middle;
-      }
-
-      &-number {
         text-transform: uppercase;
-      }
 
-      &-watched {
-        @include ko-badge;
-      }
-
-      &-likes {
-        @include ko-badge($ko-text-color);
+        &-content {
+          padding: $gutter / 4 0;
+        }
       }
     }
   }
