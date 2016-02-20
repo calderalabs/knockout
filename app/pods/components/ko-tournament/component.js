@@ -1,47 +1,37 @@
 import Ember from 'ember';
-import moment from 'moment';
+import _ from 'npm:lodash';
 
-const { Component, computed } = Ember;
-const { keys } = Object;
+const { Component, computed, get } = Ember;
 
 export default Component.extend({
   tagName: 'section',
   classNames: ['ko-tournament'],
   tournament: null,
-  filter: null,
-  sortBy: null,
+  viewType: null,
   name: computed.readOnly('tournament.name'),
   id: computed.readOnly('tournament.id'),
-  _sortedMatches: computed.sort('_filteredMatches', '_matchesSorting'),
+  isShowingTimeline: computed.equal('viewType', 'timeline'),
+  isShowingPopular: computed.equal('viewType', 'popular'),
 
-  sortingOptions: [{
-    label: 'Recent',
-    id: 'recent'
-  }, {
-    label: 'Likes',
-    id: 'likes'
-  }],
+  arrangedMatches: computed('_filteredMatches', function() {
+    const filteredMatches = this.get('_filteredMatches');
 
-  sortingOption: computed('sortingOptions', 'sortBy', function() {
-    return this.get('sortingOptions').findBy('id', this.get('sortBy'));
+    if (this.get('viewType') === 'popular') {
+      return _.orderBy(filteredMatches, ['likes', 'startAt'], ['desc', 'desc']);
+    }
+
+    return _.orderBy(filteredMatches, ['startAt'], ['desc']);
   }),
 
-  timeline: computed('_sortedMatches', function() {
-    const timeline = [];
-    let lastDayDate;
-    let lastMatchGroup
-    let currentDay;
-    let currentCollection;
+  timeline: computed('_filteredMatches', function() {
+    return _
+      .chain(this.get('_filteredMatches'))
+      .groupBy(_.partialRight(get, 'startDay'))
+      .reduce(function(memo, matches, startDay) {
+        return memo.concat({
+          _startDay: startDay,
 
-    this.get('_sortedMatches').forEach(function(match) {
-      const matchGroup = match.get('matchGroup');
-      const dayDate = moment(matchGroup.get('startAt')).startOf('day').toDate();
-
-      if (!lastDayDate || dayDate.getTime() !== lastDayDate.getTime()) {
-        lastDayDate = dayDate;
-
-        currentDay = {
-          title: moment(dayDate).calendar(null, {
+          title: moment(startDay).calendar(null, {
             sameDay: '[Today]',
             nextDay: '[Tomorrow]',
             nextWeek: '[Next] dddd',
@@ -50,59 +40,31 @@ export default Component.extend({
             sameElse: 'DD MMMM YYYY'
           }),
 
-          collections: []
-        };
-
-        timeline.pushObject(currentDay);
-      }
-
-      if (matchGroup !== lastMatchGroup) {
-        lastMatchGroup = matchGroup;
-
-        currentCollection = {
-          matchGroup: matchGroup,
-          matches: []
-        }
-
-        currentDay.collections.pushObject(currentCollection);
-      }
-
-      currentCollection.matches.pushObject(match);
-    });
-
-    return timeline;
+          collections: _
+            .chain(matches)
+            .groupBy(_.partialRight(get, 'matchGroup.id'))
+            .reduce(function(memo, matches, matchGroupId) {
+              return memo.concat({
+                _matchGroupId: matchGroupId,
+                matchGroup: matches[0].get('matchGroup'),
+                matches: matches.sortBy('matchNumber')
+              });
+            }, [])
+            .value()
+            .sortBy('_matchGroupId')
+        });
+      }, [])
+      .orderBy(['_startDay'], ['desc'])
+      .value();
   }),
 
-  _matchesSorting: computed('sortBy', function() {
-    const sortBy = this.get('sortBy');
-
-    if (sortBy === 'recent') {
-      return ['id:desc'];
-    } else if (sortBy === 'likes') {
-      return ['likes:desc'];
-    }
-
-    return [];
-  }),
-
-  _filteredMatches: computed('tournament.matches', 'filter', function() {
-    const filter = this.get('filter');
+  _filteredMatches: computed('tournament.matches', 'viewType', function() {
     const matches = this.get('tournament.matches');
 
-    if (filter === 'new') {
-      return [];
-    } else if (filter === 'unwatched') {
+    if (this.get('viewType') === 'unwatched') {
       return matches.rejectBy('isWatched');
-    } else if (filter === 'saved') {
-      return [];
     }
 
     return matches;
-  }),
-
-  actions: {
-    selectSortingOption(option) {
-      this.set('sortBy', option.id);
-    }
-  }
+  })
 });

@@ -1,24 +1,28 @@
 .ko-tournament {
-  &__sort {
-    display: inline-block;
-  }
-
   &__day {
     @include span-columns(12);
 
     &-match-group-list-item {
       @include span-columns(12);
     }
+  }
 
-    &-title {
-      @include ko-glow($ko-border-color);
+  &__plain-list {
+    @include span-columns(12);
 
-      margin: $gutter 0;
-      padding-bottom: $gutter / 2;
+    &-content {
+      @include span-columns(12);
+    }
+  }
 
-      &::before {
-        height: 4px;
-      }
+  &__section-title {
+    @include ko-glow($ko-border-color);
+
+    margin: $gutter 0;
+    padding-bottom: $gutter / 2;
+
+    &::before {
+      height: 4px;
     }
   }
 }

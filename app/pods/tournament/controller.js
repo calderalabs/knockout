@@ -4,10 +4,8 @@ const { Controller } = Ember;
 
 export default Controller.extend({
   queryParams: {
-    filter: 'filter',
-    sortBy: 'sort-by'
+    viewType: 'view'
   },
 
-  filter: null,
-  sortBy: 'recent'
+  viewType: 'timeline'
 });

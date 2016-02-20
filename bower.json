@@ -7,11 +7,11 @@
     "ember-qunit-notifications": "0.1.0",
     "jquery": "1.11.3",
     "pretender": "~0.10.1",
-    "lodash": "~3.7.0",
     "Faker": "~3.0.0",
     "font-awesome": "^4.5.0",
     "neat": "^1.7.2",
-    "ember-data-model-fragments": "2.1.1"
+    "ember-data-model-fragments": "2.1.1",
+    "lodash": "^4.5.0"
   },
   "resolutions": {
     "ember": "2.3.0"

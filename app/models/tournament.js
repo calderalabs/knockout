@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import _ from 'lodash/lodash';
+import _ from 'npm:lodash';
 
 const { Model, hasMany, attr } = DS;
 const { computed } = Ember;

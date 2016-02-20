@@ -1,40 +1,43 @@
 {{#ko-header title=name}}
-  <li class="ko-tournament__sort">
-    {{#power-select
-      class="ko-tournament__sort-select"
-      searchEnabled=false
-      options=sortingOptions
-      selected=sortingOption
-      onchange=(action "selectSortingOption") as |option|}}
-      Sort by: {{option.label}}
-    {{/power-select}}
-  </li>
-
   {{#ko-header/nav-item}}
-    {{#link-to "tournament" id (query-params filter=null)}}All Matches{{/link-to}}
+    {{#link-to "tournament" id (query-params viewType="timeline")}}Timeline{{/link-to}}
   {{/ko-header/nav-item}}
 
   {{#ko-header/nav-item}}
-    {{#link-to "tournament" id (query-params filter="new")}}New{{/link-to}}
+    {{#link-to "tournament" id (query-params viewType="popular")}}Popular{{/link-to}}
   {{/ko-header/nav-item}}
 
   {{#ko-header/nav-item}}
-    {{#link-to "tournament" id (query-params filter="unwatched")}}To Watch{{/link-to}}
-  {{/ko-header/nav-item}}
-
-  {{#ko-header/nav-item}}
-    {{#link-to "tournament" id (query-params filter="saved")}}Saved{{/link-to}}
+    {{#link-to "tournament" id (query-params viewType="unwatched")}}To Watch{{/link-to}}
   {{/ko-header/nav-item}}
 {{/ko-header}}
 
-{{#each timeline as |day|}}
-  <section class="ko-tournament__day">
-    <h1 class="ko-tournament__day-title">{{day.title}}</h1>
+{{#if isShowingTimeline}}
+  {{#each timeline as |day|}}
+    <section class="ko-tournament__day">
+      <h1 class="ko-tournament__section-title">{{day.title}}</h1>
 
-    <ul class="ko-tournament__day-collection-list">
-      {{#each day.collections as |collection|}}
-        {{ko-tournament/collection-list-item collection=collection}}
+      <ul class="ko-tournament__day-collection-list">
+        {{#each day.collections as |collection|}}
+          {{ko-tournament/collection-list-item collection=collection}}
+        {{/each}}
+      </ul>
+    </section>
+  {{/each}}
+{{else}}
+  <section class="ko-tournament__plain-list">
+    <h1 class="ko-tournament__section-title">
+      {{#if isShowingPopular}}
+        Popular
+      {{else}}
+        To Watch
+      {{/if}}
+    </h1>
+
+    <ul class="ko-tournament__plain-list-content">
+      {{#each arrangedMatches as |match|}}
+        {{ko-tournament/plain-list-item match=match}}
       {{/each}}
     </ul>
   </section>
-{{/each}}
+{{/if}}

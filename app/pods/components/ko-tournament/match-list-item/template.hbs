@@ -1,0 +1,31 @@
+{{#link-to "tournaments" class="ko-tournament-match-list-item__link"}}
+  <article class="ko-tournament-match-list-item__content">
+    <div class="ko-tournament-match-list-item__info">
+      <div class="ko-tournament-match-list-item__info-content">
+        Game {{match.matchNumber}}
+      </div>
+    </div>
+
+    <div class="ko-tournament-match-list-item__info">
+      {{#ko-spoiler title="Show Winner"}}
+        <div class="ko-tournament-match-list-item__info-content">
+          {{match.winner.fullName}} Wins
+        </div>
+      {{/ko-spoiler}}
+    </div>
+
+    <div class="ko-tournament-match-list-item__info">
+      <div class="ko-tournament-match-list-item__info-content">
+        {{#ko-badge isPrimary=true}}
+          {{#if match.isWatched}}
+            Watched
+          {{else}}
+            To Watch
+          {{/if}}
+        {{/ko-badge}}
+
+        {{#ko-badge}}{{match.likes}} Likes{{/ko-badge}}
+      </div>
+    </div>
+  </article>
+{{/link-to}}

@@ -1,5 +1,6 @@
 import DS from 'ember-data';
-import _ from 'lodash/lodash';
+import _ from 'npm:lodash';
+import moment from 'moment';
 import Ember from 'ember';
 
 const { Model, belongsTo, attr } = DS;
@@ -12,6 +13,11 @@ export default Model.extend({
   winner: belongsTo('team'),
   matchNumber: attr('number'),
   isWatched: attr('boolean', { defaultValue: false }),
+  startAt: computed.readOnly('matchGroup.startAt'),
+
+  startDay: computed('startAt', function() {
+    return moment(this.get('startAt')).startOf('day').toDate();
+  }),
 
   vod: computed('matchGroup.vods.[]', function() {
     return this.get('matchGroup.vods').objectAt(this.get('matchNumber'));
