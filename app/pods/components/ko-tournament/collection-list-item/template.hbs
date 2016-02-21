@@ -1,13 +1,17 @@
 <article class="ko-tournament-collection-list-item__content">
   <header class="ko-tournament-collection-list-item__header">
     {{#ko-spoiler title="Show Teams" class="ko-tournament-collection-list-item__teams"}}
-      <img class="ko-tournament-collection-list-item__team-logo" src={{teamOneLogo}} />
+      {{#tool-tipster class="ko-tournament-collection-list-item__team-logo" title=teamOneFullName}}
+        <img src={{teamOneLogo}} />
+      {{/tool-tipster}}
 
       {{#ko-spoiler title="Show Score" class="ko-tournament-collection-list-item__score"}}
         {{teamOneScore}} - {{teamTwoScore}}
       {{/ko-spoiler}}
 
-      <img class="ko-tournament-collection-list-item__team-logo" src={{teamTwoLogo}} />
+      {{#tool-tipster class="ko-tournament-collection-list-item__team-logo" title=teamTwoFullName}}
+        <img src={{teamTwoLogo}} />
+      {{/tool-tipster}}
     {{/ko-spoiler}}
 
     <div class="ko-tournament-collection-list-item__stage">{{stage}}</div>

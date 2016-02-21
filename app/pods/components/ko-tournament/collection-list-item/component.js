@@ -13,5 +13,7 @@ export default Component.extend({
   teamTwoLogo: computed.readOnly('matchGroup.teamTwo.logo.w72xh72'),
   teamOneScore: computed.readOnly('matchGroup.teamOneScore'),
   teamTwoScore: computed.readOnly('matchGroup.teamTwoScore'),
+  teamOneFullName: computed.readOnly('matchGroup.teamOne.fullName'),
+  teamTwoFullName: computed.readOnly('matchGroup.teamTwo.fullName'),
   bestOf: computed.readOnly('matchGroup.bestOf')
 });

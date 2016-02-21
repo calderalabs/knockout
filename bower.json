@@ -11,7 +11,8 @@
     "font-awesome": "^4.5.0",
     "neat": "^1.7.2",
     "ember-data-model-fragments": "2.1.1",
-    "lodash": "^4.5.0"
+    "lodash": "^4.5.0",
+    "tooltipster": "^3.3.0"
   },
   "resolutions": {
     "ember": "2.3.0"
