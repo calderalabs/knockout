@@ -1,20 +1,16 @@
 .ko-tournament-plain-list-item {
   @include span-columns(12);
-  margin-bottom: $gutter / 8;
+
   &__content {
     @include span-columns(12);
+    margin-bottom: $gutter / 2;
   }
 
   &__header {
     @include span-columns(4);
     @include ko-list-item;
 
-    padding: $gutter / 3 0;
-
-    &-content {
-      display: table;
-      width: 100%;
-    }
+    padding: $gutter / 2;
   }
 
   &__match-list-item {
@@ -23,8 +19,6 @@
 
   &__teams,
   &__stage {
-    @include span-columns(6, $display: table);
-
     text-transform: uppercase;
     text-align: center;
   }
@@ -34,20 +28,28 @@
     &-separator {
       display: inline-block;
       vertical-align: middle;
-      padding: $gutter / 3 0;
     }
 
     &-separator {
-      font-weight: bolder;
+      margin: 0 2px;
+    }
+  }
+
+  &__teams {
+    font-size: 1.2rem;
+
+
+    &-content {
+      display: inline-block;
+      width: 50%;
+      line-height: 30px;
+
     }
   }
 
   &__stage {
-    font-size: 0.9rem;
     color: $ko-border-color;
-
-    &-content {
-      padding: $gutter / 3 0;
-    }
+    font-size: 0.9rem;
+    line-height: 30px;
   }
 }

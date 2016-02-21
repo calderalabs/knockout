@@ -30,12 +30,12 @@ export default Component.extend({
   timeline: computed('_filteredMatches', function() {
     return _
       .chain(this.get('_filteredMatches'))
-      .groupBy(_.partialRight(get, 'startDay'))
+      .groupBy((m) => m.get('startDay').getTime())
       .reduce(function(memo, matches, startDay) {
         return memo.concat({
           _startDay: startDay,
 
-          title: moment(startDay).calendar(null, {
+          title: moment(parseInt(startDay, 10)).calendar(null, {
             sameDay: '[Today]',
             nextDay: '[Tomorrow]',
             nextWeek: '[Next] dddd',

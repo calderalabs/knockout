@@ -1,7 +1,7 @@
 <article class="ko-tournament-plain-list-item__content">
   <header class="ko-tournament-plain-list-item__header">
-    <div class="ko-tournament-plain-list-item__header-content">
-      {{#ko-spoiler title="Show Teams" class="ko-tournament-plain-list-item__teams"}}
+    <div class="ko-tournament-plain-list-item__teams">
+      {{#ko-spoiler title="Show Teams" class="ko-tournament-plain-list-item__teams-content"}}
         {{#tool-tipster title=teamOneFullName class="ko-tournament-plain-list-item__team-name"}}
           {{teamOneShortName}}
         {{/tool-tipster}}
@@ -12,13 +12,9 @@
           {{teamTwoShortName}}
         {{/tool-tipster}}
       {{/ko-spoiler}}
-
-      <div class="ko-tournament-plain-list-item__stage">
-        <div class="ko-tournament-plain-list-item__stage-content">
-          {{stage}}
-        </div>
-      </div>
     </div>
+
+    <div class="ko-tournament-plain-list-item__stage">{{stage}}</div>
   </header>
 
   {{ko-tournament/match-list-item
