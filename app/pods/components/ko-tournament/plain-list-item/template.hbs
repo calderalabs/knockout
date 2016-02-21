@@ -1,1 +1,25 @@
-{{ko-tournament/match-list-item match=match}}
+<article class="ko-tournament-plain-list-item__content">
+  <header class="ko-tournament-plain-list-item__header">
+    <div class="ko-tournament-plain-list-item__header-content">
+      {{#ko-spoiler title="Show Teams" class="ko-tournament-plain-list-item__teams"}}
+        <div class="ko-tournament-plain-list-item__team-name"
+             title={{teamOneFullName}}>{{teamOneShortName}}</div>
+
+        <div class="ko-tournament-plain-list-item__team-separator">vs</div>
+        
+        <div class="ko-tournament-plain-list-item__team-name"
+             title={{teamTwoFullName}}>{{teamTwoShortName}}</div>
+      {{/ko-spoiler}}
+
+      <div class="ko-tournament-plain-list-item__stage">
+        <div class="ko-tournament-plain-list-item__stage-content">
+          {{stage}}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{ko-tournament/match-list-item
+    match=match
+    class="ko-tournament-plain-list-item__match-list-item"}}
+</article>

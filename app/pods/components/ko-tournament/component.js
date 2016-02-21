@@ -13,14 +13,18 @@ export default Component.extend({
   isShowingTimeline: computed.equal('viewType', 'timeline'),
   isShowingPopular: computed.equal('viewType', 'popular'),
 
-  arrangedMatches: computed('_filteredMatches', function() {
+  arrangedMatches: computed('_filteredMatches', 'viewType', function() {
     const filteredMatches = this.get('_filteredMatches');
 
     if (this.get('viewType') === 'popular') {
-      return _.orderBy(filteredMatches, ['likes', 'startAt'], ['desc', 'desc']);
+      return _.orderBy(
+        filteredMatches,
+        [_.partialRight(get, 'likes'), _.partialRight(get, 'startAt')],
+        ['desc', 'desc']
+      );
     }
 
-    return _.orderBy(filteredMatches, ['startAt'], ['desc']);
+    return _.orderBy(filteredMatches, [_.partialRight(get, 'startAt')], ['desc']);
   }),
 
   timeline: computed('_filteredMatches', function() {

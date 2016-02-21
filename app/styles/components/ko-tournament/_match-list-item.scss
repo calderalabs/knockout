@@ -11,7 +11,7 @@
     display: block;
     height: 100%;
     position: relative;
-    padding: $gutter / 4 0;
+    padding: $gutter / 3 0;
 
     &::after {
       @include ko-list-item($ko-active-color);
@@ -50,7 +50,11 @@
     text-transform: uppercase;
 
     &-content {
-      padding: $gutter / 4 0;
+      padding: $gutter / 3 0;
     }
+  }
+
+  &__badge {
+    padding: 0 4px;
   }
 }

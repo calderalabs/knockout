@@ -16,7 +16,7 @@
 
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        {{#ko-badge isPrimary=true}}
+        {{#ko-badge isPrimary=true class="ko-tournament-match-list-item__badge"}}
           {{#if match.isWatched}}
             Watched
           {{else}}
@@ -24,7 +24,9 @@
           {{/if}}
         {{/ko-badge}}
 
-        {{#ko-badge}}{{match.likes}} Likes{{/ko-badge}}
+        {{#ko-badge class="ko-tournament-match-list-item__badge"}}
+          {{match.likes}} Likes
+        {{/ko-badge}}
       </div>
     </div>
   </article>
