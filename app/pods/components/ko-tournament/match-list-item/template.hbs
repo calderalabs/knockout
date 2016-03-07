@@ -1,15 +1,15 @@
-{{#link-to "tournaments" class="ko-tournament-match-list-item__link"}}
+<div class="ko-tournament-match-list-item__link" onclick={{action onWatch match}}>
   <article class="ko-tournament-match-list-item__content">
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        Game {{match.matchNumber}}
+        Game {{matchNumber}}
       </div>
     </div>
 
     <div class="ko-tournament-match-list-item__info">
       {{#ko-spoiler title="Show Winner"}}
         <div class="ko-tournament-match-list-item__info-content">
-          {{match.winner.fullName}} Wins
+          {{winnerFullName}} Wins
         </div>
       {{/ko-spoiler}}
     </div>
@@ -17,7 +17,7 @@
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
         {{#ko-badge isPrimary=true class="ko-tournament-match-list-item__badge"}}
-          {{#if match.isWatched}}
+          {{#if isWatched}}
             Watched
           {{else}}
             To Watch
@@ -25,9 +25,9 @@
         {{/ko-badge}}
 
         {{#ko-badge class="ko-tournament-match-list-item__badge"}}
-          {{match.likes}} Likes
+          {{likes}} Likes
         {{/ko-badge}}
       </div>
     </div>
   </article>
-{{/link-to}}
+</div>

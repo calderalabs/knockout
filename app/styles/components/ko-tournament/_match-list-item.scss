@@ -12,6 +12,7 @@
     height: 100%;
     position: relative;
     padding: $gutter / 3 0;
+    cursor: pointer;
 
     &::after {
       @include ko-list-item($ko-active-color);

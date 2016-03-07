@@ -1,9 +1,10 @@
 import Ember from 'ember';
 import _ from 'npm:lodash';
 
-const { Component, computed, get } = Ember;
+const { Component, computed, get, inject } = Ember;
 
 export default Component.extend({
+  player: inject.service(),
   tagName: 'section',
   classNames: ['ko-tournament'],
   tournament: null,
@@ -70,5 +71,13 @@ export default Component.extend({
     }
 
     return matches;
-  })
+  }),
+
+  actions: {
+    watch(match) {
+      this.get('player').startPlaying(match, {
+        playlist: this.get('tournament.matches')
+      });
+    }
+  }
 });

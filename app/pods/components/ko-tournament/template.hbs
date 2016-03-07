@@ -19,7 +19,7 @@
 
       <ul class="ko-tournament__day-collection-list">
         {{#each day.collections as |collection|}}
-          {{ko-tournament/collection-list-item collection=collection}}
+          {{ko-tournament/collection-list-item collection=collection onWatch=(action "watch")}}
         {{/each}}
       </ul>
     </section>
@@ -36,7 +36,7 @@
 
     <ul class="ko-tournament__plain-list-content">
       {{#each arrangedMatches as |match|}}
-        {{ko-tournament/plain-list-item match=match}}
+        {{ko-tournament/plain-list-item match=match onWatch=(action "watch")}}
       {{/each}}
     </ul>
   </section>

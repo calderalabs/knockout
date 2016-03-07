@@ -6,6 +6,7 @@ $ko-application-header-height: 5em;
   position: absolute;
   right: 0;
   top: 0;
+  overflow: auto;
 
   &__content, &__header {
     @include outer-container;
@@ -56,5 +57,14 @@ $ko-application-header-height: 5em;
 
   &__content {
     padding: $ko-application-header-height + $gutter $gutter $gutter $gutter;
+  }
+
+  &__player {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
   }
 }

@@ -1,0 +1,9 @@
+<header class="ko-player__header">
+  <h1 class="ko-player__title">
+    {{#tool-tipster title=(concat stage ", " tournamentName)}}
+      {{teamOneFullName}} vs {{teamTwoFullName}} game {{matchNumber}}
+    {{/tool-tipster}}
+  </h1>
+
+  <div class="ko-player__close" onclick={{action "close"}}><a>Close</a></div>
+</header>

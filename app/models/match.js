@@ -8,11 +8,9 @@ const { computed } = Ember;
 
 export default Model.extend({
   matchGroup: belongsTo('match-group'),
-  teamOne: belongsTo('team'),
-  teamTwo: belongsTo('team'),
   winner: belongsTo('team'),
   matchNumber: attr('number'),
-  isWatched: attr('boolean', { defaultValue: false }),
+  isWatched: false,
   startAt: computed.readOnly('matchGroup.startAt'),
 
   startDay: computed('startAt', function() {

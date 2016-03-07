@@ -24,4 +24,8 @@
 
 <main class="ko-application__content">
   {{yield}}
+
+  {{#if isPlaying}}
+    {{ko-player player=player class="ko-application__player"}}
+  {{/if}}
 </main>
