@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 import MF from 'model-fragments';
 import Ember from 'ember';
+import _ from 'npm:lodash';
 
 const { Model, belongsTo, hasMany, attr } = DS;
 const { computed } = Ember;
@@ -15,7 +16,7 @@ export default Model.extend({
   matches: hasMany('match'),
   startAt: attr('date'),
 
-  stage: attr('string', { defaultValue: function() {
+  stage: attr('string', { defaultValue() {
     return _.sample(['Group Stages', 'Qualifiers', 'Main Event', 'Finals']);
   } }),
 

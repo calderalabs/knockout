@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import _ from 'npm:lodash';
+import moment from 'moment';
 
 const { Component, computed, get, inject } = Ember;
 

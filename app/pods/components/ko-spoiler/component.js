@@ -14,4 +14,4 @@ export default Component.extend({
       this.set('isRevealed', true);
     }
   }
-})
+});

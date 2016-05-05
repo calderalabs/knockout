@@ -9,11 +9,11 @@ export default Model.extend({
   name: attr('string'),
   matchGroups: hasMany('match-group'),
 
-  game: attr('string', { defaultValue: function() {
+  game: attr('string', { defaultValue() {
     return _.sample(['dota2', 'lol', 'hearthstone', 'csgo', 'sc2']);
   } }),
 
-  stage: attr('string', { defaultValue: function() {
+  stage: attr('string', { defaultValue() {
     return _.sample(['Group Stages', 'Qualifiers', 'Main Event', 'Finals']);
   } }),
 

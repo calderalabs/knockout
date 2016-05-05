@@ -9,7 +9,7 @@ const { computed } = Ember;
 export default Model.extend({
   matchGroup: belongsTo('match-group'),
   winner: belongsTo('team'),
-  matchNumber: attr('number'),
+  number: attr('number'),
   isWatched: false,
   startAt: computed.readOnly('matchGroup.startAt'),
 
@@ -21,7 +21,7 @@ export default Model.extend({
     return this.get('matchGroup.vods').objectAt(this.get('matchNumber'));
   }),
 
-  likes: attr('number', { defaultValue: function() {
+  likes: attr('number', { defaultValue() {
     return _.random(0, 1000);
   } })
 });
