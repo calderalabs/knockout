@@ -53,7 +53,7 @@ export default Component.extend({
               return memo.concat({
                 _matchGroupId: matchGroupId,
                 matchGroup: matches[0].get('matchGroup'),
-                matches: matches.sortBy('matchNumber')
+                matches: matches.sortBy('number')
               });
             }, [])
             .value()

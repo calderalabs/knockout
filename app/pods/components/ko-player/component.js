@@ -12,7 +12,7 @@ export default Component.extend(VelocityMixin, {
   teamTwoFullName: computed.readOnly('_matchGroup.teamTwo.fullName'),
   stage: computed.readOnly('_matchGroup.stage'),
   tournamentName: computed.readOnly('_matchGroup.tournament.name'),
-  matchNumber: computed.readOnly('player.match.matchNumber'),
+  matchNumber: computed.readOnly('player.match.number'),
   _matchGroup: computed.readOnly('player.match.matchGroup'),
 
   animateOpacity: on('didInsertElement', function() {

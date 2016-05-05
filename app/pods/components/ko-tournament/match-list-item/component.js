@@ -7,7 +7,7 @@ export default Component.extend({
   classNames: ['ko-tournament-match-list-item'],
   match: null,
   onWatch: null,
-  matchNumber: computed.readOnly('match.matchNumber'),
+  number: computed.readOnly('match.number'),
   winnerFullName: computed.readOnly('match.winner.fullName'),
   isWatched: computed.readOnly('match.isWatched'),
   likes: computed.readOnly('match.likes')

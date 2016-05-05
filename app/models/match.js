@@ -18,7 +18,7 @@ export default Model.extend({
   }),
 
   vod: computed('matchGroup.vods.[]', function() {
-    return this.get('matchGroup.vods').objectAt(this.get('matchNumber'));
+    return this.get('matchGroup.vods').objectAt(this.get('number'));
   }),
 
   likes: attr('number', { defaultValue() {
