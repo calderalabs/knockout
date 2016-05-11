@@ -1,5 +1,10 @@
 import Mirage, { faker } from 'ember-cli-mirage';
 
-export default Mirage.Factory.extend({
-  name: faker.commerce.productName
+const { Factory } = Mirage;
+const { image, commerce } = faker;
+
+export default Factory.extend({
+  'short-name': commerce.productName,
+  'full-name': commerce.productName,
+  logo: image.avatar
 });

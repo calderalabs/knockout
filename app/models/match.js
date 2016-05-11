@@ -1,5 +1,4 @@
 import DS from 'ember-data';
-import _ from 'npm:lodash';
 import moment from 'moment';
 import Ember from 'ember';
 
@@ -7,10 +6,11 @@ const { Model, belongsTo, attr } = DS;
 const { computed } = Ember;
 
 export default Model.extend({
+  number: attr('number'),
+  likes: attr('number'),
+  isWatched: false,
   matchGroup: belongsTo('match-group'),
   winner: belongsTo('team'),
-  number: attr('number'),
-  isWatched: false,
   startAt: computed.readOnly('matchGroup.startAt'),
 
   startDay: computed('startAt', function() {
@@ -18,10 +18,6 @@ export default Model.extend({
   }),
 
   vod: computed('matchGroup.vods.[]', function() {
-    return this.get('matchGroup.vods').objectAt(this.get('number'));
-  }),
-
-  likes: attr('number', { defaultValue() {
-    return _.random(0, 1000);
-  } })
+    return this.get('matchGroup.vods').objectAt(this.get('number') - 1);
+  })
 });

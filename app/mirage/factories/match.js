@@ -1,3 +1,9 @@
-import Mirage from 'ember-cli-mirage';
+import Mirage, { faker } from 'ember-cli-mirage';
 
-export default Mirage.Factory.extend();
+const { Factory } = Mirage;
+const { random, list } = faker;
+
+export default Factory.extend({
+  'number': list.cycle(1, 2, 3, 4, 5),
+  'likes': () => random.number(1000)
+});

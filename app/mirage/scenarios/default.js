@@ -1,28 +1,27 @@
 import { faker } from 'ember-cli-mirage';
+import _ from 'npm:lodash';
 
-const { random } = faker;
+const { list } = faker;
 
 export default function(server) {
-  const teams = server.createList('team', 2);
+  server.createList('tournament', 10).forEach(function(tournament) {
+    const teams = list.cycle(...server.createList('team', 5));
 
-  const tournaments = server.createList('tournament', 15, {
-    'team_ids': teams.mapBy('id')
-  });
-
-  tournaments.forEach(function(tournament) {
-    const matchGroups = server.createList('match-group', 5, {
-      'team_one_id': teams[0].id,
-      'team_two_id': teams[1].id,
-      'tournament_id': tournament.id
-    });
-
-    matchGroups.forEach(function(matchGroup) {
-      server.createList('match', random.number({ min: 1, max: matchGroup.bestOf }), {
-        'match_group_id': matchGroup.id,
-        'winner_id': () => random.arrayElement(teams).id,
-        'team_one_id': teams[0].id,
-        'team_two_id': teams[1].id
+    _.range(10).map(function(i) {
+      return server.create('match-group', {
+        'tournament_id': tournament.id,
+        'team_one_id': teams(i).id,
+        'team_two_id': teams(i + 1).id
       });
+    }).forEach(function(matchGroup) {
+      const winnerIndex = list.cycle(0, 1);
+
+      _.range(3).map(function(i) {
+        return server.create('match', {
+          'match_group_id': matchGroup.id,
+          'winner_id': [matchGroup['team_one_id'], matchGroup['team_two_id']][winnerIndex(i)]
+        });
+      })
     });
   });
 }

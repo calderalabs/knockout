@@ -1,11 +1,9 @@
 import Mirage, { faker } from 'ember-cli-mirage';
 
-const { random } = faker;
+const { Factory } = Mirage;
+const { list, commerce } = faker;
 
-export default Mirage.Factory.extend({
-  name: faker.commerce.productName,
-
-  game() {
-    return random.arrayElement(['dota2', 'lol', 'hearthstone', 'csgo', 'sc2']);
-  }
+export default Factory.extend({
+  'name': commerce.productName,
+  'game': list.cycle('dota2', 'lol', 'hearthstone', 'csgo', 'sc2')
 });
