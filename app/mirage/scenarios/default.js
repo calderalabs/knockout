@@ -9,17 +9,17 @@ export default function(server) {
 
     _.range(10).map(function(i) {
       return server.create('match-group', {
-        'tournament_id': tournament.id,
-        'team_one_id': teams(i).id,
-        'team_two_id': teams(i + 1).id
+        tournament_id: tournament.id,
+        team_one_id: teams(i).id,
+        team_two_id: teams(i + 1).id
       });
     }).forEach(function(matchGroup) {
-      const winnerIndex = list.cycle(0, 1);
+      const winnerId = list.cycle(matchGroup.team_one_id, matchGroup.team_two_id);
 
-      _.range(3).map(function(i) {
+      _.range(matchGroup['best-of']).map(function(i) {
         return server.create('match', {
-          'match_group_id': matchGroup.id,
-          'winner_id': [matchGroup['team_one_id'], matchGroup['team_two_id']][winnerIndex(i)]
+          match_group_id: matchGroup.id,
+          winner_id: winnerId(i)
         });
       })
     });

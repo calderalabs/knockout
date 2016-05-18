@@ -1,6 +1,8 @@
 .ko-player {
   background: $ko-background-color;
   opacity: 0;
+  display: flex;
+  flex-direction: column;
 
   &__close {
     @include span-columns(2);
@@ -10,9 +12,7 @@
   }
 
   &__header {
-    @include span-columns(12);
     @include ko-list-item;
-
     padding: $gutter;
   }
 
@@ -21,5 +21,12 @@
     @include shift(2);
 
     text-align: center;
+  }
+
+  &__vod {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

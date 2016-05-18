@@ -2,7 +2,11 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 const { Model, hasMany, attr } = DS;
-const { computed } = Ember;
+const { computed, ObjectProxy } = Ember;
+
+const MatchGroup = ObjectProxy.extend({
+  matchesArray: computed.readOnly('matches.[]')
+});
 
 export default Model.extend({
   name: attr('string'),
@@ -13,9 +17,13 @@ export default Model.extend({
     return this.get('game').replace(/-/g, ' ').capitalize();
   }),
 
-  matches: computed('matchGroups.@each.matches.[]', function() {
-    return this.get('matchGroups').reduce(function(memo, matchGroup) {
+  matches: computed('_matchGroups.@each.matchesArray', function() {
+    return this.get('_matchGroups').reduce(function(memo, matchGroup) {
       return memo.concat(matchGroup.get('matches').toArray());
     }, []);
+  }),
+
+  _matchGroups: computed.map('matchGroups', function(matchGroup) {
+    return MatchGroup.create({ content: matchGroup });
   })
 });

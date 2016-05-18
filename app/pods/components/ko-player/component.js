@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import VelocityMixin from 'ember-velocity-mixin/main';
 
-const { Component, on, computed } = Ember;
+const { Component, computed } = Ember;
 const TRANSITION_DURATION = 200;
 
 export default Component.extend(VelocityMixin, {
@@ -13,13 +13,18 @@ export default Component.extend(VelocityMixin, {
   matchNumber: computed.readOnly('player.match.number'),
   _matchGroup: computed.readOnly('player.match.matchGroup'),
 
+  vodComponentName: computed('player.match.vod.type', function() {
+    return `ko-player/${this.get('player.match.vod.type')}-vod`;
+  }),
+
   title: computed('_matchGroup.stage', '_matchGroup.tournament.name', function() {
     return `${this.get('_matchGroup.stage')}, ${this.get('_matchGroup.tournament.name')}`;
   }).readOnly(),
 
-  animateOpacity: on('didInsertElement', function() {
+  didInsertElement() {
+    this._super(...arguments);
     this.animate({ opacity: 1 }, TRANSITION_DURATION);
-  }),
+  },
 
   actions: {
     close() {

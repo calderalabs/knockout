@@ -6,5 +6,5 @@ const { image, commerce } = faker;
 export default Factory.extend({
   'short-name': commerce.productName,
   'full-name': commerce.productName,
-  logo: image.avatar
+  'logo-url': image.avatar
 });

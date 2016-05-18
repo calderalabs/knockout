@@ -4,6 +4,6 @@ const { Factory } = Mirage;
 const { list, commerce } = faker;
 
 export default Factory.extend({
-  'name': commerce.productName,
-  'game': list.cycle('dota2', 'lol', 'hearthstone', 'csgo', 'sc2')
+  name: commerce.productName,
+  game: list.cycle('dota2', 'lol', 'hearthstone', 'csgo', 'sc2')
 });

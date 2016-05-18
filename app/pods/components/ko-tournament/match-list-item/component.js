@@ -10,5 +10,5 @@ export default Component.extend({
   number: computed.readOnly('match.number'),
   winnerFullName: computed.readOnly('match.winner.fullName'),
   isWatched: computed.readOnly('match.isWatched'),
-  likes: computed.readOnly('match.likes')
+  likeCount: computed.readOnly('match.likeCount')
 });
