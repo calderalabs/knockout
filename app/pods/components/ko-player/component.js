@@ -10,12 +10,10 @@ export default Component.extend(VelocityMixin, {
   player: null,
   teamOneFullName: computed.readOnly('_matchGroup.teamOne.fullName'),
   teamTwoFullName: computed.readOnly('_matchGroup.teamTwo.fullName'),
-  matchNumber: computed.readOnly('player.match.number'),
-  _matchGroup: computed.readOnly('player.match.matchGroup'),
-
-  vodComponentName: computed('player.match.vod.type', function() {
-    return `ko-player/${this.get('player.match.vod.type')}-vod`;
-  }),
+  matchNumber: computed.readOnly('_match.number'),
+  vodUrl: computed.readOnly('_match.vod.url'),
+  _matchGroup: computed.readOnly('_match.matchGroup'),
+  _match: computed.readOnly('player.match'),
 
   title: computed('_matchGroup.stage', '_matchGroup.tournament.name', function() {
     return `${this.get('_matchGroup.stage')}, ${this.get('_matchGroup.tournament.name')}`;

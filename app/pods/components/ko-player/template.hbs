@@ -8,6 +8,4 @@
   <div class="ko-player__close" onclick={{action "close"}}><a>Close</a></div>
 </header>
 
-<div class="ko-player__vod">
-  {{component vodComponentName vod=vod}}
-</div>
+<iframe class="ko-player__vod" src={{vodUrl}} width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>

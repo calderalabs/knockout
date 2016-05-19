@@ -8,10 +8,10 @@ export default Factory.extend({
   'like-count': () => random.number(1000),
 
   vod: list.cycle({
-    url: 'https://www.youtube.com/watch?v=Tu6gSIbzu6I',
+    url: 'https://www.youtube.com/embed/Tu6gSIbzu6I',
     type: 'youtube'
   }, {
-    url: 'https://www.twitch.tv/epicenter_en1/v/65974973?t=04h28m55s',
+    url: 'https://player.twitch.tv/?video=v65974973&t=04h28m55s',
     type: 'twitch'
   })
 });
