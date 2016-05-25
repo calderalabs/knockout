@@ -1,13 +1,7 @@
 .ko-header-nav-item {
   @include ko-badge($ko-text-color);
 
-  > a {
-    &.active {
-      color: $ko-action-color;
-    }
-
-    &::before {
-      display: none;
-    }
+  > .active {
+    color: $ko-action-color;
   }
 }

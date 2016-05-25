@@ -30,14 +30,11 @@ $ko-application-header-height: 5em;
 
   &__title {
     @include span-columns(2);
+    text-transform: uppercase;
 
     &-link {
       &-primary {
         color: $ko-action-color;
-      }
-
-      &::before {
-        display: none;
       }
     }
   }

@@ -34,3 +34,28 @@
     transition: opacity 200ms;
 	}
 }
+
+@mixin ko-actionable-glow($color: $ko-action-color) {
+  @include ko-glow($color);
+
+  cursor: pointer;
+  position: relative;
+  transition: color 200ms;
+  text-transform: uppercase;
+
+  &::before {
+    opacity: 0;
+  }
+
+  &:hover {
+    @include ko-actionable-glow-hover;
+  }
+}
+
+@mixin ko-actionable-glow-hover {
+  color: #fff;
+
+  &::before {
+    opacity: 1;
+  }
+}

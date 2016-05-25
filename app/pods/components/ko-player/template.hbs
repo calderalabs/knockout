@@ -1,11 +1,11 @@
 <header class="ko-player__header">
-  <h1 class="ko-player__title">
+  <h1 class="ko-player__title ko-title">
     {{#tool-tipster title=title}}
       {{teamOneFullName}} vs {{teamTwoFullName}} game {{matchNumber}}
     {{/tool-tipster}}
   </h1>
 
-  <div class="ko-player__close" onclick={{action "close"}}><a>Close</a></div>
+  <div class="ko-player__close"><a class="ko-link" onclick={{action "close"}}>Close</a></div>
 </header>
 
 <iframe class="ko-player__vod" src={{vodUrl}} width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>

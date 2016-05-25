@@ -9,13 +9,13 @@
     <nav class="ko-application__nav">
       <ul>
         <li class="ko-application__nav-item">
-          {{#link-to "tournaments" class="ko-application__nav-link"}}
+          {{#link-to "tournaments" class="ko-application__nav-link ko-link"}}
             Tournaments
           {{/link-to}}
         </li>
 
         <li class="ko-application__nav-item">
-          <a class="ko-application__nav-link">Following</a>
+          <a class="ko-application__nav-link ko-link">Following</a>
         </li>
       </ul>
     </nav>
@@ -24,7 +24,7 @@
       {{#if isAuthenticated}}
         {{currentUserName}}
       {{else}}
-        <a onclick={{action "login"}}>Login</a>
+        <a class="ko-link" onclick={{action "login"}}>Login</a>
       {{/if}}
     </div>
   </div>
