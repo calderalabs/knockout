@@ -1,5 +1,6 @@
 import _ from 'npm:lodash';
 import Ember from 'ember';
+import ENV from 'knockout/config/environment';
 
 const { assign } = Object;
 const { isEmpty } = Ember;
@@ -31,6 +32,8 @@ function buildResource(type, data, relationships = []) {
 }
 
 export default function() {
+  this.passthrough(`https://${ENV['auth0-ember-simple-auth'].domain}/**`);
+
   this.get('/tournaments', function(db) {
     const tournaments = db.tournaments.map(function(tournament) {
       return buildResource('tournaments', tournament);
@@ -40,15 +43,15 @@ export default function() {
       return buildResource('match-groups', matchGroup, [{
         name: 'tournament',
         type: 'tournaments',
-        data: db.tournaments.find(matchGroup.tournament_id)
+        data: db.tournaments.find(matchGroup.tournamentId)
       }, {
         name: 'team-one',
         type: 'teams',
-        data: db.teams.find(matchGroup.team_one_id)
+        data: db.teams.find(matchGroup.teamOneId)
       }, {
         name: 'team-two',
         type: 'teams',
-        data: db.teams.find(matchGroup.team_two_id)
+        data: db.teams.find(matchGroup.teamTwoId)
       }]);
     });
 
@@ -56,11 +59,11 @@ export default function() {
       return buildResource('matches', match, [{
         name: 'match-group',
         type: 'match-groups',
-        data: db['match-groups'].find(match.match_group_id)
+        data: db['match-groups'].find(match.matchGroupId)
       }, {
         name: 'winner',
         type: 'teams',
-        data: db.teams.find(match.winner_id)
+        data: db.teams.find(match.winnerId)
       }]);
     });
 
@@ -77,40 +80,40 @@ export default function() {
   this.get('/tournaments/:id', function(db, request) {
     const tournament = buildResource('tournaments', db.tournaments.find(request.params.id));
 
-    const matchGroups = db['match-groups'].where({ tournament_id: tournament.id }).map(function(matchGroup) {
+    const matchGroups = db['match-groups'].where({ tournamentId: tournament.id }).map(function(matchGroup) {
       return buildResource('match-groups', matchGroup, [{
         name: 'tournament',
         type: 'tournaments',
-        data: db.tournaments.find(matchGroup.tournament_id)
+        data: db.tournaments.find(matchGroup.tournamentId)
       }, {
         name: 'team-one',
         type: 'teams',
-        data: db.teams.find(matchGroup.team_one_id)
+        data: db.teams.find(matchGroup.teamOneId)
       }, {
         name: 'team-two',
         type: 'teams',
-        data: db.teams.find(matchGroup.team_two_id)
+        data: db.teams.find(matchGroup.teamTwoId)
       }]);
     });
 
     const matches = _.flatten(matchGroups.map(function(matchGroup) {
-      return db.matches.where({ match_group_id: matchGroup.id }).map(function(match) {
+      return db.matches.where({ matchGroupId: matchGroup.id }).map(function(match) {
         return buildResource('matches', match, [{
           name: 'match-group',
           type: 'match-groups',
-          data: db['match-groups'].find(match.match_group_id)
+          data: db['match-groups'].find(match.matchGroupId)
         }, {
           name: 'winner',
           type: 'teams',
-          data: db.teams.find(match.winner_id)
+          data: db.teams.find(match.winnerId)
         }]);
       });
     }));
 
     const teams = _.flatten(matchGroups.map(function(matchGroup) {
       return db.teams.find([
-        matchGroup.attributes.team_one_id,
-        matchGroup.attributes.team_two_id
+        matchGroup.attributes.teamOneId,
+        matchGroup.attributes.teamTwoId
       ]).map(function(team) {
         return buildResource('teams', team);
       });
@@ -120,5 +123,9 @@ export default function() {
       data: tournament,
       included: _.flatten([matchGroups, matches, teams])
     };
+  });
+
+  this.get('/users/:id', function(db, request) {
+    return { data: buildResource('users', db.users.find(request.params.id)) };
   });
 }

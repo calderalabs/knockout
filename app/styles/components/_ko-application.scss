@@ -43,7 +43,7 @@ $ko-application-header-height: 5em;
   }
 
   &__nav {
-    @include span-columns(10);
+    @include span-columns(8);
 
     &-item {
       display: inline-block;
@@ -53,6 +53,11 @@ $ko-application-header-height: 5em;
     &-link {
       vertical-align: middle;
     }
+  }
+
+  &__session {
+    @include span-columns(2);
+    text-align: right;
   }
 
   &__content {

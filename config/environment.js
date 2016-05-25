@@ -7,6 +7,7 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -17,6 +18,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    'ember-cli-mirage': {
+      enabled: true
+    },
+
+    'auth0-ember-simple-auth': {
+      clientID: 'he3Ottq1UOvvw2NkkSNTtJTRwzmA3Fxx',
+      domain: 'calderalabs.eu.auth0.com'
     }
   };
 

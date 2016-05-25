@@ -19,6 +19,14 @@
         </li>
       </ul>
     </nav>
+
+    <div class="ko-application__session">
+      {{#if isAuthenticated}}
+        {{currentUserName}}
+      {{else}}
+        <a onclick={{action "login"}}>Login</a>
+      {{/if}}
+    </div>
   </div>
 </header>
 

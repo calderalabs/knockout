@@ -4,7 +4,6 @@
   &--revealed > &__overlay {
     opacity: 0;
     pointer-events: none;
-    filter: blur(20px);
   }
 
   &:hover > &__overlay {
@@ -25,11 +24,10 @@
     right: 0;
     bottom: 0;
     cursor: pointer;
-    transition: filter 800ms, opacity 800ms;
+    transition: opacity 800ms;
     font-size: 1rem;
     font-weight: lighter;
     z-index: 1;
-    filter: none;
     transform: rotateZ(0);
   }
 

@@ -1,19 +1,18 @@
 {
   "name": "knockout",
   "dependencies": {
-    "ember": "2.3.0",
-    "ember-cli-shims": "0.1.0",
+    "ember": "^2.5.1",
+    "ember-cli-shims": "0.1.1",
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
-    "jquery": "1.11.3",
-    "pretender": "~0.10.1",
+    "jquery": "^1.12.4",
+    "pretender": "^1.1.0",
     "Faker": "~3.0.0",
     "font-awesome": "^4.5.0",
     "neat": "^1.7.2",
     "lodash": "^4.5.0",
-    "tooltipster": "^3.3.0"
-  },
-  "resolutions": {
-    "ember": "2.3.0"
+    "tooltipster": "^3.3.0",
+    "auth0-lock": "^9.2.1",
+    "jsrsasign": "^5.0.12"
   }
 }
