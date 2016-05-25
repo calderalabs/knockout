@@ -9,8 +9,7 @@ export default SessionService.extend({
 
   fetchCurrentUser() {
     if (this.get('isAuthenticated')) {
-      debugger;
-      return this.get('store').findRecord('user', this.get('data.user_id')).then((user) => {
+      return this.get('store').findRecord('user', this.get('data.authenticated.profile.user_id')).then((user) => {
         this.set('currentUser', user);
       });
     }

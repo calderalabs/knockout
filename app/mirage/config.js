@@ -1,6 +1,7 @@
 import _ from 'npm:lodash';
 import Ember from 'ember';
 import ENV from 'knockout/config/environment';
+import { faker } from 'ember-cli-mirage';
 
 const { assign } = Object;
 const { isEmpty } = Ember;
@@ -126,6 +127,10 @@ export default function() {
   });
 
   this.get('/users/:id', function(db, request) {
-    return { data: buildResource('users', db.users.find(request.params.id)) };
+    return {
+      data: buildResource('users', db.users.firstOrCreate({ id: request.params.id }, {
+        name: faker.name.findName()
+      }))
+    };
   });
 }

@@ -4,8 +4,6 @@ import _ from 'npm:lodash';
 const { list } = faker;
 
 export default function(server) {
-  server.create('user');
-
   server.createList('tournament', 10).forEach(function(tournament) {
     const teams = list.cycle(...server.createList('team', 5));
 

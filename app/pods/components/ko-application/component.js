@@ -16,6 +16,10 @@ export default Component.extend({
       this.get('session').authenticate('simple-auth-authenticator:lock', {
         authParams: { scope: 'openid' }
       });
+    },
+
+    logout() {
+      this.get('session').invalidate();
     }
   }
 });
