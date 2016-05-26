@@ -6,28 +6,36 @@
       {{/link-to}}
     </h1>
 
-    <nav class="ko-application__nav">
-      <ul>
-        <li class="ko-application__nav-item">
-          {{#link-to "tournaments" class="ko-application__nav-link ko-link"}}
-            Tournaments
-          {{/link-to}}
-        </li>
+    {{#unless isLoading}}
+      <nav class="ko-application__nav">
+        <ul>
+          <li class="ko-application__nav-item">
+            {{#link-to "tournaments" class="ko-application__nav-link ko-link"}}
+              Tournaments
+            {{/link-to}}
+          </li>
 
-        <li class="ko-application__nav-item">
-          <a class="ko-application__nav-link ko-link">Following</a>
-        </li>
-      </ul>
-    </nav>
+          {{#if currentUser}}
+            <li class="ko-application__nav-item">
+              {{#link-to "following" class="ko-application__nav-link ko-link"}}
+                Following
+              {{/link-to}}
+            </li>
+          {{/if}}
+        </ul>
+      </nav>
+    {{/unless}}
 
-    <div class="ko-application__session">
-      {{#if currentUser}}
-        <div class="ko-application__current-user-name">{{currentUserName}}</div>
-        <a class="ko-link" onclick={{action "logout"}}>Logout</a>
-      {{else}}
-        <a class="ko-link" onclick={{action "login"}}>Login</a>
-      {{/if}}
-    </div>
+    {{#unless isLoading}}
+      <div class="ko-application__session">
+        {{#if currentUser}}
+          <div class="ko-application__current-user-name">{{currentUserName}}</div>
+          <a class="ko-link" onclick={{action "logout"}}>Logout</a>
+        {{else}}
+          <a class="ko-link" onclick={{action "login"}}>Login</a>
+        {{/if}}
+      </div>
+    {{/unless}}
   </div>
 </header>
 
