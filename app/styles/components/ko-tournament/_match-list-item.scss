@@ -1,6 +1,6 @@
 .ko-tournament-match-list-item {
   @include span-columns(12);
-  @include ko-glow($ko-border-color);
+  @include ko-gradient-border($ko-border-color);
 
   &::before {
     height: 1px;
@@ -15,7 +15,7 @@
     position: relative;
 
     &::after {
-      @include ko-list-item($ko-active-color);
+      @include ko-gradient-box($ko-active-color);
 
       bottom: 0;
       content: ' ';

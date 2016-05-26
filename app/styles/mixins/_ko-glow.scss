@@ -1,0 +1,24 @@
+@mixin ko-glow($color: $ko-action-color) {
+  @include ko-gradient-border($color);
+
+  cursor: pointer;
+  position: relative;
+  transition: color 200ms;
+  text-transform: uppercase;
+
+  &::before {
+    opacity: 0;
+  }
+
+  &:hover {
+    @include ko-glow--hover;
+  }
+}
+
+@mixin ko-glow--hover {
+  color: #fff;
+
+  &::before {
+    opacity: 1;
+  }
+}

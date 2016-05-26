@@ -5,9 +5,14 @@
 @import 'neat';
 @import 'settings';
 @import 'font-awesome';
-@import 'mixins';
 @import 'reset';
 @import 'ember-power-select';
+
+@import 'mixins/ko-badge';
+@import 'mixins/ko-glow';
+@import 'mixins/ko-gradient-border';
+@import 'mixins/ko-gradient-box';
+@import 'mixins/ko-icon';
 
 @import 'globals/ko-button';
 @import 'globals/ko-link';

@@ -30,7 +30,7 @@
   }
 
   &__content {
-    @include ko-list-item;
+    @include ko-gradient-box;
 
     cursor: pointer;
     height: 100%;

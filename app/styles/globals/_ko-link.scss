@@ -1,7 +1,7 @@
 .ko-link {
-  @include ko-actionable-glow($ko-active-color);
+  @include ko-glow($ko-active-color);
 
   &.active {
-    @include ko-actionable-glow-hover;
+    @include ko-glow--hover;
   }
 }

@@ -1,0 +1,9 @@
+@mixin ko-badge($color: $ko-action-color) {
+  font-size: .7rem;
+  font-weight: bolder;
+  background-color: rgba(0, 0, 0, .2);
+  display: inline-block;
+  color: $color;
+  padding: 4px;
+  text-transform: uppercase;
+}

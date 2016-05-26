@@ -1,0 +1,4 @@
+@mixin ko-gradient-box($inner-color: #444, $outer-color: #222) {
+  padding: $gutter / 2;
+  background: radial-gradient(circle at top center, $inner-color 1%, $outer-color 100%);
+}

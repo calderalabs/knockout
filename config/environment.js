@@ -20,10 +20,6 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    'ember-cli-mirage': {
-      enabled: true
-    },
-
     'auth0-ember-simple-auth': {
       clientID: 'he3Ottq1UOvvw2NkkSNTtJTRwzmA3Fxx',
       domain: 'calderalabs.eu.auth0.com'

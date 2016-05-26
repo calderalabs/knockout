@@ -1,0 +1,16 @@
+@mixin ko-gradient-border($color: $ko-action-color) {
+  position: relative;
+
+  &::before {
+    background: radial-gradient(center, ellipse, rgba($color, .9) 0%, rgba(0, 0, 0, .0) 80%);
+    content: '';
+    height: 10px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transition: opacity 200ms;
+    width: 100%;
+	}
+}

@@ -16,7 +16,7 @@
   }
 
   &__section-title {
-    @include ko-glow($ko-border-color);
+    @include ko-gradient-border($ko-border-color);
 
     margin: $gutter 0;
     padding-bottom: $gutter / 2;
