@@ -11,7 +11,7 @@
       {{#ko-badge}}{{unwatchedMatchesCount}} to watch{{/ko-badge}}
     </div>
 
-    <button class="ko-tournament-list-item__follow">
+    <button class="ko-tournament-list-item__follow" onclick={{action "toggleFollow"}}>
       <i class="ko-tournament-list-item__follow-icon"></i>
     </button>
   </article>

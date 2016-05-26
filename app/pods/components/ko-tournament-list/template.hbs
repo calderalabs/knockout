@@ -1,31 +1,37 @@
-{{#ko-header title="Browse Tournaments"}}
-  {{#ko-header/nav-item}}
-    {{#link-to "tournaments" (query-params game=null)}}All Games{{/link-to}}
-  {{/ko-header/nav-item}}
+{{#ko-header title=title}}
+  {{#if showNav}}
+    {{#ko-header/nav-item}}
+      {{#link-to "tournaments" (query-params game=null)}}All Games{{/link-to}}
+    {{/ko-header/nav-item}}
 
-  {{#ko-header/nav-item}}
-    {{#link-to "tournaments" (query-params game="dota2")}}Dota 2{{/link-to}}
-  {{/ko-header/nav-item}}
+    {{#ko-header/nav-item}}
+      {{#link-to "tournaments" (query-params game="dota2")}}Dota 2{{/link-to}}
+    {{/ko-header/nav-item}}
 
-  {{#ko-header/nav-item}}
-    {{#link-to "tournaments" (query-params game="hearthstone")}}Hearthstone{{/link-to}}
-  {{/ko-header/nav-item}}
+    {{#ko-header/nav-item}}
+      {{#link-to "tournaments" (query-params game="hearthstone")}}Hearthstone{{/link-to}}
+    {{/ko-header/nav-item}}
 
-  {{#ko-header/nav-item}}
-    {{#link-to "tournaments" (query-params game="lol")}}League of Legends{{/link-to}}
-  {{/ko-header/nav-item}}
+    {{#ko-header/nav-item}}
+      {{#link-to "tournaments" (query-params game="lol")}}League of Legends{{/link-to}}
+    {{/ko-header/nav-item}}
 
-  {{#ko-header/nav-item}}
-    {{#link-to "tournaments" (query-params game="csgo")}}CS:GO{{/link-to}}
-  {{/ko-header/nav-item}}
+    {{#ko-header/nav-item}}
+      {{#link-to "tournaments" (query-params game="csgo")}}CS:GO{{/link-to}}
+    {{/ko-header/nav-item}}
 
-  {{#ko-header/nav-item}}
-    {{#link-to "tournaments" (query-params game="sc2")}}StarCraft  2{{/link-to}}
-  {{/ko-header/nav-item}}
+    {{#ko-header/nav-item}}
+      {{#link-to "tournaments" (query-params game="sc2")}}StarCraft  2{{/link-to}}
+    {{/ko-header/nav-item}}
+  {{/if}}
 {{/ko-header}}
 
-<ul class="ko-tournament-list__content">
-  {{#each arrangedTournaments as |tournament|}}
-    {{ko-tournament-list/item tournament=tournament}}
-  {{/each}}
-</ul>
+{{#if arrangedTournaments}}
+  <ul class="ko-tournament-list__content">
+    {{#each arrangedTournaments as |tournament|}}
+      {{ko-tournament-list/item tournament=tournament}}
+    {{/each}}
+  </ul>
+{{else}}
+  <div class="ko-tournament-list__empty-message">{{yield}}</div>
+{{/if}}

@@ -1,10 +1,11 @@
 import _ from 'npm:lodash';
 import Ember from 'ember';
 import ENV from 'knockout/config/environment';
-import { faker } from 'ember-cli-mirage';
+import Mirage, { faker } from 'ember-cli-mirage';
 
 const { assign } = Object;
 const { isEmpty } = Ember;
+const { Response } = Mirage;
 
 function currentUser(db, request) {
   const authorization = request.requestHeaders['Authorization'];
@@ -168,6 +169,14 @@ export default function() {
   });
 
   this.post('/followings', function(db, request) {
-    debugger;
+    const body = JSON.parse(request.requestBody);
+    const userId = currentUser(db, request).id;
+    const tournamentId = body.data.relationships.tournament.data.id;
+    return { data: buildResource('followings', db.followings.insert({ userId, tournamentId })) };
+  });
+
+  this.delete('/followings/:id', function(db, request) {
+    db.followings.remove(request.params.id);
+    return new Response(204, {}, {});
   });
 }

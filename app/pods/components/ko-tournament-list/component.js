@@ -7,6 +7,8 @@ export default Component.extend({
   classNames: ['ko-tournament-list'],
   game: null,
   tournaments: null,
+  showNav: true,
+  title: null,
   arrangedTournaments: computed.sort('_filteredTournaments', '_tournamentsSorting'),
   _tournamentsSorting: ['id:desc'],
 

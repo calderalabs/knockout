@@ -12,6 +12,13 @@
     }
   }
 
+  &--followed &__follow-icon {
+    &,
+    &:hover {
+      color: $ko-active-color;
+    }
+  }
+
   &__link {
     display: block;
     height: 100%;
