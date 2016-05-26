@@ -1,12 +1,14 @@
 @mixin ko-icon($name) {
   @include fa-icon;
+  // scss-lint:disable PlaceholderInExtend
   @extend .fa-#{$name};
+  // scss-lint:enable PlaceholderInExtend
 }
 
 @mixin ko-badge($color: $ko-action-color) {
-  font-size: 0.7rem;
+  font-size: .7rem;
   font-weight: bolder;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, .2);
   display: inline-block;
   color: $color;
   padding: 4px;
@@ -22,16 +24,16 @@
   position: relative;
 
   &::before {
-	  background: radial-gradient(center, ellipse, rgba($color, .9) 0%, rgba(0, 0, 0, .0) 80%);
-	  content: '';
-	  height: 10px;
-	  left: 0;
-	  pointer-events: none;
-	  position: absolute;
-	  width: 100%;
+    background: radial-gradient(center, ellipse, rgba($color, .9) 0%, rgba(0, 0, 0, .0) 80%);
+    content: '';
+    height: 10px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
     right: 0;
     top: 100%;
     transition: opacity 200ms;
+    width: 100%;
 	}
 }
 

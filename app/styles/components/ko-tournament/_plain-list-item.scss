@@ -19,8 +19,8 @@
 
   &__teams,
   &__stage {
-    text-transform: uppercase;
     text-align: center;
+    text-transform: uppercase;
   }
 
   &__team {
@@ -40,14 +40,14 @@
 
     &-content {
       display: inline-block;
-      width: 50%;
       line-height: 30px;
+      width: 50%;
     }
   }
 
   &__stage {
     color: $ko-border-color;
-    font-size: 0.9rem;
+    font-size: .9rem;
     line-height: 30px;
   }
 }

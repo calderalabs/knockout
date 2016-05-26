@@ -1,14 +1,14 @@
 .ko-player {
   background: $ko-background-color;
-  opacity: 0;
   display: flex;
   flex-direction: column;
+  opacity: 0;
 
   &__close {
     @include span-columns(2);
 
-    text-transform: uppercase;
     text-align: right;
+    text-transform: uppercase;
   }
 
   &__header {

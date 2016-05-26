@@ -1,0 +1,44 @@
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: lighter;
+}
+
+body {
+  background-color: $ko-background-color;
+  overflow: hidden;
+}
+
+body,
+button {
+  color: $ko-text-color;
+  font-family: 'Exo 2';
+}
+
+ul {
+  list-style: none;
+}
+
+ul,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+
+  &,
+  &:visited {
+    color: $ko-text-color;
+    text-decoration: none;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+}

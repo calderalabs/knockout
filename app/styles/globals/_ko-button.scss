@@ -1,0 +1,11 @@
+.ko-button {
+  @include ko-actionable-glow($ko-active-color);
+
+  background: #444;
+  border-radius: 4px;
+  padding: 10px 30px;
+
+  &::before {
+    top: 95%;
+  }
+}

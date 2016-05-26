@@ -3,24 +3,25 @@ $ko-application-header-height: 5em;
 .ko-application {
   bottom: 0;
   left: 0;
+  overflow: auto;
   position: absolute;
   right: 0;
   top: 0;
-  overflow: auto;
 
-  &__content, &__header {
+  &__content,
+  &__header {
     @include outer-container;
   }
 
   &__header {
-    background: rgba(0, 0, 0, 0.7);
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    z-index: 100;
+    background: rgba(0, 0, 0, .7);
     height: $ko-application-header-height;
+    left: 0;
     line-height: $ko-application-header-height;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
 
     &-content {
       @include span-columns(12);
@@ -58,21 +59,21 @@ $ko-application-header-height: 5em;
   }
 
   &__current-user-name {
-    text-transform: uppercase;
     display: inline-block;
     margin-right: $gutter / 2;
+    text-transform: uppercase;
   }
 
   &__content {
-    padding: $ko-application-header-height + $gutter $gutter $gutter $gutter;
+    padding: $ko-application-header-height + $gutter $gutter $gutter;
   }
 
   &__player {
-    position: fixed;
+    bottom: 0;
     left: 0;
+    position: fixed;
     right: 0;
     top: 0;
-    bottom: 0;
     z-index: 100;
   }
 }

@@ -6,8 +6,12 @@
 @import 'settings';
 @import 'font-awesome';
 @import 'mixins';
-@import 'globals';
+@import 'reset';
 @import 'ember-power-select';
+
+@import 'globals/ko-button';
+@import 'globals/ko-link';
+@import 'globals/ko-title';
 
 @import 'components/ko-application';
 @import 'components/ko-badge';

@@ -1,17 +1,18 @@
+// scss-lint:disable ImportantRule
 .tooltipster {
   &-base {
-    border: 1px solid rgba(#000, 0.8) !important;
+    border: 1px solid rgba(#000, .8) !important;
     border-radius: 0 !important;
   }
 
   &-content {
+    background: rgba(#000, .8) !important;
     font-family: inherit !important;
     text-transform: uppercase !important;
-    background: rgba(#000, 0.8) !important;
   }
 
   &-arrow span {
-    border-top-color: rgba(#000, 0.8) !important;
-    border-bottom-color: rgba(#000, 0.8) !important;
+    border-bottom-color: rgba(#000, .8) !important;
+    border-top-color: rgba(#000, .8) !important;
   }
 }

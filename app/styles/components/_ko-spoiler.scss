@@ -16,45 +16,45 @@
   }
 
   &__overlay {
-    display: block;
-    content: ' ';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
     bottom: 0;
+    content: ' ';
     cursor: pointer;
-    transition: opacity 800ms;
+    display: block;
     font-size: 1rem;
     font-weight: lighter;
-    z-index: 1;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
     transform: rotateZ(0);
+    transition: opacity 800ms;
+    z-index: 1;
   }
 
   &__background {
-    position: absolute;
-    left: 0;
+    background-color: #222;
     bottom: 0;
+    box-shadow: inset 0 0 30px -4px darken($ko-background-color, 2%);
+    content: ' ';
+    left: 0;
+    position: absolute;
     right: 0;
     top: 0;
-    content: ' ';
-    background-color: #222;
     z-index: -1;
-    box-shadow: inset 0px 0px 30px -4px darken($ko-background-color, 2%);
   }
 
   &__title {
     display: table;
-    width: 100%;
     height: 100%;
     position: relative;
+    width: 100%;
     z-index: 2;
 
     &-content {
       display: table-cell;
-      vertical-align: middle;
       text-align: center;
       text-transform: uppercase;
+      vertical-align: middle;
     }
   }
 }
