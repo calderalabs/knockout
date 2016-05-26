@@ -12,6 +12,7 @@ export default Model.extend({
   name: attr('string'),
   game: attr('string'),
   matchGroups: hasMany('match-group'),
+  followings: hasMany('following'),
 
   gameName: computed('game', function() {
     return this.get('game').replace(/-/g, ' ').capitalize();

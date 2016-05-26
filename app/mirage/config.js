@@ -6,20 +6,39 @@ import { faker } from 'ember-cli-mirage';
 const { assign } = Object;
 const { isEmpty } = Ember;
 
+function currentUser(db, request) {
+  const authorization = request.requestHeaders['Authorization'];
+
+  if (authorization) {
+    return db.users.firstOrCreate({ token: authorization.split(' ')[1] }, {
+      name: faker.name.findName()
+    });
+  }
+
+  return null;
+}
+
 function buildRelationships(descriptors, relationships = {}) {
   if (isEmpty(descriptors)) {
     return relationships;
   }
 
   const [descriptor, ...rest] = descriptors;
+  let relationship = {};
 
-  return assign({}, relationships, {
-    [descriptor.name]: {
-      data: {
-        type: descriptor.type,
-        id: descriptor.data.id
-      }
-    }
+  if (descriptor.data) {
+    relationship.data = {
+      type: descriptor.type,
+      id: descriptor.data.id
+    };
+  }
+
+  if (descriptor.url) {
+    relationship.links = { related: descriptor.url };
+  }
+
+  return assign(relationships, {
+    [descriptor.name]: relationship
   }, buildRelationships(rest));
 }
 
@@ -72,9 +91,13 @@ export default function() {
       return buildResource('teams', team);
     });
 
+    const followings = db.followings.map(function(following) {
+      return buildResource('following', following);
+    });
+
     return {
       data: tournaments,
-      included: _.flatten([matchGroups, matches, teams])
+      included: _.flatten([matchGroups, matches, teams, followings])
     };
   });
 
@@ -128,17 +151,23 @@ export default function() {
 
   this.get('/users/:id', function(db, request) {
     return {
-      data: buildResource('users', db.users.firstOrCreate({ id: request.params.id }, {
-        name: faker.name.findName()
-      }))
+      data: buildResource('users', currentUser(db, request))
     };
   });
 
   this.get('/followings', function(db, request) {
     return {
-      data: db.followings.map(function(following) {
-        return buildResource('followings', following)
+      data: db.followings.where({ userId: currentUser(db, request).id }).map(function(following) {
+        return buildResource('followings', following, [{
+          name: 'tournament',
+          type: 'tournaments',
+          data: db.tournaments.find(following.tournamentId)
+        }])
       })
     }
+  });
+
+  this.post('/followings', function(db, request) {
+    debugger;
   });
 }

@@ -1,5 +1,8 @@
 import DS from 'ember-data';
 
-const { Model } = DS;
+const { Model, belongsTo, attr } = DS;
 
-export default Model.extend();
+export default Model.extend({
+  createdAt: attr('date'),
+  tournament: belongsTo('tournament')
+});

@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-const { Route } = Ember;
+const { Route, inject } = Ember;
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return this.store.findAll('following');
+    return this.get('store').findAll('following');
   }
 });

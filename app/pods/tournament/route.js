@@ -4,6 +4,6 @@ const { Route } = Ember;
 
 export default Route.extend({
   model(params) {
-    return this.store.findRecord('tournament', params.id);
+    return this.get('store').findRecord('tournament', params.id);
   }
 });
