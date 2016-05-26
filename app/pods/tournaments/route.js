@@ -1,9 +1,8 @@
 import Ember from 'ember';
-import AuthenticableRouteMixin from 'knockout/mixins/authenticable-route';
 
 const { Route } = Ember;
 
-export default Route.extend(AuthenticableRouteMixin, {
+export default Route.extend({
   model() {
     return this.store.findAll('tournament');
   }

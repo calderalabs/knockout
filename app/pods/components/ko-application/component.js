@@ -8,7 +8,7 @@ export default Component.extend({
   tagName: 'section',
   classNames: ['ko-application'],
   isPlaying: computed.readOnly('player.isPlaying'),
-  isAuthenticated: computed.readOnly('session.isAuthenticated'),
+  currentUser: computed.readOnly('session.currentUser'),
   currentUserName: computed.readOnly('session.currentUser.name'),
 
   actions: {

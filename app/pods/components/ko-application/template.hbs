@@ -21,7 +21,7 @@
     </nav>
 
     <div class="ko-application__session">
-      {{#if isAuthenticated}}
+      {{#if currentUser}}
         <div class="ko-application__current-user-name">{{currentUserName}}</div>
         <a class="ko-link" onclick={{action "logout"}}>Logout</a>
       {{else}}

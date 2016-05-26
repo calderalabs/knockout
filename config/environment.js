@@ -20,6 +20,10 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    'ember-simple-auth': {
+      authenticationRoute: 'index'
+    },
+
     'auth0-ember-simple-auth': {
       clientID: 'he3Ottq1UOvvw2NkkSNTtJTRwzmA3Fxx',
       domain: 'calderalabs.eu.auth0.com'

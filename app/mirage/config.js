@@ -133,4 +133,12 @@ export default function() {
       }))
     };
   });
+
+  this.get('/followings', function(db, request) {
+    return {
+      data: db.followings.map(function(following) {
+        return buildResource('followings', following)
+      })
+    }
+  });
 }

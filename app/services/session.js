@@ -1,7 +1,7 @@
 import SessionService from 'ember-simple-auth/services/session';
 import Ember from 'ember';
 
-const { inject } = Ember;
+const { inject, on } = Ember;
 
 export default SessionService.extend({
   store: inject.service(),
@@ -9,7 +9,9 @@ export default SessionService.extend({
 
   fetchCurrentUser() {
     if (this.get('isAuthenticated')) {
-      return this.get('store').findRecord('user', this.get('data.authenticated.profile.user_id')).then((user) => {
+      const userId = this.get('data.authenticated.profile.user_id');
+
+      return this.get('store').findRecord('user', userId).then((user) => {
         this.set('currentUser', user);
       });
     }
