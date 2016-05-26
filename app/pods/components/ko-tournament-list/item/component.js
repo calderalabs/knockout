@@ -4,6 +4,7 @@ const { Component, computed, inject } = Ember;
 
 export default Component.extend({
   store: inject.service(),
+  session: inject.service(),
   tagName: 'li',
   classNameBindings: [':ko-tournament-list-item', '_isFollowed:ko-tournament-list-item--followed'],
   tournament: null,
@@ -11,6 +12,7 @@ export default Component.extend({
   stage: computed.readOnly('tournament.stage'),
   gameName: computed.readOnly('tournament.gameName'),
   id: computed.readOnly('tournament.id'),
+  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   unwatchedMatchesCount: computed.readOnly('_unwatchedMatches.length'),
   _following: computed.readOnly('tournament.followings.firstObject'),
   _isFollowed: computed.notEmpty('_following'),
@@ -24,6 +26,7 @@ export default Component.extend({
       const following = this.get('_following');
 
       if (following) {
+        this.get('tournament.followings').removeObject(following);
         following.destroyRecord();
       } else {
         this.get('store').createRecord('following', {

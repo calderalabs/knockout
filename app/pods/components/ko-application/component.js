@@ -9,7 +9,7 @@ export default Component.extend({
   classNames: ['ko-application'],
   isLoading: false,
   isPlaying: computed.readOnly('player.isPlaying'),
-  currentUser: computed.readOnly('session.currentUser'),
+  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   currentUserName: computed.readOnly('session.currentUser.name'),
 
   actions: {

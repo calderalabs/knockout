@@ -15,7 +15,7 @@
             {{/link-to}}
           </li>
 
-          {{#if currentUser}}
+          {{#if hasCurrentUser}}
             <li class="ko-application__nav-item">
               {{#link-to "following" class="ko-application__nav-link ko-link"}}
                 Following
@@ -28,7 +28,7 @@
 
     {{#unless isLoading}}
       <div class="ko-application__session">
-        {{#if currentUser}}
+        {{#if hasCurrentUser}}
           <div class="ko-application__current-user-name">{{currentUserName}}</div>
           <a class="ko-link" onclick={{action "logout"}}>Logout</a>
         {{else}}
