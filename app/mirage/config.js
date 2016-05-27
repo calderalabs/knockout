@@ -8,7 +8,7 @@ const { isEmpty } = Ember;
 const { Response } = Mirage;
 
 function currentUser(db, request) {
-  const authorization = request.requestHeaders['Authorization'];
+  const authorization = request.requestHeaders.Authorization;
 
   if (authorization) {
     return db.users.firstOrCreate({ token: authorization.split(' ')[1] }, {
@@ -163,9 +163,9 @@ export default function() {
           name: 'tournament',
           type: 'tournaments',
           data: db.tournaments.find(following.tournamentId)
-        }])
+        }]);
       })
-    }
+    };
   });
 
   this.post('/followings', function(db, request) {

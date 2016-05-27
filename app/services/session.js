@@ -1,7 +1,7 @@
 import SessionService from 'ember-simple-auth/services/session';
 import Ember from 'ember';
 
-const { inject, on, computed } = Ember;
+const { inject, computed } = Ember;
 
 export default SessionService.extend({
   store: inject.service(),

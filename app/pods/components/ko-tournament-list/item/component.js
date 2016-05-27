@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 const { Component, computed, inject } = Ember;
 
@@ -18,21 +19,29 @@ export default Component.extend({
   _isFollowed: computed.notEmpty('_following'),
   _unwatchedMatches: computed.filterBy('tournament.matches', 'isWatched', false),
 
+  _toggleFollow: task(function * (event) {
+    if (this.get('_isFollowed')) {
+      yield this._unfollow();
+    } else {
+      yield this._follow();
+    }
+  }).drop(),
+
+  _unfollow() {
+    return this.get('_following').destroyRecord();
+  },
+
+  _follow() {
+    return this.get('store').createRecord('following', {
+      tournament: this.get('tournament')
+    }).save();
+  },
+
   actions: {
     toggleFollow(event) {
       event.stopPropagation();
       event.preventDefault();
-
-      const following = this.get('_following');
-
-      if (following) {
-        this.get('tournament.followings').removeObject(following);
-        following.destroyRecord();
-      } else {
-        this.get('store').createRecord('following', {
-          tournament: this.get('tournament')
-        }).save();
-      }
+      this.get('_toggleFollow').perform();
     }
   }
 });
