@@ -17,15 +17,15 @@
     <section class="ko-tournament__day">
       <h1 class="ko-tournament__section-title ko-title">{{day.title}}</h1>
 
-      <ul class="ko-tournament__day-collection-list">
-        {{#each day.collections as |collection|}}
-          {{ko-tournament/collection-list-item collection=collection onWatch=(action "watch")}}
+      <ul class="ko-tournament__match-group-list">
+        {{#each day.matchGroups as |matchGroup|}}
+          {{ko-tournament/match-group-list-item matchGroup=matchGroup onWatch=(action "watch")}}
         {{/each}}
       </ul>
     </section>
   {{/each}}
 {{else}}
-  <section class="ko-tournament__plain-list">
+  <section class="ko-tournament__match-list">
     <h1 class="ko-tournament__section-title ko-title">
       {{#if isShowingPopular}}
         Popular
@@ -34,9 +34,12 @@
       {{/if}}
     </h1>
 
-    <ul class="ko-tournament__plain-list-content">
+    <ul class="ko-tournament__match-list-content">
       {{#each arrangedMatches as |match|}}
-        {{ko-tournament/plain-list-item match=match onWatch=(action "watch")}}
+        {{ko-tournament/match-list-item
+          showGroupInfo=true
+          match=match
+          onWatch=(action "watch")}}
       {{/each}}
     </ul>
   </section>

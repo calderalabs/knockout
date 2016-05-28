@@ -4,7 +4,6 @@ const { Factory } = Mirage;
 const { random, list } = faker;
 
 export default Factory.extend({
-  number: list.cycle(1, 2, 3, 4, 5),
   'like-count': () => random.number(1000),
 
   vod: list.cycle({

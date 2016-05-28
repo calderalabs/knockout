@@ -19,7 +19,7 @@ export default Component.extend({
   _isFollowed: computed.notEmpty('_following'),
   _unwatchedMatches: computed.filterBy('tournament.matches', 'isWatched', false),
 
-  _toggleFollow: task(function * (event) {
+  _toggleFollow: task(function *() {
     if (this.get('_isFollowed')) {
       yield this._unfollow();
     } else {

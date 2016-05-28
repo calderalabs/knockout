@@ -14,28 +14,28 @@ export default Component.extend({
   id: computed.readOnly('tournament.id'),
   isShowingTimeline: computed.equal('viewType', 'timeline'),
   isShowingPopular: computed.equal('viewType', 'popular'),
+  _matches: computed.readOnly('tournament.matches'),
 
-  arrangedMatches: computed('_filteredMatches', 'viewType', function() {
-    const filteredMatches = this.get('_filteredMatches');
-
+  arrangedMatches: computed('_unwatchedMatches', '_matches', 'viewType', function() {
     if (this.get('viewType') === 'popular') {
       return _.orderBy(
-        filteredMatches,
+        this.get('_matches'),
         [_.partialRight(get, 'likeCount'), _.partialRight(get, 'startAt')],
         ['desc', 'desc']
       );
     }
 
-    return _.orderBy(filteredMatches, [_.partialRight(get, 'startAt')], ['desc']);
+    return _.orderBy(this.get('_unwatchedMatches'), [_.partialRight(get, 'startAt')], ['desc']);
   }),
 
-  timeline: computed('_filteredMatches', function() {
+  timeline: computed('tournament.matchGroups', function() {
     return _
-      .chain(this.get('_filteredMatches'))
+      .chain(this.get('tournament.matchGroups').toArray())
       .groupBy((m) => m.get('startDay').getTime())
-      .reduce(function(memo, matches, startDay) {
+      .reduce(function(memo, matchGroups, startDay) {
         return memo.concat({
           _startDay: startDay,
+          matchGroups: matchGroups,
 
           title: moment(parseInt(startDay, 10)).calendar(null, {
             sameDay: '[Today]',
@@ -44,41 +44,20 @@ export default Component.extend({
             lastDay: '[Yesterday]',
             lastWeek: '[Last] dddd',
             sameElse: 'DD MMMM YYYY'
-          }),
-
-          collections: _
-            .chain(matches)
-            .groupBy(_.partialRight(get, 'matchGroup.id'))
-            .reduce(function(memo, matches, matchGroupId) {
-              return memo.concat({
-                _matchGroupId: matchGroupId,
-                matchGroup: matches[0].get('matchGroup'),
-                matches: matches.sortBy('number')
-              });
-            }, [])
-            .value()
-            .sortBy('_matchGroupId')
+          })
         });
       }, [])
       .orderBy(['_startDay'], ['desc'])
       .value();
   }),
 
-  _filteredMatches: computed('tournament.matches', 'viewType', function() {
-    const matches = this.get('tournament.matches');
-
-    if (this.get('viewType') === 'unwatched') {
-      return matches.rejectBy('isWatched');
-    }
-
-    return matches;
+  _unwatchedMatches: computed('_matches', function() {
+    return this.get('_matches').rejectBy('isWatched');
   }),
 
   actions: {
     watch(match) {
-      this.get('player').startPlaying(match, {
-        playlist: this.get('tournament.matches')
-      });
+      this.get('player').startPlaying(match, { playlist: this.get('_matches') });
     }
   }
 });

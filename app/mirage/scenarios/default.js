@@ -18,6 +18,7 @@ export default function(server) {
 
       _.range(matchGroup['best-of']).map(function(i) {
         return server.create('match', {
+          number: i + 1,
           matchGroupId: matchGroup.id,
           winnerId: winnerId(i)
         });

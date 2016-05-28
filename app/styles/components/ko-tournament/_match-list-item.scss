@@ -2,6 +2,10 @@
   @include span-columns(12);
   @include ko-gradient-border($ko-border-color);
 
+  &--with-group-info &__info {
+    @include span-columns(3, $display: table);
+  }
+
   &::before {
     height: 1px;
     top: 0;
@@ -55,7 +59,23 @@
     }
   }
 
-  &__badge {
-    padding: 0 4px;
+  &__team {
+    &-logo {
+      display: inline-block;
+      vertical-align: middle;
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+
+      &-content {
+        height: 100%;
+      }
+    }
+
+    &-separator {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 $gutter / 2;
+    }
   }
 }

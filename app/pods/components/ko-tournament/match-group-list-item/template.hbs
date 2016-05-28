@@ -1,0 +1,26 @@
+<article class="ko-tournament-match-group-list-item__content">
+  <header class="ko-tournament-match-group-list-item__header">
+    {{#ko-spoiler title="Show Teams" class="ko-tournament-match-group-list-item__teams"}}
+      {{#tool-tipster class="ko-tournament-match-group-list-item__team-logo" title=teamOneFullName}}
+        <img src={{teamOneLogoUrl}} />
+      {{/tool-tipster}}
+
+      {{#ko-spoiler title="Show Score" class="ko-tournament-match-group-list-item__score"}}
+        {{teamOneScore}} - {{teamTwoScore}}
+      {{/ko-spoiler}}
+
+      {{#tool-tipster class="ko-tournament-match-group-list-item__team-logo" title=teamTwoFullName}}
+        <img src={{teamTwoLogoUrl}} />
+      {{/tool-tipster}}
+    {{/ko-spoiler}}
+
+    <div class="ko-tournament-match-group-list-item__stage">{{stage}}</div>
+    <div class="ko-tournament-match-group-list-item__format">Best of {{bestOf}}</div>
+  </header>
+
+  <ul class="ko-tournament-match-group-list-item__match-list">
+    {{#each matches as |match|}}
+      {{ko-tournament/match-list-item match=match onWatch=onWatch}}
+    {{/each}}
+  </ul>
+</article>

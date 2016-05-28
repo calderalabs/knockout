@@ -13,10 +13,5 @@ export default Model.extend({
   vod: fragment('vod'),
   isWatched: false,
   matchGroup: belongsTo('match-group'),
-  winner: belongsTo('team'),
-  startAt: computed.readOnly('matchGroup.startAt'),
-
-  startDay: computed('startAt', function() {
-    return moment(this.get('startAt')).startOf('day').toDate();
-  })
+  winner: belongsTo('team')
 });

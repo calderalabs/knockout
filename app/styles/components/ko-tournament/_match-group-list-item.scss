@@ -1,4 +1,4 @@
-.ko-tournament-collection-list-item {
+.ko-tournament-match-group-list-item {
   @include span-columns(12);
   margin-bottom: $gutter / 2;
 
@@ -29,6 +29,7 @@
 
   &__teams {
     text-align: center;
+    padding: $gutter / 2;
   }
 
   &__stage,

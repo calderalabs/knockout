@@ -1,13 +1,13 @@
 .ko-tournament {
   &__day {
     @include span-columns(12);
-
-    &-match-group-list-item {
-      @include span-columns(12);
-    }
   }
 
-  &__plain-list {
+  &-match-group-list {
+    @include span-columns(12);
+  }
+
+  &__match-list {
     @include span-columns(12);
 
     &-content {

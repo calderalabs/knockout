@@ -1,22 +1,36 @@
 <div class="ko-tournament-match-list-item__link" onclick={{action onWatch match}}>
   <article class="ko-tournament-match-list-item__content">
+    {{#if showGroupInfo}}
+      <div class="ko-tournament-match-list-item__info">
+        {{#ko-spoiler title="Show Teams" class="ko-tournament-match-list-item__info-content"}}
+          {{#tool-tipster title=teamOneFullName class="ko-tournament-match-list-item__team-logo"}}
+            <img class="ko-tournament-match-list-item__team-logo-content" src={{teamOneLogoUrl}} />
+          {{/tool-tipster}}
+
+          <span class="ko-tournament-match-list-item__team-separator">vs</span>
+
+          {{#tool-tipster title=teamTwoFullName class="ko-tournament-match-list-item__team-logo"}}
+            <img class="ko-tournament-match-list-item__team-logo-content" src={{teamTwoLogoUrl}} />
+          {{/tool-tipster}}
+        {{/ko-spoiler}}
+      </div>
+    {{/if}}
+
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        Game {{number}}
+        Game {{number}}{{#if showGroupInfo}}, {{stage}}{{/if}}
       </div>
     </div>
 
     <div class="ko-tournament-match-list-item__info">
-      {{#ko-spoiler title="Show Winner"}}
-        <div class="ko-tournament-match-list-item__info-content">
-          {{winnerFullName}} Wins
-        </div>
+      {{#ko-spoiler title="Show Winner" class="ko-tournament-match-list-item__info-content"}}
+        {{winnerFullName}} Wins
       {{/ko-spoiler}}
     </div>
 
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        {{#ko-badge isPrimary=true class="ko-tournament-match-list-item__badge"}}
+        {{#ko-badge isPrimary=true}}
           {{#if isWatched}}
             Watched
           {{else}}
@@ -24,9 +38,11 @@
           {{/if}}
         {{/ko-badge}}
 
-        {{#ko-badge class="ko-tournament-match-list-item__badge"}}
-          {{likeCount}} likes
-        {{/ko-badge}}
+        {{#if showGroupInfo}}
+          {{#ko-badge}}BO{{bestOf}}{{/ko-badge}}
+        {{/if}}
+        
+        {{#ko-badge}}{{likeCount}} likes{{/ko-badge}}
       </div>
     </div>
   </article>
