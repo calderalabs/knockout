@@ -15,6 +15,7 @@ export default Component.extend({
   id: computed.readOnly('tournament.id'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   unwatchedMatchesCount: computed.readOnly('_unwatchedMatches.length'),
+  toggleFollowIsRunning: computed.readOnly('_toggleFollow.isRunning'),
   _following: computed.readOnly('tournament.followings.firstObject'),
   _isFollowed: computed.notEmpty('_following'),
   _unwatchedMatches: computed.filterBy('tournament.matches', 'isWatched', false),

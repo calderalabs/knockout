@@ -12,7 +12,9 @@
     </div>
 
     {{#if hasCurrentUser}}
-      <button class="ko-tournament-list-item__follow" onclick={{action "toggleFollow"}}>
+      <button class="ko-tournament-list-item__follow
+                    {{if toggleFollowIsRunning "ko-tournament-list-item__follow--running"}}"
+              onclick={{action "toggleFollow"}}>
         <i class="ko-tournament-list-item__follow-icon"></i>
       </button>
     {{/if}}

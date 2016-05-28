@@ -6,16 +6,16 @@
   margin-bottom: $gutter;
   position: relative;
 
-  &:hover {
-    .ko-tournament-list-item__follow {
-      opacity: 1;
-    }
-  }
-
   &--followed &__follow-icon {
     &,
     &:hover {
       color: $ko-active-color;
+    }
+  }
+
+  &:hover {
+    .ko-tournament-list-item__follow {
+      opacity: 1;
     }
   }
 
@@ -56,6 +56,13 @@
     position: absolute;
     right: $gutter / 2;
     transition: opacity 200ms;
+
+    &--running &-icon {
+      &,
+      &:hover {
+        color: $ko-border-color;
+      }
+    }
 
     &-icon {
       @include ko-icon('heart');
