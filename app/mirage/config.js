@@ -27,10 +27,10 @@ function buildRelationships(descriptors, relationships = {}) {
   const [descriptor, ...rest] = descriptors;
   let relationship = {};
 
-  if (descriptor.data) {
+  if (descriptor.id) {
     relationship.data = {
       type: descriptor.type,
-      id: descriptor.data.id
+      id: descriptor.id
     };
   }
 
@@ -64,15 +64,15 @@ export default function() {
       return buildResource('match-groups', matchGroup, [{
         name: 'tournament',
         type: 'tournaments',
-        data: db.tournaments.find(matchGroup.tournamentId)
+        id: matchGroup.tournamentId
       }, {
         name: 'team-one',
         type: 'teams',
-        data: db.teams.find(matchGroup.teamOneId)
+        id: matchGroup.teamOneId
       }, {
         name: 'team-two',
         type: 'teams',
-        data: db.teams.find(matchGroup.teamTwoId)
+        id: matchGroup.teamTwoId
       }]);
     });
 
@@ -80,11 +80,11 @@ export default function() {
       return buildResource('matches', match, [{
         name: 'match-group',
         type: 'match-groups',
-        data: db['match-groups'].find(match.matchGroupId)
+        id: match.matchGroupId
       }, {
         name: 'winner',
         type: 'teams',
-        data: db.teams.find(match.winnerId)
+        id: match.winnerId
       }]);
     });
 
@@ -109,15 +109,15 @@ export default function() {
       return buildResource('match-groups', matchGroup, [{
         name: 'tournament',
         type: 'tournaments',
-        data: db.tournaments.find(matchGroup.tournamentId)
+        id: matchGroup.tournamentId
       }, {
         name: 'team-one',
         type: 'teams',
-        data: db.teams.find(matchGroup.teamOneId)
+        id: matchGroup.teamOneId
       }, {
         name: 'team-two',
         type: 'teams',
-        data: db.teams.find(matchGroup.teamTwoId)
+        id: matchGroup.teamTwoId
       }]);
     });
 
@@ -126,11 +126,11 @@ export default function() {
         return buildResource('matches', match, [{
           name: 'match-group',
           type: 'match-groups',
-          data: db['match-groups'].find(match.matchGroupId)
+          id: match.matchGroupId
         }, {
           name: 'winner',
           type: 'teams',
-          data: db.teams.find(match.winnerId)
+          id: match.winnerId
         }]);
       });
     }));
@@ -162,7 +162,7 @@ export default function() {
         return buildResource('followings', following, [{
           name: 'tournament',
           type: 'tournaments',
-          data: db.tournaments.find(following.tournamentId)
+          id: following.tournamentId
         }]);
       })
     };

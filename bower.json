@@ -13,6 +13,7 @@
     "lodash": "^4.5.0",
     "tooltipster": "^3.3.0",
     "auth0-lock": "^9.2.1",
-    "jsrsasign": "^5.0.12"
+    "jsrsasign": "^5.0.12",
+    "blob-polyfill": "^1.0.20150320"
   }
 }
