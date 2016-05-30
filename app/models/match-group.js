@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import moment from 'moment';
 
 const { Model, belongsTo, hasMany, attr } = DS;
 const { computed } = Ember;

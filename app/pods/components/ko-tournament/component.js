@@ -35,7 +35,7 @@ export default Component.extend({
       .reduce(function(memo, matchGroups, startDay) {
         return memo.concat({
           _startDay: startDay,
-          matchGroups: matchGroups,
+          matchGroups,
 
           title: moment(parseInt(startDay, 10)).calendar(null, {
             sameDay: '[Today]',

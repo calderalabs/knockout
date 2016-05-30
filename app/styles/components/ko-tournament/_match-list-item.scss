@@ -62,10 +62,10 @@
   &__team {
     &-logo {
       display: inline-block;
-      vertical-align: middle;
-      width: 30px;
       height: 30px;
       overflow: hidden;
+      vertical-align: middle;
+      width: 30px;
 
       &-content {
         height: 100%;
@@ -74,8 +74,8 @@
 
     &-separator {
       display: inline-block;
-      vertical-align: middle;
       margin: 0 $gutter / 2;
+      vertical-align: middle;
     }
   }
 }
