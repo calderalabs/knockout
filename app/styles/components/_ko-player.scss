@@ -2,7 +2,7 @@
   background: $ko-background-color;
   display: flex;
   flex-direction: column;
-  opacity: 0;
+  height: 100%;
 
   &__close {
     @include span-columns(2);

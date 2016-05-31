@@ -6,7 +6,6 @@ export default Component.extend({
   tagName: 'li',
   classNames: ['ko-tournament-match-group-list-item'],
   matchGroup: null,
-  onWatch: null,
   matches: computed.sort('matchGroup.matches', '_matchesSorting'),
   stage: computed.readOnly('matchGroup.stage'),
   teamOneLogoUrl: computed.readOnly('matchGroup.teamOne.logoUrl'),

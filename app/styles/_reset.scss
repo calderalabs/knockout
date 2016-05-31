@@ -42,3 +42,19 @@ button {
   font-size: 1rem;
   outline: none;
 }
+
+.lf-dialog {
+  position: absolute;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lm-container {
+  z-index: 1000;
+}

@@ -19,7 +19,7 @@
 
       <ul class="ko-tournament__match-group-list">
         {{#each day.matchGroups as |matchGroup|}}
-          {{ko-tournament/match-group-list-item matchGroup=matchGroup onWatch=(action "watch")}}
+          {{ko-tournament/match-group-list-item matchGroup=matchGroup}}
         {{/each}}
       </ul>
     </section>
@@ -38,8 +38,7 @@
       {{#each arrangedMatches as |match|}}
         {{ko-tournament/match-list-item
           showGroupInfo=true
-          match=match
-          onWatch=(action "watch")}}
+          match=match}}
       {{/each}}
     </ul>
   </section>

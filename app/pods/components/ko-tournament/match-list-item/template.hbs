@@ -1,4 +1,4 @@
-<div class="ko-tournament-match-list-item__link" onclick={{action onWatch match}}>
+{{#link-to (query-params matchId=matchId) class="ko-tournament-match-list-item__link"}}
   <article class="ko-tournament-match-list-item__content">
     {{#if showGroupInfo}}
       <div class="ko-tournament-match-list-item__info">
@@ -41,9 +41,9 @@
         {{#if showGroupInfo}}
           {{#ko-badge}}BO{{bestOf}}{{/ko-badge}}
         {{/if}}
-        
+
         {{#ko-badge}}{{likeCount}} likes{{/ko-badge}}
       </div>
     </div>
   </article>
-</div>
+{{/link-to}}

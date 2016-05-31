@@ -11,11 +11,13 @@ export default Route.extend(ApplicationRouteMixin, {
     return this.get('session').fetchCurrentUser();
   },
 
-  activate() {
-    return this.get('player').restore();
-  },
-
   sessionAuthenticated() {
     this.refresh();
+  },
+
+  actions: {
+    queryParamsDidChange(params) {
+      this.get('player').set('matchId', params.watch);
+    }
   }
 });

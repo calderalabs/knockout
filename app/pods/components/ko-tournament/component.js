@@ -53,11 +53,5 @@ export default Component.extend({
 
   _unwatchedMatches: computed('_matches', function() {
     return this.get('_matches').rejectBy('isWatched');
-  }),
-
-  actions: {
-    watch(match) {
-      this.get('player').startPlaying(match, { playlist: this.get('_matches') });
-    }
-  }
+  })
 });
