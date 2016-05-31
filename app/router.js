@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.modal('ko-player', { withParams: 'matchId' });
+  this.modal('ko-player', { withParams: 'match' });
   this.route('tournament', { path: 'tournaments/:id' });
   this.route('tournaments');
   this.route('following');

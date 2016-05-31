@@ -2,7 +2,7 @@ import Ember from 'ember';
 import _ from 'npm:lodash';
 import moment from 'moment';
 
-const { Component, computed, get, inject } = Ember;
+const { Component, computed, get, inject, observer, on } = Ember;
 
 export default Component.extend({
   player: inject.service(),
@@ -53,5 +53,9 @@ export default Component.extend({
 
   _unwatchedMatches: computed('_matches', function() {
     return this.get('_matches').rejectBy('isWatched');
-  })
+  }),
+
+  _arrangedMatchesDidChange: observer('arrangedMatches', on('init', function() {
+    this.get('player').set('playlist', this.get('arrangedMatches'));
+  }))
 });

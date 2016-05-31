@@ -144,9 +144,13 @@ export default function() {
       });
     }));
 
+    const spoilers = db.spoilers.map(function(spoiler) {
+      return buildResource('spoiler', spoiler);
+    });
+
     return {
       data: tournament,
-      included: _.flatten([matchGroups, matches, teams])
+      included: _.flatten([matchGroups, matches, teams, spoilers])
     };
   });
 
@@ -178,5 +182,11 @@ export default function() {
   this.delete('/followings/:id', function(db, request) {
     db.followings.remove(request.params.id);
     return new Response(204, {}, {});
+  });
+
+  this.post('/spoilers', function(db, request) {
+    const attrs = JSON.parse(request.requestBody).data.attributes;
+    const userId = currentUser(db, request).id;
+    return { data: buildResource('spoilers', db.spoilers.insert(assign({ userId }, attrs))) };
   });
 }

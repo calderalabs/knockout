@@ -45,7 +45,6 @@
     "ember-data-model-fragments": "2.3.1",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
-    "ember-local-storage": "1.1.0",
     "ember-moment": "6.0.0",
     "ember-power-select": "0.8.6",
     "ember-resolver": "^2.0.3",

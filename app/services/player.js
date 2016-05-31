@@ -1,22 +1,11 @@
 import Ember from 'ember';
-import { storageFor } from 'ember-local-storage';
 
 const { Service, computed } = Ember;
 
 export default Service.extend({
-  matchId: null,
   playlist: null,
+  match: null,
   isPlaying: computed.notEmpty('match'),
-
-  match: computed('matchId', 'playlist.@each.id', function() {
-    const playlist = this.get('playlist');
-
-    if (playlist) {
-      return playlist.findBy('id', this.get('matchId'));
-    }
-
-    return null;
-  }).readOnly(),
 
   nextMatch: computed('match', 'playlist', function() {
     this._peek(this.get('match'), this.get('playlist'), 1);
