@@ -6,8 +6,8 @@
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
     "jquery": "^1.12.4",
-    "pretender": "^1.1.0",
-    "Faker": "~3.0.0",
+    "pretender": "~1.1.0",
+    "Faker": "~3.1.0",
     "font-awesome": "^4.5.0",
     "neat": "^1.7.2",
     "lodash": "^4.5.0",
@@ -15,5 +15,8 @@
     "auth0-lock": "^9.2.1",
     "jsrsasign": "^5.0.12",
     "blob-polyfill": "^1.0.20150320"
+  },
+  "resolutions": {
+    "Faker": "~3.1.0"
   }
 }

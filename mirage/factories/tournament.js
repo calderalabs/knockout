@@ -1,6 +1,5 @@
-import Mirage, { faker } from 'ember-cli-mirage';
+import { Factory, faker } from 'ember-cli-mirage';
 
-const { Factory } = Mirage;
 const { list, commerce } = faker;
 
 export default Factory.extend({

@@ -1,20 +1,23 @@
 import Ember from 'ember';
 
-const { Component, inject, computed } = Ember;
+const { Component, Inflector, inject, computed } = Ember;
 
 export default Component.extend({
   store: inject.service(),
   session: inject.service(),
   classNameBindings: [':ko-spoiler', 'isRevealed:ko-spoiler--revealed'],
   title: 'Show Spoiler',
-  path: null,
+  name: null,
+  spoilerable: null,
 
-  isRevealed: computed('_spoilers.@each.path', 'path', function() {
-    return !!this.get('_spoilers').findBy('path', this.get('path'));
-  }),
+  isRevealed: computed('spoilerable.spoilers.@each.name', 'name', function() {
+    const spoilers = this.get('spoilerable.spoilers');
 
-  _spoilers: computed(function() {
-    return this.get('store').peekAll('spoiler');
+    if (spoilers) {
+      return !!spoilers.findBy('name', this.get('name'));
+    }
+
+    return false;
   }),
 
   actions: {
@@ -28,7 +31,8 @@ export default Component.extend({
       }
 
       this.get('store').createRecord('spoiler', {
-        path: this.get('path')
+        name: this.get('name'),
+        spoilerable: this.get('spoilerable')
       }).save();
     }
   }

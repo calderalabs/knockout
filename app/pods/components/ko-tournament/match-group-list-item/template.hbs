@@ -1,7 +1,8 @@
 <article class="ko-tournament-match-group-list-item__content">
   <header class="ko-tournament-match-group-list-item__header">
     {{#ko-spoiler
-      path=(concat "match-groups." matchGroupId ".teams")
+      name="teams"
+      spoilerable=matchGroup
       title="Show Teams"
       class="ko-tournament-match-group-list-item__teams"}}
       {{#tool-tipster class="ko-tournament-match-group-list-item__team-logo" title=teamOneFullName}}
@@ -9,7 +10,8 @@
       {{/tool-tipster}}
 
       {{#ko-spoiler
-        path=(concat "match-groups." matchGroupId ".score")
+        name="score"
+        spoilerable=matchGroup
         title="Show Score"
         class="ko-tournament-match-group-list-item__score"}}
         {{teamOneScore}} - {{teamTwoScore}}

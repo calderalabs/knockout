@@ -9,18 +9,18 @@ export default function(server) {
 
     _.range(10).map(function(i) {
       return server.create('match-group', {
-        tournamentId: tournament.id,
-        teamOneId: teams(i).id,
-        teamTwoId: teams(i + 1).id
+        tournament: tournament,
+        teamOne: teams(i),
+        teamTwo: teams(i + 1)
       });
     }).forEach(function(matchGroup) {
-      const winnerId = list.cycle(matchGroup.teamOneId, matchGroup.teamTwoId);
+      const winner = list.cycle(matchGroup.teamOne, matchGroup.teamTwo);
 
-      _.range(matchGroup['best-of']).map(function(i) {
+      _.range(matchGroup.bestOf).map(function(i) {
         return server.create('match', {
+          matchGroup,
           number: i + 1,
-          matchGroupId: matchGroup.id,
-          winnerId: winnerId(i)
+          winner: winner(i)
         });
       });
     });

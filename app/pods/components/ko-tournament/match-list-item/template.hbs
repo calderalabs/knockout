@@ -2,7 +2,11 @@
   <article class="ko-tournament-match-list-item__content">
     {{#if showGroupInfo}}
       <div class="ko-tournament-match-list-item__info">
-        {{#ko-spoiler title="Show Teams" class="ko-tournament-match-list-item__info-content"}}
+        {{#ko-spoiler
+          name="teams"
+          spoilerable=match
+          title="Show Teams"
+          class="ko-tournament-match-list-item__info-content"}}
           {{#tool-tipster title=teamOneFullName class="ko-tournament-match-list-item__team-logo"}}
             <img class="ko-tournament-match-list-item__team-logo-content" src={{teamOneLogoUrl}} />
           {{/tool-tipster}}
@@ -23,7 +27,11 @@
     </div>
 
     <div class="ko-tournament-match-list-item__info">
-      {{#ko-spoiler title="Show Winner" class="ko-tournament-match-list-item__info-content"}}
+      {{#ko-spoiler
+        name="winner"
+        spoilerable=match
+        title="Show Winner"
+        class="ko-tournament-match-list-item__info-content"}}
         {{winnerFullName}} Wins
       {{/ko-spoiler}}
     </div>

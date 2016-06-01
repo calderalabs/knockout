@@ -15,6 +15,5 @@ export default Component.extend({
   teamOneFullName: computed.readOnly('matchGroup.teamOne.fullName'),
   teamTwoFullName: computed.readOnly('matchGroup.teamTwo.fullName'),
   bestOf: computed.readOnly('matchGroup.bestOf'),
-  matchGroupId: computed.readOnly('matchGroup.id'),
   _matchesSorting: ['number']
 });
