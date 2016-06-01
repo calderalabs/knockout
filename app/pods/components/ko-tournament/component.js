@@ -16,16 +16,18 @@ export default Component.extend({
   isShowingPopular: computed.equal('viewType', 'popular'),
   _matches: computed.readOnly('tournament.matches'),
 
-  arrangedMatches: computed('_unwatchedMatches', '_matches', 'viewType', function() {
+  arrangedMatches: computed('_filteredMatches', 'viewType', function() {
+    const filteredMatches = this.get('_filteredMatches');
+
     if (this.get('viewType') === 'popular') {
       return _.orderBy(
-        this.get('_matches'),
+        filteredMatches,
         [_.partialRight(get, 'likeCount'), _.partialRight(get, 'startAt')],
         ['desc', 'desc']
       );
     }
 
-    return _.orderBy(this.get('_unwatchedMatches'), [_.partialRight(get, 'startAt')], ['desc']);
+    return _.orderBy(filteredMatches, [_.partialRight(get, 'startAt')], ['desc']);
   }),
 
   timeline: computed('tournament.matchGroups', function() {
@@ -51,8 +53,14 @@ export default Component.extend({
       .value();
   }),
 
-  _unwatchedMatches: computed('_matches', function() {
-    return this.get('_matches').rejectBy('isWatched');
+  _filteredMatches: computed('_matches', 'viewType', function() {
+    const matches = this.get('_matches');
+
+    if (this.get('viewType') === 'popular') {
+      return matches;
+    }
+
+    return matches.rejectBy('isWatched');
   }),
 
   _arrangedMatchesDidChange: observer('arrangedMatches', on('init', function() {
