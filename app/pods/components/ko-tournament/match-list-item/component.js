@@ -8,15 +8,15 @@ export default Component.extend({
   match: null,
   showGroupInfo: false,
   matchId: computed.readOnly('match.id'),
-  stage: computed.readOnly('_matchGroup.stage'),
-  bestOf: computed.readOnly('_matchGroup.bestOf'),
-  teamOneLogoUrl: computed.readOnly('_matchGroup.teamOne.logoUrl'),
-  teamTwoLogoUrl: computed.readOnly('_matchGroup.teamTwo.logoUrl'),
-  teamOneFullName: computed.readOnly('_matchGroup.teamOne.fullName'),
-  teamTwoFullName: computed.readOnly('_matchGroup.teamTwo.fullName'),
+  stage: computed.readOnly('matchGroup.stage'),
+  bestOf: computed.readOnly('matchGroup.bestOf'),
+  teamOneLogoUrl: computed.readOnly('matchGroup.teamOne.logoUrl'),
+  teamTwoLogoUrl: computed.readOnly('matchGroup.teamTwo.logoUrl'),
+  teamOneFullName: computed.readOnly('matchGroup.teamOne.fullName'),
+  teamTwoFullName: computed.readOnly('matchGroup.teamTwo.fullName'),
   number: computed.readOnly('match.number'),
   winnerFullName: computed.readOnly('match.winner.fullName'),
   isWatched: computed.readOnly('match.isWatched'),
   likeCount: computed.readOnly('match.likeCount'),
-  _matchGroup: computed.readOnly('match.matchGroup')
+  matchGroup: computed.readOnly('match.matchGroup')
 });

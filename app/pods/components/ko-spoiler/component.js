@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Component, Inflector, inject, computed } = Ember;
+const { Component, inject, computed } = Ember;
 
 export default Component.extend({
   store: inject.service(),
@@ -25,15 +25,14 @@ export default Component.extend({
       event.stopPropagation();
       event.preventDefault();
 
-      if (!this.get('session.hasCurrentUser')) {
-        this.set('isRevealed', true);
-        return;
-      }
-
-      this.get('store').createRecord('spoiler', {
+      const spoiler = this.get('store').createRecord('spoiler', {
         name: this.get('name'),
         spoilerable: this.get('spoilerable')
-      }).save();
+      });
+
+      if (this.get('session.hasCurrentUser')) {
+        spoiler.save();
+      }
     }
   }
 });
