@@ -9,7 +9,7 @@ export default Factory.extend({
     url: 'https://www.youtube.com/embed/Tu6gSIbzu6I',
     type: 'youtube'
   }, {
-    url: 'https://player.twitch.tv/?video=v65974973&t=04h28m55s',
+    url: 'https://player.twitch.tv/?video=v52238360&t=8m55s',
     type: 'twitch'
   })
 });

@@ -10,6 +10,8 @@ export default function() {
   this.post('/followings');
   this.del('/followings/:id');
   this.post('/spoilers');
+  this.post('/watchings');
+  this.del('/watchings/:id');
 
   this.get('/users/:id', function(schema, request) {
     const user = schema.users.find(request.params.id);

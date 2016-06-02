@@ -16,9 +16,8 @@ export default Component.extend({
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   unwatchedMatchesCount: computed.readOnly('_unwatchedMatches.length'),
   toggleFollowIsRunning: computed.readOnly('_toggleFollow.isRunning'),
-  _following: computed.readOnly('tournament.followings.firstObject'),
-  _isFollowed: computed.notEmpty('_following'),
   _unwatchedMatches: computed.filterBy('tournament.matches', 'isWatched', false),
+  _isFollowed: computed.readOnly('tournament.isFollowed'),
 
   _toggleFollow: task(function *() {
     if (this.get('_isFollowed')) {
@@ -29,7 +28,7 @@ export default Component.extend({
   }).drop(),
 
   _unfollow() {
-    return this.get('_following').destroyRecord();
+    return this.get('tournament.followings.firstObject').destroyRecord();
   },
 
   _follow() {

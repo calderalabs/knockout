@@ -1,4 +1,14 @@
 <header class="ko-player__header">
+  <div class="ko-player__actions">
+    <button
+      class="ko-button ko-player__watch
+             {{if isWatched "ko-player__watch--watched"}}
+             {{if toggleWatchIsRunning "ko-player__watch--running"}}"
+      onclick={{perform toggleWatch}}>
+      <i class="ko-player__watch-icon"></i>Watched
+    </button>
+  </div>
+
   <h1 class="ko-player__title ko-title">
     {{#tool-tipster title=title}}
       {{teamOneFullName}} vs {{teamTwoFullName}} game {{matchNumber}}

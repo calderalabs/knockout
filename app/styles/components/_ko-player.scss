@@ -4,23 +4,48 @@
   flex-direction: column;
   height: 100%;
 
+  &__actions {
+    @include span-columns(2, $display: 'table');
+    vertical-align: middle;
+  }
+
+  &__watch {
+    &--watched {
+      background-color: $ko-active-color;
+    }
+
+    &--running {
+      background-color: $ko-border-color;
+    }
+
+    &-icon {
+      @include ko-icon('eye');
+      margin-right: $gutter / 2;
+    }
+  }
+
   &__close {
-    @include span-columns(2);
+    @include span-columns(2, $display: 'table');
 
     text-align: right;
     text-transform: uppercase;
+    vertical-align: middle;
   }
 
   &__header {
     @include ko-gradient-box;
+
+    display: table;
     padding: $gutter;
+    vertical-align: middle;
+    width: 100%;
   }
 
   &__title {
-    @include span-columns(8);
-    @include shift(2);
+    @include span-columns(8, $display: 'table');
 
     text-align: center;
+    padding-top: 4px;
   }
 
   &__vod {

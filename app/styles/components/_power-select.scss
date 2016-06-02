@@ -1,10 +1,8 @@
 .ember-basic-dropdown {
-  &--opened {
-    .ember-power-select-trigger {
-      &,
-      &:focus {
-        margin: 0;
-      }
+  &--opened .ember-power-select-trigger {
+    &,
+    &:focus {
+      margin: 0;
     }
   }
 }
