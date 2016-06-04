@@ -4,9 +4,9 @@ const { Component, computed } = Ember;
 
 export default Component.extend({
   tagName: 'li',
-  classNameBindings: [':ko-tournament-match-list-item', 'showGroupInfo:ko-tournament-match-list-item--with-group-info'],
+  classNameBindings: [':ko-tournament-match-list-item', 'shouldShowGroupInfo:ko-tournament-match-list-item--with-group-info'],
   match: null,
-  showGroupInfo: false,
+  shouldShowGroupInfo: false,
   matchId: computed.readOnly('match.id'),
   stage: computed.readOnly('matchGroup.stage'),
   bestOf: computed.readOnly('matchGroup.bestOf'),

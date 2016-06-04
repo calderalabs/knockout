@@ -12,7 +12,7 @@
   }
 
   &-arrow span {
-    border-bottom-color: rgba(#000, .8) !important;
-    border-top-color: rgba(#000, .8) !important;
+    border: 0;
+    border-color: rgba(#000, .8) !important;
   }
 }

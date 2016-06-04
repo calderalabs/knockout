@@ -12,6 +12,8 @@ export default function() {
   this.post('/spoilers');
   this.post('/watchings');
   this.del('/watchings/:id');
+  this.post('/likes');
+  this.del('/likes/:id');
 
   this.get('/users/:id', function(schema, request) {
     const user = schema.users.find(request.params.id);

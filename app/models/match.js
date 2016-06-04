@@ -14,5 +14,7 @@ export default Model.extend(SpoilerableMixin, {
   matchGroup: belongsTo('match-group'),
   winner: belongsTo('team'),
   watchings: hasMany('watching'),
-  isWatched: computed.notEmpty('watchings.firstObject')
+  likes: hasMany('like'),
+  isWatched: computed.notEmpty('watchings.firstObject'),
+  isLiked: computed.notEmpty('likes.firstObject')
 });

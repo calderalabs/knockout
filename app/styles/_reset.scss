@@ -20,7 +20,8 @@ ul {
 }
 
 ul,
-h1 {
+h1,
+h2 {
   margin: 0;
   padding: 0;
 }
@@ -42,6 +43,7 @@ button {
   cursor: pointer;
   font-size: 1rem;
   outline: none;
+  padding: 0;
 }
 
 .lf-dialog {

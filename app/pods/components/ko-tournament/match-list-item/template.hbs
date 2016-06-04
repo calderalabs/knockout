@@ -1,6 +1,6 @@
 {{#link-to (query-params matchId=matchId) class="ko-tournament-match-list-item__link"}}
   <article class="ko-tournament-match-list-item__content">
-    {{#if showGroupInfo}}
+    {{#if shouldShowGroupInfo}}
       <div class="ko-tournament-match-list-item__info">
         {{#ko-spoiler
           name="teams"
@@ -22,7 +22,7 @@
 
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        Game {{number}}{{#if showGroupInfo}}, {{stage}}{{/if}}
+        Game {{number}}{{#if shouldShowGroupInfo}}, {{stage}}{{/if}}
       </div>
     </div>
 
@@ -38,15 +38,13 @@
 
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        {{#ko-badge isPrimary=true}}
-          {{#if isWatched}}
-            Watched
-          {{else}}
-            To Watch
-          {{/if}}
-        {{/ko-badge}}
+        {{#unless isWatched}}
+          {{#ko-badge isPrimary=true}}
+              To Watch
+          {{/ko-badge}}
+        {{/unless}}
 
-        {{#if showGroupInfo}}
+        {{#if shouldShowGroupInfo}}
           {{#ko-badge}}BO{{bestOf}}{{/ko-badge}}
         {{/if}}
 

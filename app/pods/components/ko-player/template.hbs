@@ -1,23 +1,41 @@
-<header class="ko-player__header">
-  <div class="ko-player__actions">
-    <button
-      class="ko-button ko-player__watch
-             {{if isWatched "ko-player__watch--watched"}}
-             {{if toggleWatchIsRunning "ko-player__watch--running"}}"
-      onclick={{perform toggleWatch}}>
-      <i class="ko-player__watch-icon"></i>Watched
-    </button>
-  </div>
-
-  <h1 class="ko-player__title ko-title">
-    {{#tool-tipster title=title}}
-      {{teamOneFullName}} vs {{teamTwoFullName}} game {{matchNumber}}
-    {{/tool-tipster}}
-  </h1>
-
-  <div class="ko-player__close">
-    {{#link-to (query-params matchId=null) class="ko-link"}}Close{{/link-to}}
-  </div>
-</header>
+<div class="ko-player__close">
+  {{#link-to (query-params matchId=null) class="ko-button"}}Close{{/link-to}}
+</div>
 
 <iframe class="ko-player__vod" src={{vodUrl}} width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
+<header class="ko-player__header {{if shouldShowHeader "ko-player__header--shown"}}">
+  <div class="ko-player__toggle-header">
+    <div class="ko-player__toggle-header-button ko-button" onclick={{action "toggleHeader"}}>
+      <i class="ko-player__toggle-header-icon"></i>
+    </div>
+  </div>
+
+  {{#liquid-if shouldShowHeader}}
+    <div class="ko-player__header-content">
+      <div class="ko-player__actions">
+        {{#ko-toggle-button
+          class="ko-player__watch ko-button"
+          isActive=isWatched
+          onToggle=(action "toggleWatch")}}
+          <i class="ko-player__watch-icon"></i>Watched
+        {{/ko-toggle-button}}
+
+        {{#ko-toggle-button
+          class="ko-player__like ko-button"
+          isActive=isLiked
+          onToggle=(action "toggleLike")}}
+          <i class="ko-player__like-icon"></i>Like
+        {{/ko-toggle-button}}
+      </div>
+
+      <div class="ko-player__info">
+        <h1 class="ko-title">{{teamOneFullName}} vs {{teamTwoFullName}}</h1>
+
+        <h2 class="ko-title ko-player__details">
+          Game {{matchNumber}}, {{matchGroupStage}}, {{tournamentName}}
+        </h2>
+      </div>
+    </div>
+  {{/liquid-if}}
+</header>

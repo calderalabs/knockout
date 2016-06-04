@@ -15,33 +15,21 @@ export default Component.extend({
   id: computed.readOnly('tournament.id'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   unwatchedMatchesCount: computed.readOnly('_unwatchedMatches.length'),
-  toggleFollowIsRunning: computed.readOnly('_toggleFollow.isRunning'),
+  isFollowed: computed.readOnly('tournament.isFollowed'),
   _unwatchedMatches: computed.filterBy('tournament.matches', 'isWatched', false),
-  _isFollowed: computed.readOnly('tournament.isFollowed'),
-
-  _toggleFollow: task(function *() {
-    if (this.get('_isFollowed')) {
-      yield this._unfollow();
-    } else {
-      yield this._follow();
-    }
-  }).drop(),
-
-  _unfollow() {
-    return this.get('tournament.followings.firstObject').destroyRecord();
-  },
-
-  _follow() {
-    return this.get('store').createRecord('following', {
-      tournament: this.get('tournament')
-    }).save();
-  },
 
   actions: {
-    toggleFollow(event) {
+    toggleFollow(shouldActivate, event) {
       event.stopPropagation();
       event.preventDefault();
-      this.get('_toggleFollow').perform();
+
+      if (shouldActivate) {
+        return this.get('store').createRecord('following', {
+          tournament: this.get('tournament')
+        }).save();
+      }
+
+      return this.get('tournament.followings.firstObject').destroyRecord();
     }
   }
 });
