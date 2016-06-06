@@ -19,7 +19,7 @@ export default Component.extend({
   winnerFullName: computed.readOnly('match.winner.fullName'),
   likeCount: computed.readOnly('match.likeCount'),
   matchGroup: computed.readOnly('match.matchGroup'),
-  
+
   shouldShowToWatchBadge: computed('session.hasCurrentUser', 'match.isWatched', function() {
     return this.get('session.hasCurrentUser') && !this.get('match.isWatched');
   })

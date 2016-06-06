@@ -1,7 +1,7 @@
 .ko-player {
-  position: relative;
   background: $ko-background-color;
   height: 100%;
+  position: relative;
 
   &__actions {
     @include span-columns(2, $display: 'table');
@@ -11,9 +11,9 @@
   &__info {
     @include span-columns(8, $display: 'table');
 
+    padding-right: (100% / 12) * 2;
     text-align: center;
     vertical-align: middle;
-    padding-right: (100% / 12) * 2;
   }
 
   &__close {
@@ -36,7 +36,7 @@
     }
 
     &-content {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, .8);
       display: table;
       padding: $gutter;
       pointer-events: all;

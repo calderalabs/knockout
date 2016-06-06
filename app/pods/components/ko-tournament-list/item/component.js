@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { task } from 'ember-concurrency';
 
 const { Component, computed, inject } = Ember;
 
@@ -15,7 +14,7 @@ export default Component.extend({
   id: computed.readOnly('tournament.id'),
   matchesCount: computed.readOnly('tournament.matches.length'),
   isFollowed: computed.readOnly('tournament.isFollowed'),
-  
+
   actions: {
     toggleFollow(shouldActivate, event) {
       event.stopPropagation();
