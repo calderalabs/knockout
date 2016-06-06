@@ -38,11 +38,11 @@
 
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        {{#unless isWatched}}
+        {{#if shouldShowToWatchBadge}}
           {{#ko-badge isPrimary=true}}
               To Watch
           {{/ko-badge}}
-        {{/unless}}
+        {{/if}}
 
         {{#if shouldShowGroupInfo}}
           {{#ko-badge}}BO{{bestOf}}{{/ko-badge}}

@@ -6,6 +6,7 @@ const { Component, computed, inject } = Ember;
 export default Component.extend(VelocityMixin, {
   store: inject.service(),
   player: inject.service(),
+  session: inject.service(),
   tagName: 'section',
   classNames: ['ko-player'],
   shouldShowHeader: true,
@@ -17,6 +18,7 @@ export default Component.extend(VelocityMixin, {
   tournamentName: computed.readOnly('_matchGroup.tournament.name'),
   isWatched: computed.readOnly('_match.isWatched'),
   isLiked: computed.readOnly('_match.isLiked'),
+  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   _matchGroup: computed.readOnly('_match.matchGroup'),
   _match: computed.readOnly('player.match'),
 

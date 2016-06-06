@@ -2,9 +2,10 @@ import Ember from 'ember';
 import _ from 'npm:lodash';
 import moment from 'moment';
 
-const { Component, computed, get, inject, observer, on } = Ember;
+const { Component, computed, get, inject } = Ember;
 
 export default Component.extend({
+  session: inject.service(),
   player: inject.service(),
   tagName: 'section',
   classNames: ['ko-tournament'],
@@ -14,6 +15,7 @@ export default Component.extend({
   id: computed.readOnly('tournament.id'),
   isShowingTimeline: computed.equal('viewType', 'timeline'),
   isShowingPopular: computed.equal('viewType', 'popular'),
+  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   _matches: computed.readOnly('tournament.matches'),
 
   arrangedMatches: computed('_filteredMatches', 'viewType', function() {
@@ -61,9 +63,5 @@ export default Component.extend({
     }
 
     return matches.rejectBy('isWatched');
-  }),
-
-  _arrangedMatchesDidChange: observer('arrangedMatches', on('init', function() {
-    this.get('player').set('playlist', this.get('arrangedMatches'));
-  }))
+  })
 });

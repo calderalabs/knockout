@@ -13,11 +13,9 @@ export default Component.extend({
   stage: computed.readOnly('tournament.stage'),
   gameName: computed.readOnly('tournament.gameName'),
   id: computed.readOnly('tournament.id'),
-  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
-  unwatchedMatchesCount: computed.readOnly('_unwatchedMatches.length'),
+  matchesCount: computed.readOnly('tournament.matches.length'),
   isFollowed: computed.readOnly('tournament.isFollowed'),
-  _unwatchedMatches: computed.filterBy('tournament.matches', 'isWatched', false),
-
+  
   actions: {
     toggleFollow(shouldActivate, event) {
       event.stopPropagation();

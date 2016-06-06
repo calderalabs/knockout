@@ -7,9 +7,11 @@
     {{#link-to "tournament" id (query-params viewType="popular")}}Popular{{/link-to}}
   {{/ko-header/nav-item}}
 
-  {{#ko-header/nav-item}}
-    {{#link-to "tournament" id (query-params viewType="unwatched")}}To Watch{{/link-to}}
-  {{/ko-header/nav-item}}
+  {{#if hasCurrentUser}}
+    {{#ko-header/nav-item}}
+      {{#link-to "tournament" id (query-params viewType="unwatched")}}To Watch{{/link-to}}
+    {{/ko-header/nav-item}}
+  {{/if}}
 {{/ko-header}}
 
 {{#if isShowingTimeline}}

@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
-const { Component, computed } = Ember;
+const { Component, computed, inject } = Ember;
 
 export default Component.extend({
+  session: inject.service(),
   tagName: 'li',
   classNameBindings: [':ko-tournament-match-list-item', 'shouldShowGroupInfo:ko-tournament-match-list-item--with-group-info'],
   match: null,
@@ -16,7 +17,10 @@ export default Component.extend({
   teamTwoFullName: computed.readOnly('matchGroup.teamTwo.fullName'),
   number: computed.readOnly('match.number'),
   winnerFullName: computed.readOnly('match.winner.fullName'),
-  isWatched: computed.readOnly('match.isWatched'),
   likeCount: computed.readOnly('match.likeCount'),
-  matchGroup: computed.readOnly('match.matchGroup')
+  matchGroup: computed.readOnly('match.matchGroup'),
+  
+  shouldShowToWatchBadge: computed('session.hasCurrentUser', 'match.isWatched', function() {
+    return this.get('session.hasCurrentUser') && !this.get('match.isWatched');
+  })
 });

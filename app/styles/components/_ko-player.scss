@@ -8,6 +8,70 @@
     vertical-align: middle;
   }
 
+  &__info {
+    @include span-columns(8, $display: 'table');
+
+    text-align: center;
+    vertical-align: middle;
+    padding-right: (100% / 12) * 2;
+  }
+
+  &__close {
+    pointer-events: all;
+    position: absolute;
+    right: $gutter / 2;
+    top: $gutter / 2;
+  }
+
+  &__header {
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+
+    &--shown .ko-player__toggle-header-icon {
+      @include ko-icon('angle-double-up');
+      font-size: 1.3rem;
+    }
+
+    &-content {
+      background-color: rgba(0, 0, 0, 0.8);
+      display: table;
+      padding: $gutter;
+      pointer-events: all;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+
+  &__vod {
+    height: 100%;
+  }
+
+  &__details {
+    color: $ko-border-color;
+    font-size: 1rem;
+    font-weight: lighter;
+    margin-top: $gutter / 2;
+  }
+
+  &__toggle-header {
+    margin-bottom: $gutter / 2;
+    text-align: center;
+
+    &-button {
+      cursor: pointer;
+      display: inline-block;
+      pointer-events: all;
+    }
+
+    &-icon {
+      @include ko-icon('angle-double-down');
+      font-size: 1.3rem;
+    }
+  }
+
   &__watch,
   &__like {
     padding: 5px 10px;
@@ -39,67 +103,5 @@
 
   &__like-icon {
     @include ko-icon('thumbs-up');
-  }
-
-  &__toggle-header {
-    margin-bottom: $gutter / 2;
-    text-align: center;
-
-    &-button {
-      cursor: pointer;
-      display: inline-block;
-      pointer-events: all;
-    }
-
-    &-icon {
-      @include ko-icon('angle-double-down');
-      font-size: 1.3rem;
-    }
-  }
-
-  &__details {
-    font-size: 1rem;
-    font-weight: lighter;
-    color: $ko-border-color;
-    margin-top: $gutter / 2;
-  }
-
-  &__close {
-    position: absolute;
-    top: $gutter / 2;
-    right: $gutter / 2;
-    text-transform: uppercase;
-  }
-
-  &__header {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    pointer-events: none;
-
-    &--shown .ko-player__toggle-header-icon {
-      @include ko-icon('angle-double-up');
-      font-size: 1.3rem;
-    }
-
-    &-content {
-      background-color: rgba(0, 0, 0, 0.8);
-      display: table;
-      padding: $gutter;
-      vertical-align: middle;
-      width: 100%;
-      pointer-events: all;
-    }
-  }
-
-  &__info {
-    @include span-columns(8, $display: 'table');
-    padding-right: (100% / 12) * 2;
-    text-align: center;
-  }
-
-  &__vod {
-    flex-grow: 1;
   }
 }

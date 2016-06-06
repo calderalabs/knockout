@@ -17,6 +17,6 @@ export default Controller.extend({
   })),
 
   _matchIdDidChange: observer('matchId', function() {
-    this.set('player.match', this.get('store').peekRecord('match', this.get('matchId')));
+    this.get('player').play(this.get('store').peekRecord('match', this.get('matchId')));
   })
 });
