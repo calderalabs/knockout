@@ -14,6 +14,7 @@ export default Component.extend({
   id: computed.readOnly('tournament.id'),
   matchesCount: computed.readOnly('tournament.matches.length'),
   isFollowed: computed.readOnly('tournament.isFollowed'),
+  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
 
   actions: {
     toggleFollow(shouldActivate, event) {

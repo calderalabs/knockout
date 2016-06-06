@@ -1,0 +1,26 @@
+.ko-following {
+  &__empty-list {
+    height: 100%;
+    padding-top: 100px;
+    text-align: center;
+
+    &-content {
+      display: table-cell;
+
+    }
+
+    &-icon {
+      @include ko-icon('heart');
+      @include ko-gradient-box($ko-active-color);
+
+      color: $ko-active-color;
+      font-size: 6rem;
+      margin-bottom: 20px;
+    }
+
+    &-message {
+      font-size: 1.4rem;
+      margin: $gutter 0;
+    }
+  }
+}

@@ -1,3 +1,7 @@
 {{#ko-tournament-list tournaments=tournaments shouldShowNav=false title="Followed Tournaments" onShow=onShow}}
-  You are currently not following any tournaments.
+  <div class="ko-following__empty-list">
+    <i class="ko-following__empty-list-icon"></i>
+    <div class="ko-following__empty-list-message">You are currently not following any tournaments.</div>
+    {{#link-to "tournaments" class="ko-following__empty-list-button ko-button"}}Browse Tournaments{{/link-to}}
+  </div>
 {{/ko-tournament-list}}
