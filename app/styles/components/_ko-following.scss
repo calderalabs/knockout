@@ -11,15 +11,15 @@
 
     &-icon {
       @include ko-icon('heart');
-      @include ko-gradient-box($ko-active-color);
+      @include ko-gradient-box;
 
-      color: $ko-active-color;
+      color: $ko-border-color;
       font-size: 6rem;
       margin-bottom: 20px;
     }
 
     &-message {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin: $gutter 0;
     }
   }
