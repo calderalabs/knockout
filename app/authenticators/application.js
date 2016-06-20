@@ -5,8 +5,7 @@ export default Base.extend({
     this._super(...arguments);
 
     const widget = this.get('lock');
-
-    widget.on('signin ready', function() {
+    const addTwitch = function() {
       var link = $('<div class="a0-icon a0-image-icon a0-zocial a0-twitch" data-strategy="oauth2" title="Twitch"><span>Twitch</span></div>');
       $('.a0-separator, .a0-iconlist').removeClass('a0-hide');
       $('.a0-iconlist').append(link);
@@ -16,6 +15,9 @@ export default Base.extend({
         widget.emit('signin submit', widget.options, { provider: 'oauth2' });
         widget._signinSocial(e, 'twitch', null, widget.$panel);
       });
-    });
+    }
+
+    widget.on('signin ready', addTwitch);
+    widget.on('signup ready', addTwitch);
   }
 });
