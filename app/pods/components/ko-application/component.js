@@ -14,7 +14,7 @@ export default Component.extend({
 
   actions: {
     login() {
-      this.get('session').authenticate('simple-auth-authenticator:lock', {
+      this.get('session').authenticate('authenticator:application', {
         authParams: { scope: 'openid' }
       });
     },

@@ -7,7 +7,7 @@ module.exports = function(defaults) {
     babel: {
       includePolyfill: true,
     },
-    
+
     sassOptions: {
       includePaths: [
         'bower_components/neat/app/assets/stylesheets',
@@ -24,6 +24,8 @@ module.exports = function(defaults) {
   });
 
   app.import('bower_components/font-awesome/fonts/FontAwesome.otf', { destDir: '/fonts' });
+  app.import('bower_components/css-social-buttons/css/zocial.otf', { destDir: '/fonts' });
+  app.import('bower_components/css-social-buttons/css/zocial.css');
 
   return app.toTree();
 };
