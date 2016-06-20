@@ -7,7 +7,7 @@ export default Base.extend({
     const widget = this.get('lock');
 
     widget.on('signin ready', function() {
-      var link = $('<div class="a0-icon a0-image-icon a0-zocial a0-twitch"><span>Twitch</span></div>');
+      var link = $('<div class="a0-icon a0-image-icon a0-zocial a0-twitch" data-strategy="oauth2" title="Twitch"><span>Twitch</span></div>');
       $('.a0-separator, .a0-iconlist').removeClass('a0-hide');
       $('.a0-iconlist').append(link);
 
