@@ -10,13 +10,13 @@ const MatchGroup = ObjectProxy.extend({
 
 export default Model.extend({
   name: attr('string'),
-  game: attr('string'),
+  gameId: attr('string'),
   matchGroups: hasMany('match-group'),
   followings: hasMany('following'),
   isFollowed: computed.notEmpty('followings.firstObject'),
 
-  gameName: computed('game', function() {
-    return this.get('game').replace(/-/g, ' ').capitalize();
+  gameName: computed('gameId', function() {
+    return this.get('gameId').replace(/-/g, ' ').capitalize();
   }),
 
   matches: computed('_matchGroups.@each.matchesArray', function() {
