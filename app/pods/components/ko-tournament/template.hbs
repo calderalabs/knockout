@@ -9,7 +9,7 @@
 
   {{#if hasCurrentUser}}
     {{#ko-header/nav-item}}
-      {{#link-to "tournament" id (query-params viewType="unwatched")}}To Watch{{/link-to}}
+      {{#link-to "tournament" id (query-params viewType="new")}}New{{/link-to}}
     {{/ko-header/nav-item}}
   {{/if}}
 {{/ko-header}}
@@ -30,9 +30,9 @@
   <section class="ko-tournament__match-list">
     <h1 class="ko-tournament__section-title ko-title">
       {{#if isShowingPopular}}
-        Popular
+        Popular Matches
       {{else}}
-        To Watch
+        New Matches
       {{/if}}
     </h1>
 

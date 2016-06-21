@@ -72,7 +72,6 @@
     }
   }
 
-  &__watch,
   &__like {
     padding: 5px 10px;
 
@@ -90,14 +89,6 @@
 
     &-icon {
       margin-right: $gutter / 2;
-    }
-  }
-
-  &__watch {
-    margin-right: $gutter / 2;
-
-    &-icon {
-      @include ko-icon('eye');
     }
   }
 

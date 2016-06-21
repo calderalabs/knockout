@@ -16,7 +16,6 @@ export default Component.extend(VelocityMixin, {
   matchNumber: computed.readOnly('_match.number'),
   matchGroupStage: computed.readOnly('_matchGroup.stage'),
   tournamentName: computed.readOnly('_matchGroup.tournament.name'),
-  isWatched: computed.readOnly('_match.isWatched'),
   isLiked: computed.readOnly('_match.isLiked'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   _matchGroup: computed.readOnly('_match.matchGroup'),
@@ -25,16 +24,6 @@ export default Component.extend(VelocityMixin, {
   actions: {
     toggleHeader() {
       this.toggleProperty('shouldShowHeader');
-    },
-
-    toggleWatch(shouldActivate) {
-      if (shouldActivate) {
-        return this.get('store').createRecord('watching', {
-          match: this.get('_match')
-        }).save();
-      }
-
-      return this.get('_match.watchings.firstObject').destroyRecord();
     },
 
     toggleLike(shouldActivate) {

@@ -62,6 +62,6 @@ export default Component.extend({
       return matches;
     }
 
-    return matches.rejectBy('isWatched');
+    return matches.filterBy('isNew');
   })
 });

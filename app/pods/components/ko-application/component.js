@@ -8,6 +8,7 @@ export default Component.extend({
   tagName: 'section',
   classNames: ['ko-application'],
   isLoading: false,
+  newMatchesCount: 5,
   isPlaying: computed.readOnly('player.isPlaying'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   currentUserName: computed.readOnly('session.currentUser.name'),

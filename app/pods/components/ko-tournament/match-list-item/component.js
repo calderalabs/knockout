@@ -8,6 +8,7 @@ export default Component.extend({
   classNameBindings: [':ko-tournament-match-list-item', 'shouldShowGroupInfo:ko-tournament-match-list-item--with-group-info'],
   match: null,
   shouldShowGroupInfo: false,
+  isNew: true,
   matchId: computed.readOnly('match.id'),
   stage: computed.readOnly('matchGroup.stage'),
   bestOf: computed.readOnly('matchGroup.bestOf'),
@@ -19,8 +20,6 @@ export default Component.extend({
   winnerFullName: computed.readOnly('match.winner.fullName'),
   likeCount: computed.readOnly('match.likeCount'),
   matchGroup: computed.readOnly('match.matchGroup'),
-
-  shouldShowToWatchBadge: computed('session.hasCurrentUser', 'match.isWatched', function() {
-    return this.get('session.hasCurrentUser') && !this.get('match.isWatched');
-  })
+  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
+  isNew: computed.readOnly('match.isNew')
 });

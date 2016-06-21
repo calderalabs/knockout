@@ -1,6 +1,6 @@
 .ko-tournament-match-group-list-item {
   @include span-columns(12);
-  margin-bottom: $gutter / 2;
+  margin-bottom: $gutter;
 
   &__content {
     @include span-columns(12);

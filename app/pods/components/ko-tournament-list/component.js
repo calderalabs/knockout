@@ -8,6 +8,7 @@ export default Component.extend({
   game: null,
   tournaments: null,
   shouldShowNav: true,
+  shouldShowNewBadge: false,
   title: null,
   arrangedTournaments: computed.sort('_filteredTournaments', '_tournamentsSorting'),
   _tournamentsSorting: ['id:desc'],

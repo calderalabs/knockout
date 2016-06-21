@@ -29,9 +29,13 @@
 
   <ul class="ko-tournament-list__content">
     {{#each arrangedTournaments as |tournament|}}
-      {{ko-tournament-list/item tournament=tournament}}
+      {{#if hasBlock}}
+        {{yield tournament}}
+      {{else}}
+        {{ko-tournament-list/item tournament=tournament}}
+      {{/if}}
     {{/each}}
   </ul>
 {{else}}
-  {{yield}}
+  {{yield to="inverse"}}
 {{/if}}

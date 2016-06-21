@@ -1,4 +1,6 @@
-{{#ko-tournament-list tournaments=tournaments shouldShowNav=false title="Followed Tournaments" onShow=onShow}}
+{{#ko-tournament-list tournaments=tournaments title="Followed Tournaments" shouldShowNav=false onShow=onShow as |tournament|}}
+  {{ko-tournament-list/item tournament=tournament shouldShowNewBadge=true linkViewType="new"}}
+{{else}}
   <div class="ko-following__empty-list">
     <i class="ko-following__empty-list-icon"></i>
     <div class="ko-following__empty-list-message">You are currently not following any tournaments.</div>

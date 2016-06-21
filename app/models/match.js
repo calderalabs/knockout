@@ -16,5 +16,6 @@ export default Model.extend(SpoilerableMixin, {
   watchings: hasMany('watching'),
   likes: hasMany('like'),
   isWatched: computed.notEmpty('watchings.firstObject'),
-  isLiked: computed.notEmpty('likes.firstObject')
+  isLiked: computed.notEmpty('likes.firstObject'),
+  isNew: true
 });
