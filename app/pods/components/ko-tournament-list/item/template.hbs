@@ -5,25 +5,29 @@
 
       {{#if shouldShowNewBadge}}
         <div class="ko-tournament-list-item__new-badge">
-          {{#ko-badge isPrimary=true}}{{newMatchesCount}} New{{/ko-badge}}
+          {{#if hasNewMatches}}
+            {{#ko-badge isPrimary=true}}{{newMatchesCount}} New{{/ko-badge}}
+          {{/if}}
         </div>
       {{/if}}
     </header>
 
     <footer class="ko-tournament-list-item__footer">
-      <div class="ko-tournament-list-item__info">
-        {{#ko-badge isPrimary=true}}{{gameName}}{{/ko-badge}}
-        {{#ko-badge}}{{matchesCount}} matches{{/ko-badge}}
-      </div>
+      <div class="ko-tournament-list-item__footer-content">
+        <div class="ko-tournament-list-item__info">
+          {{#ko-badge isPrimary=true}}{{gameName}}{{/ko-badge}}
+          {{#ko-badge}}{{matchesCount}} matches{{/ko-badge}}
+        </div>
 
-      {{#if hasCurrentUser}}
-        {{#ko-toggle-button
-          class="ko-tournament-list-item__follow"
-          isActive=isFollowed
-          onToggle=(action "toggleFollow")}}
-          <i class="ko-tournament-list-item__follow-icon"></i>
-        {{/ko-toggle-button}}
-      {{/if}}
+        {{#if hasCurrentUser}}
+          {{#ko-toggle-button
+            class="ko-tournament-list-item__follow"
+            isActive=isFollowed
+            onToggle=(action "toggleFollow")}}
+            <i class="ko-tournament-list-item__follow-icon"></i>
+          {{/ko-toggle-button}}
+        {{/if}}
+      </div>
     </footer>
   </article>
 {{/link-to}}

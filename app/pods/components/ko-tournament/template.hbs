@@ -7,7 +7,7 @@
     {{#link-to "tournament" id (query-params viewType="popular")}}Popular{{/link-to}}
   {{/ko-header/nav-item}}
 
-  {{#if hasCurrentUser}}
+  {{#if shouldShowNewNavItem}}
     {{#ko-header/nav-item}}
       {{#link-to "tournament" id (query-params viewType="new")}}New{{/link-to}}
     {{/ko-header/nav-item}}
@@ -17,7 +17,7 @@
 {{#if isShowingTimeline}}
   {{#each timeline as |day|}}
     <section class="ko-tournament__day">
-      <h1 class="ko-tournament__section-title ko-title">{{day.title}}</h1>
+      <h1 class="ko-tournament__timeline-title ko-title">{{day.title}}</h1>
 
       <ul class="ko-tournament__match-group-list">
         {{#each day.matchGroups as |matchGroup|}}
@@ -28,13 +28,19 @@
   {{/each}}
 {{else}}
   <section class="ko-tournament__match-list">
-    <h1 class="ko-tournament__section-title ko-title">
+    <header class="ko-tournament__list-header">
       {{#if isShowingPopular}}
-        Popular Matches
-      {{else}}
-        New Matches
+        <h1 class="ko-tournament__list-title ko-title">Popular Matches</h1>
+      {{else if isShowingNew}}
+        <h1 class="ko-tournament__list-title ko-title">New Matches</h1>
+
+        {{#if isFollowed}}
+          <div class="ko-tournament__mark-watched">
+            <button class="ko-tournament__mark-watched-button ko-button {{unless hasNewMatches "ko-button--disabled"}}" onclick={{action "markAllAsWatched"}}>Mark all as watched</button>
+          </div>
+        {{/if}}
       {{/if}}
-    </h1>
+    </header>
 
     <ul class="ko-tournament__match-list-content">
       {{#each arrangedMatches as |match|}}

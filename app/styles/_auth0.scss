@@ -1,9 +1,9 @@
 .a0-zocial {
   &.a0-twitch {
-    background-color: #6441A5;
+    background-color: #6441a5;
 
-    &:before {
-      content: "\f166";
+    &::before {
+      content: '\f166';
     }
   }
 }

@@ -8,7 +8,6 @@ export default Component.extend({
   classNameBindings: [':ko-tournament-match-list-item', 'shouldShowGroupInfo:ko-tournament-match-list-item--with-group-info'],
   match: null,
   shouldShowGroupInfo: false,
-  isNew: true,
   matchId: computed.readOnly('match.id'),
   stage: computed.readOnly('matchGroup.stage'),
   bestOf: computed.readOnly('matchGroup.bestOf'),

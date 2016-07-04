@@ -17,5 +17,17 @@ export default Model.extend(SpoilerableMixin, {
   likes: hasMany('like'),
   isWatched: computed.notEmpty('watchings.firstObject'),
   isLiked: computed.notEmpty('likes.firstObject'),
-  isNew: true
+
+  isNew: computed(
+    'matchGroup.tournament.followings.firstObject.seenAt',
+    'matchGroup.startedAt',
+    'watchings.firstObject', function() {
+    const tournamentSeenAt = this.get('matchGroup.tournament.followings.firstObject.seenAt');
+
+    if (tournamentSeenAt) {
+      return tournamentSeenAt < this.get('matchGroup.startedAt') && !this.get('watchings.firstObject');
+    }
+
+    return false;
+  })
 });

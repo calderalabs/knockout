@@ -21,7 +21,9 @@
                 Following
               {{/link-to}}
 
-              {{#ko-badge class="ko-application__following-badge"}}{{newMatchesCount}} New{{/ko-badge}}
+              {{#if hasNewMatches}}
+                {{#ko-badge class="ko-application__following-badge"}}{{newMatchesCount}} New{{/ko-badge}}
+              {{/if}}
             </li>
           {{/if}}
         </ul>

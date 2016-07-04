@@ -16,51 +16,49 @@
     height: 100%;
   }
 
+  &__content {
+    @include ko-gradient-box;
+    height: 100%;
+  }
+
+  &__header {
+    @include span-columns(12);
+  }
+
   &__name {
-    flex-grow: 1;
+    @include span-columns(10);
+
     font-size: 1.2em;
     font-weight: lighter;
   }
 
-  &__content {
-    @include ko-gradient-box;
-
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
   &__new-badge {
-    padding-left: $gutter / 2;
-  }
+    @include span-columns(2);
 
-  &__stage {
-    color: $ko-border-color;
-    font-size: .8rem;
-    margin-top: 5px;
-  }
-
-  &__header {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
+    text-align: right;
+    padding: 0;
   }
 
   &__footer {
-    display: flex;
-    flex-direction: row;
+    bottom: $gutter / 2;
+    left: $gutter / 2;
+    position: absolute;
+    right: $gutter / 2;
+
+    &-content {
+      @include span-columns(12);
+    }
   }
 
   &__info {
-    align-self: flex-end;
-    flex-grow: 1;
+    @include span-columns(10);
   }
 
   &__follow {
-    align-self: center;
-    margin-left: $gutter / 2;
+    @include span-columns(2);
+
     opacity: 0;
+    text-align: right;
     transition: opacity 200ms;
 
     &.ko-toggle-button--active &-icon {

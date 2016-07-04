@@ -1,7 +1,9 @@
 import DS from 'ember-data';
 
-const { Model, belongsTo } = DS;
+const { Model, belongsTo, attr } = DS;
 
 export default Model.extend({
-  tournament: belongsTo('tournament')
+  tournament: belongsTo('tournament'),
+  newMatchesCount: attr('number'),
+  seenAt: attr('date')
 });

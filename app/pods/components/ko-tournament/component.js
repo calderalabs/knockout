@@ -13,9 +13,13 @@ export default Component.extend({
   viewType: null,
   name: computed.readOnly('tournament.name'),
   id: computed.readOnly('tournament.id'),
+  isFollowed: computed.readOnly('tournament.isFollowed'),
   isShowingTimeline: computed.equal('viewType', 'timeline'),
   isShowingPopular: computed.equal('viewType', 'popular'),
-  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
+  isShowingNew: computed.equal('viewType', 'new'),
+  shouldShowNewNavItem: computed.and('session.hasCurrentUser', 'isFollowed'),
+  hasNewMatches: computed.gt('_newMatches.length', 0),
+  _newMatches: computed.filterBy('_matches', 'isNew'),
   _matches: computed.readOnly('tournament.matches'),
 
   arrangedMatches: computed('_filteredMatches', 'viewType', function() {
@@ -24,12 +28,12 @@ export default Component.extend({
     if (this.get('viewType') === 'popular') {
       return _.orderBy(
         filteredMatches,
-        [_.partialRight(get, 'likeCount'), _.partialRight(get, 'startAt')],
+        [_.partialRight(get, 'likeCount'), _.partialRight(get, 'startedAt')],
         ['desc', 'desc']
       );
     }
 
-    return _.orderBy(filteredMatches, [_.partialRight(get, 'startAt')], ['desc']);
+    return _.orderBy(filteredMatches, [_.partialRight(get, 'startedAt')], ['desc']);
   }),
 
   timeline: computed('tournament.matchGroups', function() {
@@ -63,5 +67,13 @@ export default Component.extend({
     }
 
     return matches.filterBy('isNew');
-  })
+  }),
+
+  actions: {
+    markAllAsWatched() {
+      const following = this.get('tournament.followings.firstObject');
+      following.set('seenAt', new Date());
+      following.save();
+    }
+  }
 });

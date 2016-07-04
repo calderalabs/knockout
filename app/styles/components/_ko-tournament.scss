@@ -15,7 +15,8 @@
     }
   }
 
-  &__section-title {
+  &__list-header, &__timeline-title {
+    @include span-columns(12);
     @include ko-gradient-border($ko-border-color);
 
     margin: $gutter 0;
@@ -23,6 +24,20 @@
 
     &::before {
       height: 4px;
+    }
+  }
+
+  &__list-title {
+    @include span-columns(8);
+  }
+
+  &__mark-watched {
+    @include span-columns(4);
+    text-align: right;
+
+    &-button {
+      font-size: 0.8rem;
+      padding: 8px 16px;
     }
   }
 }

@@ -8,15 +8,15 @@ const { computed } = Ember;
 
 export default Model.extend(SpoilerableMixin, {
   bestOf: attr('number'),
-  startAt: attr('date'),
+  startedAt: attr('date'),
   stage: attr('string'),
   tournament: belongsTo('tournament'),
   teamOne: belongsTo('team'),
   teamTwo: belongsTo('team'),
   matches: hasMany('match'),
 
-  startDay: computed('startAt', function() {
-    return moment(this.get('startAt')).startOf('day').toDate();
+  startDay: computed('startedAt', function() {
+    return moment(this.get('startedAt')).startOf('day').toDate();
   }),
 
   teamOneScore: computed('matches.@each.winner', 'teamOne', function() {

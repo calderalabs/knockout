@@ -10,7 +10,7 @@ export default Component.extend({
   tournament: null,
   shouldShowNewBadge: false,
   linkViewType: 'timeline',
-  newMatchesCount: 5,
+  newMatchesCount: computed.readOnly('tournament.followings.firstObject.newMatchesCount'),
   name: computed.readOnly('tournament.name'),
   stage: computed.readOnly('tournament.stage'),
   gameName: computed.readOnly('tournament.gameName'),
@@ -18,7 +18,8 @@ export default Component.extend({
   matchesCount: computed.readOnly('tournament.matches.length'),
   isFollowed: computed.readOnly('tournament.isFollowed'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
-
+  hasNewMatches: computed.gt('newMatchesCount', 0),
+  
   actions: {
     toggleFollow(shouldActivate, event) {
       event.stopPropagation();
