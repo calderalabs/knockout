@@ -10,6 +10,13 @@
       <div class="ko-player__actions">
         {{#if hasCurrentUser}}
           {{#ko-toggle-button
+            class="ko-player__watch ko-button"
+            isActive=isWatched
+            onToggle=(action "toggleWatch")}}
+            <i class="ko-player__watch-icon"></i>Watched
+          {{/ko-toggle-button}}
+
+          {{#ko-toggle-button
             class="ko-player__like ko-button"
             isActive=isLiked
             onToggle=(action "toggleLike")}}

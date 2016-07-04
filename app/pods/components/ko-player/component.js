@@ -15,15 +15,34 @@ export default Component.extend(VelocityMixin, {
   vodUrl: computed.readOnly('_match.vod.url'),
   matchNumber: computed.readOnly('_match.number'),
   matchGroupStage: computed.readOnly('_matchGroup.stage'),
-  tournamentName: computed.readOnly('_matchGroup.tournament.name'),
+  tournamentName: computed.readOnly('_tournament.name'),
   isLiked: computed.readOnly('_match.isLiked'),
+  isWatched: computed.readOnly('_match.isWatched'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   _matchGroup: computed.readOnly('_match.matchGroup'),
   _match: computed.readOnly('player.match'),
+  _tournament: computed.readOnly('_matchGroup.tournament'),
 
   actions: {
     toggleHeader() {
       this.toggleProperty('shouldShowHeader');
+    },
+
+    toggleWatch(shouldActivate) {
+      if (shouldActivate) {
+        return this.get('store').createRecord('watching', {
+          match: this.get('_match')
+        }).save();
+      }
+
+      const following = this.get('_tournament.followings.firstObject');
+
+      if (following) {
+        this.incrementProperty('session.currentUser.newMatchesCount');
+        following.incrementProperty('newMatchesCount');
+      }
+
+      return this.get('_match.watchings.firstObject').destroyRecord();
     },
 
     toggleLike(shouldActivate) {
