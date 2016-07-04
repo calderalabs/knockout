@@ -28,7 +28,7 @@ export default Component.extend({
     if (this.get('viewType') === 'popular') {
       return _.orderBy(
         filteredMatches,
-        [_.partialRight(get, 'likeCount'), _.partialRight(get, 'startedAt')],
+        [_.partialRight(get, 'likesCount'), _.partialRight(get, 'startedAt')],
         ['desc', 'desc']
       );
     }

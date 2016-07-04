@@ -3,7 +3,7 @@ import { Factory, faker } from 'ember-cli-mirage';
 const { random, list } = faker;
 
 export default Factory.extend({
-  likeCount: () => random.number(1000),
+  likesCount: () => random.number(1000),
 
   vod: list.cycle({
     url: 'https://www.youtube.com/embed/Tu6gSIbzu6I',

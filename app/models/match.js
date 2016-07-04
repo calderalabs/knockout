@@ -9,7 +9,7 @@ const { fragment } = MF;
 
 export default Model.extend(SpoilerableMixin, {
   number: attr('number'),
-  likeCount: attr('number'),
+  likesCount: attr('number'),
   vod: fragment('vod'),
   matchGroup: belongsTo('match-group'),
   winner: belongsTo('team'),

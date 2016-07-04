@@ -17,7 +17,7 @@ export default Component.extend({
   teamTwoFullName: computed.readOnly('matchGroup.teamTwo.fullName'),
   number: computed.readOnly('match.number'),
   winnerFullName: computed.readOnly('match.winner.fullName'),
-  likeCount: computed.readOnly('match.likeCount'),
+  likesCount: computed.readOnly('match.likesCount'),
   matchGroup: computed.readOnly('match.matchGroup'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   isNew: computed.readOnly('match.isNew')

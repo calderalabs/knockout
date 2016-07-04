@@ -46,13 +46,15 @@ export default Component.extend(VelocityMixin, {
     },
 
     toggleLike(shouldActivate) {
+      const match = this.get('_match');
+
       if (shouldActivate) {
-        return this.get('store').createRecord('like', {
-          match: this.get('_match')
-        }).save();
+        match.incrementProperty('likesCount');
+        return this.get('store').createRecord('like', { match }).save();
       }
 
-      return this.get('_match.likes.firstObject').destroyRecord();
+      match.decrementProperty('likesCount');
+      return match.get('likes.firstObject').destroyRecord();
     }
   }
 });
