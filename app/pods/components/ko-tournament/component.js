@@ -74,6 +74,8 @@ export default Component.extend({
       const following = this.get('tournament.followings.firstObject');
       following.set('seenAt', new Date());
       following.save();
+      following.set('newMatchesCount', 0);
+      this.set('session.currentUser.newMatchesCount', 0);
     }
   }
 });
