@@ -40,4 +40,8 @@
       padding: 8px 16px;
     }
   }
+
+  &__new-list-empty-icon::before {
+    content: $fa-var-rocket;
+  }
 }

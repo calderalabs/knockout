@@ -25,10 +25,11 @@ export default Component.extend({
       }
 
       return Ember.Object.create({
+        id: null,
         isNull: true,
-        number: i,
+        number: i + 1,
         matchGroup: this.get('matchGroup'),
-        likeCount: 0
+        likesCount: 0
       });
     });
   }),

@@ -1,0 +1,21 @@
+.ko-empty-list {
+  @include span-columns(12);
+  
+  height: 100%;
+  padding-top: 100px;
+  text-align: center;
+
+  &__icon {
+    @include ko-gradient-box;
+    @include fa-icon;
+
+    color: $ko-border-color;
+    font-size: 6rem;
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    font-size: 1.3rem;
+    margin: $gutter 0;
+  }
+}

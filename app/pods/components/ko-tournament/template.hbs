@@ -42,12 +42,20 @@
       {{/if}}
     </header>
 
-    <ul class="ko-tournament__match-list-content">
-      {{#each arrangedMatches as |match|}}
-        {{ko-tournament/match-list-item
-          shouldShowGroupInfo=true
-          match=match}}
-      {{/each}}
-    </ul>
+    {{#if arrangedMatches}}
+      <ul class="ko-tournament__match-list-content">
+        {{#each arrangedMatches as |match|}}
+          {{ko-tournament/match-list-item
+            shouldShowGroupInfo=true
+            match=match}}
+        {{/each}}
+      </ul>
+    {{else}}
+      {{#if isShowingNew}}
+        {{#ko-empty-list message="You're up to date with this tournament!" iconClass="ko-tournament__new-list-empty-icon"}}
+          {{#link-to (query-params viewType="timeline") class="ko-button"}}Browse Timeline{{/link-to}}
+        {{/ko-empty-list}}
+      {{/if}}
+    {{/if}}
   </section>
 {{/if}}

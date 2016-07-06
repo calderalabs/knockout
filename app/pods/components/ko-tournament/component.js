@@ -59,7 +59,7 @@ export default Component.extend({
       .value();
   }),
 
-  _filteredMatches: computed('_matches', 'viewType', function() {
+  _filteredMatches: computed('_matches.@each.isNew', 'viewType', function() {
     const matches = this.get('_matches');
 
     if (this.get('viewType') === 'popular') {
