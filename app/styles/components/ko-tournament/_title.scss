@@ -1,0 +1,9 @@
+.ko-tournament-title {
+  &__follow {
+    margin-left: $gutter;
+
+    &-icon {
+      @include ko-icon('eye');
+    }
+  }
+}

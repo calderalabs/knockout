@@ -5,7 +5,7 @@ const { Component, computed, on } = Ember;
 
 export default Component.extend({
   tagName: 'button',
-  classNameBindings: ['ko-toggle-button', '_isRunning:ko-toggle-button--running', 'isActive:ko-toggle-button--active'],
+  classNameBindings: ['ko-toggle', '_isRunning:ko-toggle--running', 'isActive:ko-toggle--active'],
   isActive: false,
   onToggle: null,
   _isRunning: computed.readOnly('_toggleTask.isRunning'),

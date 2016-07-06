@@ -5,5 +5,6 @@ const { Component } = Ember;
 export default Component.extend({
   tagName: 'header',
   classNames: ['ko-header'],
-  title: null
+  title: null,
+  titleComponent: 'ko-header/title'
 });

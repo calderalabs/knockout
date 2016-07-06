@@ -18,6 +18,7 @@
 @import 'globals/ko-button';
 @import 'globals/ko-link';
 @import 'globals/ko-title';
+@import 'globals/ko-toggle-button';
 
 @import 'components/ko-application';
 @import 'components/ko-badge';
@@ -25,6 +26,7 @@
 @import 'components/ko-following';
 @import 'components/ko-header';
 @import 'components/ko-header/nav-item';
+@import 'components/ko-header/title';
 @import 'components/ko-player';
 @import 'components/ko-spoiler';
 @import 'components/ko-tournament-list';
@@ -32,5 +34,6 @@
 @import 'components/ko-tournament';
 @import 'components/ko-tournament/match-group-list-item';
 @import 'components/ko-tournament/match-list-item';
+@import 'components/ko-tournament/title';
 @import 'components/power-select';
 @import 'components/tool-tipster';

@@ -1,0 +1,8 @@
+{{#ko-header/title class="ko-tournament-title" title=title}}
+  {{#ko-toggle
+    class="ko-tournament-title__follow ko-toggle-button ko-button"
+    isActive=isFollowed
+    onToggle=(action "toggleFollow")}}
+    <i class="ko-tournament-title__follow-icon ko-toggle-button__icon"></i>Follow
+  {{/ko-toggle}}
+{{/ko-header/title}}

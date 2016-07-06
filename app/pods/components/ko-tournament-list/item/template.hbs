@@ -20,12 +20,12 @@
         </div>
 
         {{#if hasCurrentUser}}
-          {{#ko-toggle-button
+          {{#ko-toggle
             class="ko-tournament-list-item__follow"
             isActive=isFollowed
             onToggle=(action "toggleFollow")}}
             <i class="ko-tournament-list-item__follow-icon"></i>
-          {{/ko-toggle-button}}
+          {{/ko-toggle}}
         {{/if}}
       </div>
     </footer>

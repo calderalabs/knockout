@@ -1,4 +1,4 @@
-{{#ko-header title=name}}
+{{#ko-header title=name titleComponent=(component "ko-tournament/title" tournament=tournament)}}
   {{#ko-header/nav-item}}
     {{#link-to "tournament" id (query-params viewType="timeline")}}Timeline{{/link-to}}
   {{/ko-header/nav-item}}
@@ -34,11 +34,9 @@
       {{else if isShowingNew}}
         <h1 class="ko-tournament__list-title ko-title">New Matches</h1>
 
-        {{#if isFollowed}}
-          <div class="ko-tournament__mark-watched">
-            <button class="ko-tournament__mark-watched-button ko-button {{unless hasNewMatches "ko-button--disabled"}}" onclick={{action "markAllAsWatched"}}>Mark all as watched</button>
-          </div>
-        {{/if}}
+        <div class="ko-tournament__mark-watched">
+          <button class="ko-tournament__mark-watched-button ko-button {{unless hasNewMatches "ko-button--disabled"}}" onclick={{action "markAllAsWatched"}}>Mark all as watched</button>
+        </div>
       {{/if}}
     </header>
 

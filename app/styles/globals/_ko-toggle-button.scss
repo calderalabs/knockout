@@ -1,0 +1,19 @@
+.ko-toggle-button {
+  padding: $gutter / 4 $gutter / 2;
+
+  &:hover &__icon {
+    color: #fff;
+  }
+
+  &.ko-toggle--active {
+    background-color: $ko-active-color;
+  }
+
+  &.ko-toggle--running {
+    background-color: $ko-border-color;
+  }
+
+  &__icon {
+    margin-right: $gutter / 2;
+  }
+}

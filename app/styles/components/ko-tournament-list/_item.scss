@@ -61,14 +61,14 @@
     text-align: right;
     transition: opacity 200ms;
 
-    &.ko-toggle-button--active &-icon {
+    &.ko-toggle--active &-icon {
       &,
       &:hover {
         color: $ko-active-color;
       }
     }
 
-    &.ko-toggle-button--running &-icon {
+    &.ko-toggle--running &-icon {
       &,
       &:hover {
         color: $ko-border-color;

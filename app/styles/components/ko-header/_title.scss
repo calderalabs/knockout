@@ -1,0 +1,7 @@
+.ko-header-title {
+  @include span-columns(8);
+
+  &__content {
+    display: inline-block;
+  }
+}
