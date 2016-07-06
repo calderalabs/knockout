@@ -1,4 +1,4 @@
-{{#link-to (query-params matchId=matchId) class="ko-tournament-match-list-item__link"}}
+<div class="ko-tournament-match-list-item__link" onclick={{action "transitionToMatch"}}>
   <article class="ko-tournament-match-list-item__content">
     {{#if shouldShowGroupInfo}}
       <div class="ko-tournament-match-list-item__info">
@@ -62,4 +62,4 @@
       </div>
     </div>
   </article>
-{{/link-to}}
+</div>

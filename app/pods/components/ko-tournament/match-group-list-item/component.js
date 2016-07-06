@@ -18,6 +18,7 @@ export default Component.extend({
 
   matches: computed('_sortedMatches.[]', 'bestOf', function() {
     const sortedMatches = this.get('_sortedMatches');
+    const likesCounts = sortedMatches.mapBy('likesCount');
 
     return _.range(this.get('bestOf')).map((i) => {
       if (sortedMatches[i]) {
@@ -29,7 +30,7 @@ export default Component.extend({
         isNull: true,
         number: i + 1,
         matchGroup: this.get('matchGroup'),
-        likesCount: 0
+        likesCount: _.random(_.min(likesCounts), _.max(likesCounts))
       });
     });
   }),

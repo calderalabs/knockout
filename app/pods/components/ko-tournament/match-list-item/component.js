@@ -4,11 +4,12 @@ const { Component, computed, inject } = Ember;
 
 export default Component.extend({
   session: inject.service(),
+  routing: inject.service('-routing'),
+
   tagName: 'li',
   classNameBindings: [':ko-tournament-match-list-item', 'shouldShowGroupInfo:ko-tournament-match-list-item--with-group-info'],
   match: null,
   shouldShowGroupInfo: false,
-  matchId: computed.readOnly('match.id'),
   stage: computed.readOnly('matchGroup.stage'),
   bestOf: computed.readOnly('matchGroup.bestOf'),
   teamOneLogoUrl: computed.readOnly('matchGroup.teamOne.logoUrl'),
@@ -21,5 +22,15 @@ export default Component.extend({
   matchGroup: computed.readOnly('match.matchGroup'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   isNew: computed.readOnly('match.isNew'),
-  isNull: computed.readOnly('match.isNull')
+  isNull: computed.readOnly('match.isNull'),
+
+  actions: {
+    transitionToMatch() {
+      const matchId = this.get('match.id');
+
+      if (matchId) {
+        this.get('routing').transitionTo(null, null, { matchId });
+      }
+    }
+  }
 });
