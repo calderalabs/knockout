@@ -27,13 +27,23 @@
     </div>
 
     <div class="ko-tournament-match-list-item__info">
-      {{#ko-spoiler
-        name="winner"
-        spoilerable=match
-        title="Show Winner"
-        class="ko-tournament-match-list-item__info-content"}}
-        {{winnerFullName}} Wins
-      {{/ko-spoiler}}
+      {{#if isNull}}
+        {{#ko-spoiler
+          name="null-matches"
+          spoilerable=matchGroup
+          title="Show Winner"
+          class="ko-tournament-match-list-item__info-content"}}
+          Not Played
+        {{/ko-spoiler}}
+      {{else}}
+        {{#ko-spoiler
+          name="winner"
+          spoilerable=match
+          title="Show Winner"
+          class="ko-tournament-match-list-item__info-content"}}
+          {{winnerFullName}} Wins
+        {{/ko-spoiler}}
+      {{/if}}
     </div>
 
     <div class="ko-tournament-match-list-item__info">

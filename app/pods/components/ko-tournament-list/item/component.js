@@ -19,7 +19,7 @@ export default Component.extend({
   isFollowed: computed.readOnly('tournament.isFollowed'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   hasNewMatches: computed.gt('newMatchesCount', 0),
-  
+
   actions: {
     toggleFollow(shouldActivate, event) {
       event.stopPropagation();

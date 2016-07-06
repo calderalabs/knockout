@@ -2,6 +2,7 @@ import { faker } from 'ember-cli-mirage';
 import _ from 'npm:lodash';
 
 const { list } = faker;
+const { min } = Math;
 
 export default function(server) {
   server.createList('tournament', 10).forEach(function(tournament) {
@@ -16,7 +17,7 @@ export default function(server) {
     }).forEach(function(matchGroup) {
       const winner = list.cycle(matchGroup.teamOne, matchGroup.teamTwo);
 
-      _.range(matchGroup.bestOf).map(function(i) {
+      _.range(min(matchGroup.bestOf, matchGroup.bestOf - 2)).map(function(i) {
         return server.create('match', {
           matchGroup,
           number: i + 1,

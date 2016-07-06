@@ -20,5 +20,6 @@ export default Component.extend({
   likesCount: computed.readOnly('match.likesCount'),
   matchGroup: computed.readOnly('match.matchGroup'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
-  isNew: computed.readOnly('match.isNew')
+  isNew: computed.readOnly('match.isNew'),
+  isNull: computed.readOnly('match.isNull')
 });
