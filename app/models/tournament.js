@@ -26,7 +26,9 @@ export default Model.extend({
   }),
 
   follow() {
-    if (this.get('isFollowed')) { return; }
+    if (this.get('isFollowed')) {
+      return;
+    }
 
     return this.get('store').createRecord('following', {
       tournament: this
@@ -34,7 +36,10 @@ export default Model.extend({
   },
 
   unfollow() {
-    if (!this.get('isFollowed')) { return; }
+    if (!this.get('isFollowed')) {
+      return;
+    }
+
     return this.get('followings.firstObject').destroyRecord();
   },
 

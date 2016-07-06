@@ -5,7 +5,6 @@ const { Component, computed, inject } = Ember;
 export default Component.extend({
   session: inject.service(),
   routing: inject.service('-routing'),
-
   tagName: 'li',
   classNameBindings: [':ko-tournament-match-list-item', 'shouldShowGroupInfo:ko-tournament-match-list-item--with-group-info'],
   match: null,
@@ -21,8 +20,17 @@ export default Component.extend({
   likesCount: computed.readOnly('match.likesCount'),
   matchGroup: computed.readOnly('match.matchGroup'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
-  isNew: computed.readOnly('match.isNew'),
   isNull: computed.readOnly('match.isNull'),
+
+  isNew: computed('match.{isNull,isNew}', 'matchGroup.matches.@each.isNew', function() {
+    const match = this.get('match');
+
+    if (match.get('isNull')) {
+      return this.get('matchGroup.matches').isAny('isNew');
+    }
+
+    return match.get('isNew');
+  }),
 
   actions: {
     transitionToMatch() {

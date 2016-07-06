@@ -22,7 +22,7 @@ export default Component.extend({
   _newMatches: computed.filterBy('_matches', 'isNew'),
   _matches: computed.readOnly('tournament.matches'),
 
-  arrangedMatches: computed('_filteredMatches', 'viewType', function() {
+  arrangedMatches: computed('_filteredMatches.[]', 'viewType', function() {
     const filteredMatches = this.get('_filteredMatches');
 
     if (this.get('viewType') === 'popular') {

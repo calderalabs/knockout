@@ -16,7 +16,7 @@ export default Component.extend({
   teamTwoFullName: computed.readOnly('matchGroup.teamTwo.fullName'),
   bestOf: computed.readOnly('matchGroup.bestOf'),
 
-  matches: computed('_sortedMatches.[]', 'bestOf', 'matchGroup.isNew', function() {
+  matches: computed('_sortedMatches.[]', 'bestOf', 'matchGroup', function() {
     const sortedMatches = this.get('_sortedMatches');
     const likesCounts = sortedMatches.mapBy('likesCount');
 

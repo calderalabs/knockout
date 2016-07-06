@@ -21,20 +21,23 @@ export default Model.extend(SpoilerableMixin, {
   tournamentFollowing: computed.readOnly('matchGroup.tournament.followings.firstObject'),
 
   isNew: computed(
-    'matchGroup.tournament.followings.firstObject.seenAt',
+    'tournamentFollowing.seenAt',
     'matchGroup.startedAt',
     'watchings.firstObject', function() {
-    const tournamentSeenAt = this.get('matchGroup.tournament.followings.firstObject.seenAt');
+    const tournamentFollowingSeenAt = this.get('tournamentFollowing.seenAt');
 
-    if (tournamentSeenAt) {
-      return tournamentSeenAt < this.get('matchGroup.startedAt') && !this.get('watchings.firstObject');
+    if (tournamentFollowingSeenAt) {
+      return tournamentFollowingSeenAt < this.get('matchGroup.startedAt') &&
+             !this.get('watchings.firstObject');
     }
 
     return false;
   }),
 
   watch() {
-    if (this.get('isWatched')) { return; }
+    if (this.get('isWatched')) {
+      return;
+    }
 
     const tournamentFollowing = this.get('tournamentFollowing');
 
@@ -47,12 +50,14 @@ export default Model.extend(SpoilerableMixin, {
   },
 
   unwatch() {
-    if (!this.get('isWatched')) { return; }
+    if (!this.get('isWatched')) {
+      return;
+    }
 
     const tournamentFollowing = this.get('tournamentFollowing');
 
     if (tournamentFollowing) {
-      following.incrementProperty('newMatchesCount');
+      tournamentFollowing.incrementProperty('newMatchesCount');
       this.incrementProperty('session.currentUser.newMatchesCount');
     }
 
@@ -60,16 +65,20 @@ export default Model.extend(SpoilerableMixin, {
   },
 
   like() {
-    if (this.get('isLiked')) { return; }
+    if (this.get('isLiked')) {
+      return;
+    }
 
     this.incrementProperty('likesCount');
     return this.get('store').createRecord('like', { match: this }).save();
   },
 
   unlike() {
-    if (!this.get('isLiked')) { return }
+    if (!this.get('isLiked')) {
+      return;
+    }
 
-    match.decrementProperty('likesCount');
-    return match.get('likes.firstObject').destroyRecord();
+    this.decrementProperty('likesCount');
+    return this.get('likes.firstObject').destroyRecord();
   }
 });
