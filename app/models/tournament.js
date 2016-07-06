@@ -25,6 +25,19 @@ export default Model.extend({
     }, []);
   }),
 
+  follow() {
+    if (this.get('isFollowed')) { return; }
+
+    return this.get('store').createRecord('following', {
+      tournament: this
+    }).save();
+  },
+
+  unfollow() {
+    if (!this.get('isFollowed')) { return; }
+    return this.get('followings.firstObject').destroyRecord();
+  },
+
   _matchGroups: computed.map('matchGroups', function(matchGroup) {
     return MatchGroup.create({ content: matchGroup });
   })

@@ -25,5 +25,9 @@ export default Model.extend(SpoilerableMixin, {
 
   teamTwoScore: computed('matches.@each.winner', 'teamTwo', function() {
     return this.get('matches').filterBy('winner.id', this.get('teamTwo.id')).length;
+  }),
+
+  isNew: computed('matches.@each.isNew', function() {
+    return this.get('matches').isAny('isNew');
   })
 });

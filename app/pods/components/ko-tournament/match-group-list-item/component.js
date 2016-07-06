@@ -16,7 +16,7 @@ export default Component.extend({
   teamTwoFullName: computed.readOnly('matchGroup.teamTwo.fullName'),
   bestOf: computed.readOnly('matchGroup.bestOf'),
 
-  matches: computed('_sortedMatches.[]', 'bestOf', function() {
+  matches: computed('_sortedMatches.[]', 'bestOf', 'matchGroup.isNew', function() {
     const sortedMatches = this.get('_sortedMatches');
     const likesCounts = sortedMatches.mapBy('likesCount');
 
@@ -26,8 +26,8 @@ export default Component.extend({
       }
 
       return Ember.Object.create({
-        id: null,
         isNull: true,
+        isNew: this.get('matchGroup.isNew'),
         number: i + 1,
         matchGroup: this.get('matchGroup'),
         likesCount: _.random(_.min(likesCounts), _.max(likesCounts))

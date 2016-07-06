@@ -1,7 +1,6 @@
 const { Component, inject, computed } = Ember;
 
 export default Component.extend({
-  store: inject.service(),
   tagName: '',
   title: null,
   tournament: null,
@@ -9,13 +8,13 @@ export default Component.extend({
 
   actions: {
     toggleFollow(shouldActivate) {
+      const tournament = this.get('tournament');
+
       if (shouldActivate) {
-        return this.get('store').createRecord('following', {
-          tournament: this.get('tournament')
-        }).save();
+        return tournament.follow();
       }
 
-      return this.get('tournament.followings.firstObject').destroyRecord();
+      return tournament.unfollow();
     }
   }
 });

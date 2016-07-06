@@ -4,7 +4,6 @@ import VelocityMixin from 'ember-velocity-mixin/main';
 const { Component, computed, inject } = Ember;
 
 export default Component.extend(VelocityMixin, {
-  store: inject.service(),
   player: inject.service(),
   session: inject.service(),
   tagName: 'section',
@@ -29,32 +28,23 @@ export default Component.extend(VelocityMixin, {
     },
 
     toggleWatch(shouldActivate) {
+      const match = this.get('_match');
+
       if (shouldActivate) {
-        return this.get('store').createRecord('watching', {
-          match: this.get('_match')
-        }).save();
+        return match.watch();
       }
 
-      const following = this.get('_tournament.followings.firstObject');
-
-      if (following) {
-        this.incrementProperty('session.currentUser.newMatchesCount');
-        following.incrementProperty('newMatchesCount');
-      }
-
-      return this.get('_match.watchings.firstObject').destroyRecord();
+      return match.unwatch();
     },
 
     toggleLike(shouldActivate) {
       const match = this.get('_match');
 
       if (shouldActivate) {
-        match.incrementProperty('likesCount');
-        return this.get('store').createRecord('like', { match }).save();
+        return match.like();
       }
 
-      match.decrementProperty('likesCount');
-      return match.get('likes.firstObject').destroyRecord();
+      return match.unlike();
     }
   }
 });

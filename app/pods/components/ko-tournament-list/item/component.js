@@ -3,7 +3,6 @@ import Ember from 'ember';
 const { Component, computed, inject } = Ember;
 
 export default Component.extend({
-  store: inject.service(),
   session: inject.service(),
   tagName: 'li',
   classNameBindings: [':ko-tournament-list-item', '_isFollowed:ko-tournament-list-item--followed'],
@@ -22,16 +21,15 @@ export default Component.extend({
 
   actions: {
     toggleFollow(shouldActivate, event) {
+      const tournament = this.get('tournament');
       event.stopPropagation();
       event.preventDefault();
 
       if (shouldActivate) {
-        return this.get('store').createRecord('following', {
-          tournament: this.get('tournament')
-        }).save();
+        return tournament.follow();
       }
 
-      return this.get('tournament.followings.firstObject').destroyRecord();
+      return tournament.unfollow();
     }
   }
 });
