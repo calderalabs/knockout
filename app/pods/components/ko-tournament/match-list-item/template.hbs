@@ -48,17 +48,23 @@
 
     <div class="ko-tournament-match-list-item__info">
       <div class="ko-tournament-match-list-item__info-content">
-        {{#if isNew}}
-          {{#ko-badge isPrimary=true}}
-              New
+        <div class="ko-tournament-match-list-item__badge-list">
+          {{#if isNew}}
+            {{#ko-badge isPrimary=true class="ko-tournament-match-list-item__badge"}}
+                New
+            {{/ko-badge}}
+          {{/if}}
+
+          {{#if shouldShowGroupInfo}}
+            {{#ko-badge class="ko-tournament-match-list-item__badge"}}
+              BO{{bestOf}}
+            {{/ko-badge}}
+          {{/if}}
+
+          {{#ko-badge class="ko-tournament-match-list-item__badge"}}
+            {{likesCount}} likes
           {{/ko-badge}}
-        {{/if}}
-
-        {{#if shouldShowGroupInfo}}
-          {{#ko-badge}}BO{{bestOf}}{{/ko-badge}}
-        {{/if}}
-
-        {{#ko-badge}}{{likesCount}} likes{{/ko-badge}}
+        </div>
       </div>
     </div>
   </article>

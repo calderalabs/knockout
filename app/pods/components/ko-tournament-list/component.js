@@ -5,7 +5,7 @@ const { Component, computed } = Ember;
 export default Component.extend({
   tagName: 'section',
   classNames: ['ko-tournament-list'],
-  game: null,
+  gameId: null,
   tournaments: null,
   shouldShowNav: true,
   shouldShowNewBadge: false,
@@ -13,12 +13,12 @@ export default Component.extend({
   arrangedTournaments: computed.sort('_filteredTournaments', '_tournamentsSorting'),
   _tournamentsSorting: ['id:desc'],
 
-  _filteredTournaments: computed('tournaments.@each.game', 'game', function() {
-    const game = this.get('game');
+  _filteredTournaments: computed('tournaments.@each.gameId', 'gameId', function() {
+    const gameId = this.get('gameId');
     const tournaments = this.get('tournaments');
 
-    if (game) {
-      return tournaments.filterBy('game', this.get('game'));
+    if (gameId) {
+      return tournaments.filterBy('gameId', this.get('gameId'));
     } else {
       return tournaments;
     }

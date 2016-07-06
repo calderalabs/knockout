@@ -78,4 +78,19 @@
       vertical-align: middle;
     }
   }
+
+  &__badge {
+    margin-right: $gutter / 2;
+    display: block;
+    float: left;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-list {
+      display: inline-block;
+      overflow: auto;
+    }
+  }
 }

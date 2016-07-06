@@ -72,10 +72,12 @@ export default Component.extend({
   actions: {
     markAllAsWatched() {
       const following = this.get('tournament.followings.firstObject');
+      const newMatchesCount = following.get('newMatchesCount');
+
       following.set('seenAt', new Date());
       following.save();
       following.set('newMatchesCount', 0);
-      this.set('session.currentUser.newMatchesCount', 0);
+      this.decrementProperty('session.currentUser.newMatchesCount', newMatchesCount);
     }
   }
 });

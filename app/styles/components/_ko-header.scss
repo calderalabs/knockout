@@ -5,5 +5,10 @@
   &__nav {
     @include span-columns(4);
     text-align: right;
+
+    &-list {
+      display: inline-block;
+      overflow: auto;
+    }
   }
 }

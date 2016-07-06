@@ -1,5 +1,7 @@
 .ko-header-nav-item {
   @include ko-badge($ko-text-color);
+  float: left;
+  margin-right: $gutter / 2;
 
   > .active {
     color: $ko-action-color;
