@@ -3,6 +3,10 @@ import ENV from 'knockout/config/environment';
 export default function() {
   this.passthrough(`https://${ENV['auth0-ember-simple-auth'].domain}/**`);
 
+  this.get('/match_groups', function(schema, request) {
+    return schema.matchGroups.where({ tournamentId: request.queryParams.tournament_id });
+  });
+
   this.get('/tournaments');
   this.get('/tournaments/:id');
   this.get('/followings');

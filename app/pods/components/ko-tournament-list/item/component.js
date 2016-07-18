@@ -14,7 +14,7 @@ export default Component.extend({
   stage: computed.readOnly('tournament.stage'),
   gameName: computed.readOnly('tournament.gameName'),
   id: computed.readOnly('tournament.id'),
-  matchesCount: computed.readOnly('tournament.matches.length'),
+  matchesCount: computed.readOnly('tournament.matchesCount'),
   isFollowed: computed.readOnly('tournament.isFollowed'),
   hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   hasNewMatches: computed.gt('newMatchesCount', 0),

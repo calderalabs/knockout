@@ -11,6 +11,7 @@ const MatchGroup = ObjectProxy.extend({
 export default Model.extend({
   name: attr('string'),
   gameId: attr('string'),
+  matchesCount: attr('number'),
   matchGroups: hasMany('match-group'),
   followings: hasMany('following'),
   isFollowed: computed.notEmpty('followings.firstObject'),
