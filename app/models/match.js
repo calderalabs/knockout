@@ -1,13 +1,12 @@
 import DS from 'ember-data';
 import MF from 'model-fragments';
 import Ember from 'ember';
-import SpoilerableMixin from 'knockout/mixins/spoilerable';
 
 const { computed, inject } = Ember;
 const { Model, belongsTo, hasMany, attr } = DS;
 const { fragment } = MF;
 
-export default Model.extend(SpoilerableMixin, {
+export default Model.extend({
   session: inject.service(),
   number: attr('number'),
   likesCount: attr('number'),
@@ -16,6 +15,7 @@ export default Model.extend(SpoilerableMixin, {
   winner: belongsTo('team'),
   watchings: hasMany('watching'),
   likes: hasMany('like'),
+  spoilers: hasMany('spoiler'),
   isWatched: computed.notEmpty('watchings.firstObject'),
   isLiked: computed.notEmpty('likes.firstObject'),
   tournamentFollowing: computed.readOnly('matchGroup.tournament.followings.firstObject'),

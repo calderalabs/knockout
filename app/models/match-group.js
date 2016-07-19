@@ -1,12 +1,11 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 import moment from 'moment';
-import SpoilerableMixin from 'knockout/mixins/spoilerable';
 
 const { Model, belongsTo, hasMany, attr } = DS;
 const { computed } = Ember;
 
-export default Model.extend(SpoilerableMixin, {
+export default Model.extend({
   bestOf: attr('number'),
   startedAt: attr('date'),
   stage: attr('string'),
@@ -14,6 +13,7 @@ export default Model.extend(SpoilerableMixin, {
   teamOne: belongsTo('team'),
   teamTwo: belongsTo('team'),
   matches: hasMany('match'),
+  spoilers: hasMany('spoiler'),
 
   startDay: computed('startedAt', function() {
     return moment(this.get('startedAt')).startOf('day').toDate();
