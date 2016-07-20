@@ -7,7 +7,6 @@ const { Model, belongsTo, hasMany, attr } = DS;
 const { fragment } = MF;
 
 export default Model.extend({
-  session: inject.service(),
   number: attr('number'),
   likesCount: attr('number'),
   vod: fragment('vod'),
@@ -43,7 +42,6 @@ export default Model.extend({
 
     if (tournamentFollowing) {
       tournamentFollowing.decrementProperty('newMatchesCount');
-      this.decrementProperty('session.currentUser.newMatchesCount');
     }
 
     return this.get('store').createRecord('watching', { match: this }).save();
@@ -58,7 +56,6 @@ export default Model.extend({
 
     if (tournamentFollowing) {
       tournamentFollowing.incrementProperty('newMatchesCount');
-      this.incrementProperty('session.currentUser.newMatchesCount');
     }
 
     return this.get('watchings.firstObject').destroyRecord();

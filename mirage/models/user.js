@@ -6,8 +6,7 @@ const { assign } = Object;
 export default Model.extend({
   constructor(schema, modelName, attrs = {}, fks) {
     Model.call(this, schema, modelName, assign({
-      name: name.findName(),
-      newMatchesCount: random.number(20)
+      name: name.findName()
     }, _.omitBy(attrs, _.isNull)), fks);
   }
 });;
