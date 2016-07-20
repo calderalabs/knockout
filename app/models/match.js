@@ -2,7 +2,7 @@ import DS from 'ember-data';
 import MF from 'model-fragments';
 import Ember from 'ember';
 
-const { computed, inject } = Ember;
+const { computed } = Ember;
 const { Model, belongsTo, hasMany, attr } = DS;
 const { fragment } = MF;
 
