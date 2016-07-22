@@ -9,10 +9,10 @@ export default Base.extend({
 
     const widget = this.get('lock');
 
-    const addTwitch = function() {
+    const addTwitch = function(action) {
       const link = $(`
-        <div class="a0-icon a0-image-icon a0-zocial a0-twitch" data-strategy="oauth2" title="Twitch">
-          <span>Twitch</span>
+        <div class="a0-zocial a0-twitch" data-strategy="oauth2" title="Twitch">
+          <span>${action} with Twitch</span>
         </div>
       `);
 
@@ -26,7 +26,7 @@ export default Base.extend({
       });
     };
 
-    widget.on('signin ready', addTwitch);
-    widget.on('signup ready', addTwitch);
+    widget.on('signin ready', () => { addTwitch('Login') });
+    widget.on('signup ready', () => { addTwitch('Signup') });
   }
 });

@@ -7,3 +7,32 @@
     }
   }
 }
+
+.a0-primary {
+  background-color: $ko-action-color !important;
+}
+
+.a0-icon-container {
+  min-height: 0 !important;
+}
+
+.a0-top-header {
+  min-height: 0 !important;
+
+  .a0-image {
+    display: none !important;
+  }
+
+  h1 {
+    padding: $gutter / 2 !important;
+    margin-top: 0 !important;
+  }
+}
+
+.a0-onestep {
+  min-width: 350px !important;
+}
+
+.a0-footer .a0-icon-badge {
+  display: none !important;
+}
