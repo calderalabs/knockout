@@ -12,5 +12,9 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
 
   shouldReloadAll() {
     return true;
+  },
+
+  shouldBackgroundReloadRecord() {
+    return false;
   }
 });
