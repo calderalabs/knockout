@@ -21,7 +21,8 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth': {
-      authenticationRoute: 'index'
+      authenticationRoute: 'index',
+      routeAfterAuthentication: 'tournaments'
     },
 
     'auth0-ember-simple-auth': {
