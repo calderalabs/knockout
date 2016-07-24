@@ -11,6 +11,7 @@ export default Component.extend({
   shouldShowNewBadge: false,
   title: null,
   arrangedTournaments: computed.sort('_filteredTournaments', '_tournamentsSorting'),
+  shouldShowHeader: computed.notEmpty('arrangedTournaments'),
   _tournamentsSorting: ['id:desc'],
 
   _filteredTournaments: computed('tournaments.@each.gameId', 'gameId', function() {

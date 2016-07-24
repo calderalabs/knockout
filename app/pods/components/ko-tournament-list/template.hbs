@@ -1,4 +1,4 @@
-{{#if arrangedTournaments}}
+{{#if shouldShowHeader}}
   {{#ko-header title=title}}
     {{#if shouldShowNav}}
       {{#ko-header/nav-item}}
@@ -14,7 +14,9 @@
       {{/ko-header/nav-item}}
     {{/if}}
   {{/ko-header}}
+{{/if}}
 
+{{#if arrangedTournaments}}
   <ul class="ko-tournament-list__content">
     {{#each arrangedTournaments as |tournament|}}
       {{#if hasBlock}}
