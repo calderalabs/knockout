@@ -4,12 +4,12 @@
   position: relative;
 
   &__actions {
-    @include span-columns(2, $display: 'table');
+    @include span-columns(2, $display: table);
     vertical-align: middle;
   }
 
   &__info {
-    @include span-columns(8, $display: 'table');
+    @include span-columns(8, $display: table);
 
     padding-right: (100% / 12) * 2;
     text-align: center;
