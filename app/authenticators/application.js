@@ -9,7 +9,7 @@ export default Base.extend({
 
     const widget = this.get('lock');
 
-    const addTwitch = function(action) {
+    const customize = function(action) {
       const link = $(`
         <div class="a0-zocial a0-twitch" data-strategy="oauth2" title="Twitch">
           <span>${action} with Twitch</span>
@@ -26,7 +26,7 @@ export default Base.extend({
       });
     };
 
-    widget.on('signin ready', () => { addTwitch('Login') });
-    widget.on('signup ready', () => { addTwitch('Signup') });
+    widget.on('signin ready', () => { customize('Login') });
+    widget.on('signup ready', () => { customize('Signup') });
   }
 });
