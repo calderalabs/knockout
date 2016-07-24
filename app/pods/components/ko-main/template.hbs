@@ -1,0 +1,48 @@
+<header class="ko-main__header">
+  <div class="ko-main__header-content">
+    <h1 class="ko-main__title">
+      {{#link-to "index" class="ko-main__title-link"}}
+        <span class="ko-main__title-link-primary">Knock</span>out
+      {{/link-to}}
+    </h1>
+
+    {{#unless isLoading}}
+      <nav class="ko-main__nav">
+        <ul>
+          <li class="ko-main__nav-item">
+            {{#link-to "tournaments" class="ko-main__nav-link ko-link"}}
+              Tournaments
+            {{/link-to}}
+          </li>
+
+          {{#if hasCurrentUser}}
+            <li class="ko-main__nav-item">
+              {{#link-to "following" class="ko-main__nav-link ko-link"}}
+                Following
+              {{/link-to}}
+
+              {{#if hasNewMatches}}
+                {{#ko-badge class="ko-main__following-badge"}}{{newMatchesCount}} New{{/ko-badge}}
+              {{/if}}
+            </li>
+          {{/if}}
+        </ul>
+      </nav>
+    {{/unless}}
+
+    {{#unless isLoading}}
+      <div class="ko-main__session">
+        {{#if hasCurrentUser}}
+          <div class="ko-main__current-user-name">{{currentUserName}}</div>
+          <a class="ko-link" onclick={{action "logout"}}>Logout</a>
+        {{else}}
+          <a class="ko-link" onclick={{action "login"}}>Login</a>
+        {{/if}}
+      </div>
+    {{/unless}}
+  </div>
+</header>
+
+<main class="ko-main__content">
+  {{yield}}
+</main>

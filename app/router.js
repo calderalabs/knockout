@@ -6,10 +6,14 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.modal('ko-player', { withParams: 'match' });
-  this.route('tournament', { path: 'tournaments/:id' });
-  this.route('tournaments');
-  this.route('following');
+  this.route('main', { path: '' }, function() {
+    this.modal('ko-player', { withParams: 'match' });
+    this.route('tournament', { path: 'tournaments/:id', resetNamespace: true });
+    this.route('tournaments', {resetNamespace: true });
+    this.route('following', { resetNamespace: true });
+  });
+
+  this.route('index', { path: '/' });
 });
 
 export default Router;

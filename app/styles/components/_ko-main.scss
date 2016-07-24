@@ -1,6 +1,6 @@
-$ko-application-header-height: 5em;
+$ko-main-header-height: 5em;
 
-.ko-application {
+.ko-main {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -14,7 +14,7 @@ $ko-application-header-height: 5em;
 
   &__header {
     background: rgba(0, 0, 0, .7);
-    height: $ko-application-header-height;
+    height: $ko-main-header-height;
     left: 0;
     position: fixed;
     right: 0;
@@ -66,7 +66,7 @@ $ko-application-header-height: 5em;
 
   &__content {
     height: 100%;
-    padding: $ko-application-header-height + $gutter $gutter $gutter;
+    padding: $ko-main-header-height + $gutter $gutter $gutter;
   }
 
   &__following-badge.ko-badge {

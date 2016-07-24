@@ -7,7 +7,7 @@ export default Component.extend({
   player: inject.service(),
   session: inject.service(),
   tagName: 'section',
-  classNames: ['ko-application'],
+  classNames: ['ko-main'],
   followings: null,
   isLoading: false,
   isPlaying: computed.readOnly('player.isPlaying'),
