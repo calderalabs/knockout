@@ -26,10 +26,10 @@ export default Component.extend({
       event.preventDefault();
 
       if (shouldActivate) {
-        return tournament.get('follow')();
+        return tournament.get('follow').call(tournament);
       }
 
-      return tournament.get('unfollow')();
+      return tournament.get('unfollow').call(tournament);
     }
   }
 });

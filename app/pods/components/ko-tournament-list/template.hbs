@@ -1,21 +1,3 @@
-{{#if shouldShowHeader}}
-  {{#ko-header title=title}}
-    {{#if shouldShowNav}}
-      {{#ko-header/nav-item}}
-        {{#link-to "tournaments" (query-params gameId=null)}}All Games{{/link-to}}
-      {{/ko-header/nav-item}}
-
-      {{#ko-header/nav-item}}
-        {{#link-to "tournaments" (query-params gameId="dota2")}}Dota 2{{/link-to}}
-      {{/ko-header/nav-item}}
-
-      {{#ko-header/nav-item}}
-        {{#link-to "tournaments" (query-params gameId="overwatch")}}Overwatch{{/link-to}}
-      {{/ko-header/nav-item}}
-    {{/if}}
-  {{/ko-header}}
-{{/if}}
-
 {{#if arrangedTournaments}}
   <ul class="ko-tournament-list__content">
     {{#each arrangedTournaments as |tournament|}}

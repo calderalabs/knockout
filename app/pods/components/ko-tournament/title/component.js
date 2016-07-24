@@ -15,10 +15,10 @@ export default Component.extend({
       const tournament = this.get('tournament');
 
       if (shouldActivate) {
-        return tournament.follow();
+        return tournament.get('follow').call(tournament);
       }
 
-      return tournament.unfollow();
+      return tournament.get('unfollow').call(tournament);
     }
   }
 });

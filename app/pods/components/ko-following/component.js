@@ -3,8 +3,8 @@ import Ember from 'ember';
 const { Component, computed } = Ember;
 
 export default Component.extend({
+  tagName: 'section',
   classNames: ['ko-following'],
-  onShow: null,
-  model: null,
-  tournaments: computed.mapBy('model', 'tournament')
+  followings: null,
+  tournaments: computed.mapBy('followings', 'tournament')
 });

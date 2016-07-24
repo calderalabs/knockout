@@ -10,7 +10,7 @@ export default Service.extend({
     this.set('match', match);
 
     if (match) {
-      match.watch();
+      match.get('watch').call(match);
     }
   }
 });

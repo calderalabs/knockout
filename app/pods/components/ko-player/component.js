@@ -31,20 +31,20 @@ export default Component.extend(VelocityMixin, {
       const match = this.get('_match');
 
       if (shouldActivate) {
-        return match.watch();
+        return match.get('watch').call(match);
       }
 
-      return match.unwatch();
+      return match.get('unwatch').call(match);
     },
 
     toggleLike(shouldActivate) {
       const match = this.get('_match');
 
       if (shouldActivate) {
-        return match.like();
+        return match.get('like').call(match);
       }
 
-      return match.unlike();
+      return match.get('unlike').call(match);
     }
   }
 });
