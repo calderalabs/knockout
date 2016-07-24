@@ -19,7 +19,7 @@ export default Model.extend({
         this.set('matchGroup', null);
         this.set('match', null);
       } else {
-        let constructor = value.constructor;
+        let { constructor } = value;
 
         if (value instanceof ObjectProxy) {
           constructor = value.get('content').constructor;

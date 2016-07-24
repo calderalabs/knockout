@@ -26,7 +26,12 @@ export default Base.extend({
       });
     };
 
-    widget.on('signin ready', () => { customize('Login') });
-    widget.on('signup ready', () => { customize('Signup') });
+    widget.on('signin ready', function() {
+      customize('Login');
+    });
+
+    widget.on('signup ready', function() {
+      customize('Signup');
+    });
   }
 });
