@@ -4,7 +4,7 @@ const { Component, computed } = Ember;
 
 export default Component.extend({
   tagName: 'section',
-  classNames: ['ko-tournament-list'],
+  classNames: ['ko-tournament-list ko-main-section'],
   gameId: null,
   tournaments: null,
 

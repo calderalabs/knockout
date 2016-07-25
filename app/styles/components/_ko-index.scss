@@ -2,9 +2,12 @@
   height: 100%;
 
   &__header {
-    background-color: $ko-header-background-color;
-    padding: $gutter * 8;
+    @include ko-gradient-box;
+
+    $padding: $gutter * 8;
+    padding: $padding + $ko-application-header-height $padding $padding;
     text-align: center;
+    margin-bottom: $gutter / 2;
   }
 
   &__title {
@@ -16,5 +19,47 @@
     font-size: 1.8rem;
     font-weight: 400;
     margin-bottom: $gutter;
+  }
+
+  &__features {
+    @include span-columns(12);
+    padding: $gutter;
+
+    &-title {
+      @include ko-gradient-border($ko-border-color);
+
+      font-size: 1.3rem;
+      margin-bottom: $gutter / 2;
+      padding-bottom: $gutter / 2;
+
+      &::before {
+        height: 3px;
+      }
+    }
+  }
+
+  &__feature {
+    &-list {
+      @include span-columns(12);
+    }
+
+    &-item {
+      @include span-columns(3);
+      @include omega(4n);
+      @include ko-gradient-box($ko-panel-background-color);
+
+      height: 300px;
+      padding: $gutter;
+    }
+
+    &-image {
+      height: 140px;
+      overflow: hidden;
+      margin-bottom: $gutter;
+
+      &-content {
+        max-width: 100%;
+      }
+    }
   }
 }
