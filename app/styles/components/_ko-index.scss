@@ -60,9 +60,13 @@
 
     &-title {
       color: $ko-action-color;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: bolder;
       margin-bottom: $gutter / 2;
+    }
+
+    &-description {
+      font-size: 1.2rem;
     }
 
     &-item {
