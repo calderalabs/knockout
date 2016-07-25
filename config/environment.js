@@ -44,6 +44,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.apiBaseUrl = 'https://knockout-api.herokuapp.com';
+    ENV['auth0-ember-simple-auth'].clientID = 'CWs4Z5GyCoTUKtdaVqvYju1Q0S2pHq7B';
   }
 
   return ENV;
