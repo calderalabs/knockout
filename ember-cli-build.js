@@ -16,7 +16,7 @@ module.exports = function(defaults) {
       ]
     },
 
-    favicon: {
+    favicons: {
       config: {
         path: '/assets/favicons'
       }
