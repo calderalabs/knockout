@@ -1,9 +1,7 @@
 <header class="ko-main__header">
   <div class="ko-main__header-content">
     <h1 class="ko-main__title">
-      {{#link-to "index" class="ko-main__title-link"}}
-        <span class="ko-main__title-link-primary">Knock</span>out
-      {{/link-to}}
+      {{#link-to "index"}}{{ko-logo}}{{/link-to}}
     </h1>
 
     {{#unless isLoading}}

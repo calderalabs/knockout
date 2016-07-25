@@ -1,11 +1,7 @@
 $ko-main-header-height: 5em;
 
 .ko-main {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  height: 100%;
 
   &__content,
   &__header {
@@ -13,7 +9,7 @@ $ko-main-header-height: 5em;
   }
 
   &__header {
-    background: rgba(0, 0, 0, .7);
+    background-color: $ko-header-background-color;
     height: $ko-main-header-height;
     left: 0;
     position: fixed;
@@ -33,12 +29,6 @@ $ko-main-header-height: 5em;
   &__title {
     text-transform: uppercase;
     margin-right: $gutter;
-
-    &-link {
-      &-primary {
-        color: $ko-action-color;
-      }
-    }
   }
 
   &__nav {

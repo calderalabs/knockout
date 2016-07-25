@@ -1,0 +1,8 @@
+.ko-logo {
+  font-family: 'Exo 2';
+  text-transform: uppercase;
+
+  &__primary-text {
+    color: $ko-action-color;
+  }
+}
