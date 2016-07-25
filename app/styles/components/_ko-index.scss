@@ -4,7 +4,7 @@
   &__header {
     @include ko-gradient-box;
 
-    $padding: $gutter * 8;
+    $padding: $gutter * 7;
     padding: $padding + $ko-application-header-height $padding $padding;
     text-align: center;
     margin-bottom: $gutter / 2;
