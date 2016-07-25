@@ -17,20 +17,21 @@
 
   &__tagline {
     font-size: 1.8rem;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: $gutter;
   }
 
   &__features {
     @include span-columns(12);
-    padding: $gutter;
+    padding: $gutter * 4 $gutter * 4 0;
 
     &-title {
       @include ko-gradient-border($ko-border-color);
 
       font-size: 1.3rem;
       margin-bottom: $gutter;
-      padding-bottom: $gutter / 2;
+      padding-bottom: $gutter;
+      text-align: center;
 
       &::before {
         height: 3px;
@@ -41,12 +42,33 @@
   &__feature {
     &-list {
       @include span-columns(12);
+
+      &--upcoming {
+        margin-bottom: $gutter * 4;
+
+        .ko-index__feature {
+          &-item {
+            background: transparent;
+          }
+
+          &-title {
+            color: $ko-border-color;
+          }
+        }
+      }
+    }
+
+    &-title {
+      font-weight: bolder;
+      font-size: 1.1rem;
+      margin-bottom: $gutter / 2;
+      color: $ko-action-color;
     }
 
     &-item {
       @include span-columns(4);
       @include omega(3n);
-      @include ko-gradient-box($ko-panel-background-color);
+      @include ko-gradient-box($inner-color: #111);
 
       padding: $gutter;
       margin-bottom: $gutter;
@@ -54,10 +76,34 @@
 
     &-image {
       overflow: hidden;
+
       margin-bottom: $gutter;
 
       &-content {
         max-width: 100%;
+      }
+    }
+  }
+
+  &__footer {
+    @include span-columns(12);
+    @include ko-gradient-box(#111, #000);
+    padding: $gutter * 4;
+    color: #444;
+    text-align: center;
+  }
+
+  &__made-by {
+    margin-right: $gutter / 3;
+
+    &-link {
+      vertical-align: middle;
+      filter: grayscale(100%);
+      transition: filter 300ms;
+      display: inline-block;
+
+      &:hover {
+        filter: grayscale(0);
       }
     }
   }
