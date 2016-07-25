@@ -100,17 +100,16 @@
   }
 
   &__made-by {
-    margin-right: $gutter / 3;
+    display: inline-block;
+    filter: grayscale(100%);
+    transition: filter 300ms;
 
-    &-link {
-      display: inline-block;
-      filter: grayscale(100%);
-      transition: filter 300ms;
-      vertical-align: middle;
-
-      &:hover {
-        filter: grayscale(0);
-      }
+    &:hover {
+      filter: grayscale(0);
     }
+  }
+
+  &__copyright {
+    display: block;
   }
 }
