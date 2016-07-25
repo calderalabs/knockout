@@ -29,7 +29,7 @@
       @include ko-gradient-border($ko-border-color);
 
       font-size: 1.3rem;
-      margin-bottom: $gutter / 2;
+      margin-bottom: $gutter;
       padding-bottom: $gutter / 2;
 
       &::before {
@@ -44,16 +44,15 @@
     }
 
     &-item {
-      @include span-columns(3);
-      @include omega(4n);
+      @include span-columns(4);
+      @include omega(3n);
       @include ko-gradient-box($ko-panel-background-color);
 
-      height: 300px;
       padding: $gutter;
+      margin-bottom: $gutter;
     }
 
     &-image {
-      height: 140px;
       overflow: hidden;
       margin-bottom: $gutter;
 
