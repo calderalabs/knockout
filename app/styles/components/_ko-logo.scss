@@ -1,6 +1,7 @@
 .ko-logo {
   font-family: 'Exo 2';
   text-transform: uppercase;
+  user-select: none;
 
   &__primary-text {
     color: $ko-action-color;
