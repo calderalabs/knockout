@@ -14,12 +14,6 @@ module.exports = function(defaults) {
         'bower_components/neat/app/assets/stylesheets',
         'bower_components/font-awesome/scss'
       ]
-    },
-
-    favicons: {
-      config: {
-        path: '/assets/favicons'
-      }
     }
   });
 
