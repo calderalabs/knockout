@@ -15,12 +15,13 @@
     }
   }
 
-  &__list-header, &__timeline-title {
+  &__list-header,
+  &__timeline-title {
     @include ko-gradient-border($ko-border-color);
 
+    align-items: flex-end;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
     margin: $gutter 0;
     padding-bottom: $gutter / 2;
 
@@ -37,7 +38,7 @@
     text-align: right;
 
     &-button {
-      font-size: 0.8rem;
+      font-size: .8rem;
       padding: 8px 16px;
     }
   }

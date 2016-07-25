@@ -35,8 +35,8 @@
   &__new-badge {
     @include span-columns(2);
 
-    text-align: right;
     padding: 0;
+    text-align: right;
   }
 
   &__footer {

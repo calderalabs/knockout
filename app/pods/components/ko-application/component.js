@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import _ from 'lodash';
+import _ from 'npm:lodash';
 
 const { Component, inject, computed } = Ember;
 

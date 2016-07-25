@@ -1,3 +1,5 @@
+// scss-lint:disable ImportantRule
+
 .a0-zocial {
   &.a0-twitch {
     background-color: #6441a5;
@@ -24,8 +26,8 @@
   }
 
   h1 {
-    padding: $gutter / 2 !important;
     margin-top: 0 !important;
+    padding: $gutter / 2 !important;
   }
 }
 
