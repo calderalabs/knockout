@@ -10,20 +10,23 @@ export default Base.extend({
     const widget = this.get('lock');
 
     const customize = function(action) {
-      const link = $(`
-        <div class="a0-zocial a0-twitch" data-strategy="oauth2" title="Twitch">
-          <span>${action} with Twitch</span>
-        </div>
-      `);
-
       $('.a0-separator, .a0-iconlist').removeClass('a0-hide');
-      $('.a0-iconlist').append(link);
 
-      link.on('click', function(e) {
-        e.preventDefault();
-        widget.emit('signin submit', widget.options, { provider: 'oauth2' });
-        widget._signinSocial(e, 'twitch', null, widget.$panel);
-      });
+      if ($('.a0-twitch').length === 0) {
+        const twitchLink = $(`
+          <div class="a0-zocial a0-twitch" data-strategy="oauth2" title="Twitch">
+            <span>${action} with Twitch</span>
+          </div>
+        `);
+
+        $('.a0-iconlist').append(twitchLink);
+
+        twitchLink.on('click', function(e) {
+          e.preventDefault();
+          widget.emit('signin submit', widget.options, { provider: 'oauth2' });
+          widget._signinSocial(e, 'twitch', null, widget.$panel);
+        });
+      }
     };
 
     widget.on('signin ready', function() {
