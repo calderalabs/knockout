@@ -16,8 +16,11 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      apiBaseUrl: 'http://localhost:4000'
+    },
+
+    'ember-cli-mirage': {
+      enabled: false
     },
 
     'ember-simple-auth': {
@@ -39,7 +42,9 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {}
+  if (environment === 'production') {
+    ENV.APP.apiBaseUrl = 'https://knockout-api.herokuapp.com';
+  }
 
   return ENV;
 };
