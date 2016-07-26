@@ -22,9 +22,7 @@ export default Component.extend({
 
   actions: {
     login() {
-      this.get('session').authenticate('authenticator:application', {
-        authParams: { scope: 'openid' }
-      });
+      this.get('session').authenticate('authenticator:application');
     },
 
     logout() {

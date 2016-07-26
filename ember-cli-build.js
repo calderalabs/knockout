@@ -23,9 +23,9 @@ module.exports = function(defaults) {
     });
   });
 
-  app.import('bower_components/font-awesome/fonts/FontAwesome.otf', { destDir: '/assets/fonts' });
-  app.import('bower_components/css-social-buttons/css/zocial.otf', { destDir: '/assets/fonts' });
   app.import('bower_components/css-social-buttons/css/zocial.css');
+  app.import('bower_components/css-social-buttons/css/zocial.otf', { destDir: '/assets/fonts' });
+  app.import('bower_components/font-awesome/fonts/FontAwesome.otf', { destDir: '/assets/fonts' });
 
   return app.toTree();
 };

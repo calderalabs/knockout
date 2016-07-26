@@ -7,6 +7,7 @@
     $padding: $gutter * 7;
     margin-bottom: $gutter / 2;
     padding: $padding + $ko-application-header-height $padding $padding;
+    position: relative;
     text-align: center;
   }
 
@@ -20,6 +21,40 @@
     font-weight: 300;
     margin-bottom: $gutter;
   }
+
+  &__scroll-indicator {
+    border: solid 2px $ko-border-color;
+    border-radius: 8px;
+    bottom: $gutter;
+    display: inline-block;
+    height: 30px;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute;
+    transition: border-color 200ms;
+    width: 20px;
+
+    &::after {
+      background-color: $ko-border-color;
+      border-radius: 6px;
+      content: '';
+      height: 5px;
+      left: 6px;
+      position: absolute;
+      top: 7px;
+      transition: background-color 200ms;
+      width: 4px;
+    }
+
+    &:hover {
+      border-color: #fff;
+
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+
 
   &__features {
     @include span-columns(12);

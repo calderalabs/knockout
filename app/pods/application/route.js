@@ -25,7 +25,7 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   sessionAuthenticated(...args) {
-    const _super = this._super;
+    const { _super } = this;
 
     this.refresh().then(() => {
       _super.apply(this, ...args);

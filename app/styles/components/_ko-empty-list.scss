@@ -2,7 +2,7 @@
   @include span-columns(12);
 
   height: 100%;
-  padding-top: 100px;
+  padding: $gutter * 3 0;
   text-align: center;
 
   &__icon {
