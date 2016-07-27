@@ -24,11 +24,7 @@ export default Route.extend(ApplicationRouteMixin, {
     controller.set('followings', model.followings);
   },
 
-  sessionAuthenticated(...args) {
-    const { _super } = this;
-
-    this.refresh().then(() => {
-      _super.apply(this, ...args);
-    });
+  sessionAuthenticated() {
+    this.refresh();
   }
 });
