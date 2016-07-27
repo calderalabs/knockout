@@ -23,38 +23,26 @@
   }
 
   &__scroll-indicator {
-    border: solid 2px $ko-border-color;
-    border-radius: 8px;
-    bottom: $gutter;
-    display: inline-block;
-    height: 30px;
+    bottom: $gutter / 2;
+    display: block;
     left: 50%;
     margin-left: -10px;
     position: absolute;
-    transition: border-color 200ms;
     width: 20px;
 
-    &::after {
-      background-color: $ko-border-color;
-      border-radius: 6px;
-      content: '';
-      height: 5px;
-      left: 6px;
-      position: absolute;
-      top: 7px;
-      transition: background-color 200ms;
-      width: 4px;
+    &:hover &-icon {
+      color: #fff;
     }
 
-    &:hover {
-      border-color: #fff;
+    &-icon {
+      @include ko-icon('angle-down');
 
-      &::after {
-        background-color: #fff;
-      }
+      color: $ko-border-color;
+      font-size: 3rem;
+      display: inline-block;
+      transition: color 200ms;
     }
   }
-
 
   &__features {
     @include span-columns(12);
