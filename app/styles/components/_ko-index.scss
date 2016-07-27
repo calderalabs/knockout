@@ -22,6 +22,10 @@
     margin-bottom: $gutter;
   }
 
+  &__browse-tournaments {
+    background-color: $ko-active-color;
+  }
+
   &__scroll-indicator {
     bottom: $gutter / 2;
     display: block;
