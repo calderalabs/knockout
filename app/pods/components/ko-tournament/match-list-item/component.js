@@ -3,7 +3,6 @@ import Ember from 'ember';
 const { Component, computed, inject } = Ember;
 
 export default Component.extend({
-  session: inject.service(),
   routing: inject.service('-routing'),
   tagName: 'li',
   classNameBindings: [':ko-tournament-match-list-item', 'shouldShowGroupInfo:ko-tournament-match-list-item--with-group-info'],
@@ -19,7 +18,6 @@ export default Component.extend({
   winnerFullName: computed.readOnly('match.winner.fullName'),
   likesCount: computed.readOnly('match.likesCount'),
   matchGroup: computed.readOnly('match.matchGroup'),
-  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   isNull: computed.readOnly('match.isNull'),
 
   isNew: computed('match.{isNull,isNew}', 'matchGroup.matches.@each.isNew', function() {

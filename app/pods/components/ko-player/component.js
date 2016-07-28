@@ -1,11 +1,11 @@
 import Ember from 'ember';
 import VelocityMixin from 'ember-velocity-mixin/main';
+import AuthenticatedActionsMixin from 'knockout/mixins/authenticated-actions';
 
 const { Component, computed, inject } = Ember;
 
-export default Component.extend(VelocityMixin, {
+export default Component.extend(VelocityMixin, AuthenticatedActionsMixin, {
   player: inject.service(),
-  session: inject.service(),
   tagName: 'section',
   classNames: ['ko-player'],
   shouldShowHeader: true,
@@ -17,7 +17,6 @@ export default Component.extend(VelocityMixin, {
   tournamentName: computed.readOnly('_tournament.name'),
   isLiked: computed.readOnly('_match.isLiked'),
   isWatched: computed.readOnly('_match.isWatched'),
-  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   _matchGroup: computed.readOnly('_match.matchGroup'),
   _match: computed.readOnly('player.match'),
   _tournament: computed.readOnly('_matchGroup.tournament'),
@@ -25,8 +24,10 @@ export default Component.extend(VelocityMixin, {
   actions: {
     toggleHeader() {
       this.toggleProperty('shouldShowHeader');
-    },
+    }
+  },
 
+  authenticatedActions: {
     toggleWatch(shouldActivate) {
       const match = this.get('_match');
 

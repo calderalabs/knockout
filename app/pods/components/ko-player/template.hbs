@@ -8,21 +8,19 @@
   {{#liquid-if shouldShowHeader}}
     <header class="ko-player__header-content">
       <div class="ko-player__actions">
-        {{#if hasCurrentUser}}
-          {{#ko-toggle
-            class="ko-player__watch ko-toggle-button ko-button"
-            isActive=isWatched
-            onToggle=(action "toggleWatch")}}
-            <i class="ko-player__watch-icon ko-toggle-button__icon"></i>Watched
-          {{/ko-toggle}}
+        {{#ko-toggle
+          class="ko-player__watch ko-toggle-button ko-button"
+          isActive=isWatched
+          onToggle=(action "toggleWatch")}}
+          <i class="ko-player__watch-icon ko-toggle-button__icon"></i>Watched
+        {{/ko-toggle}}
 
-          {{#ko-toggle
-            class="ko-player__like ko-toggle-button ko-button"
-            isActive=isLiked
-            onToggle=(action "toggleLike")}}
-            <i class="ko-player__like-icon ko-toggle-button__icon"></i>Like
-          {{/ko-toggle}}
-        {{/if}}
+        {{#ko-toggle
+          class="ko-player__like ko-toggle-button ko-button"
+          isActive=isLiked
+          onToggle=(action "toggleLike")}}
+          <i class="ko-player__like-icon ko-toggle-button__icon"></i>Like
+        {{/ko-toggle}}
       </div>
 
       <div class="ko-player__info">

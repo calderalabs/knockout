@@ -1,16 +1,15 @@
 import Ember from 'ember';
+import AuthenticatedActionsMixin from 'knockout/mixins/authenticated-actions';
 
-const { Component, computed, inject } = Ember;
+const { Component, computed } = Ember;
 
-export default Component.extend({
-  session: inject.service(),
+export default Component.extend(AuthenticatedActionsMixin, {
   tagName: '',
   title: null,
   tournament: null,
   isFollowed: computed.readOnly('tournament.isFollowed'),
-  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
 
-  actions: {
+  authenticatedActions: {
     toggleFollow(shouldActivate) {
       const tournament = this.get('tournament');
 

@@ -2,9 +2,10 @@
   height: 100%;
 
   &__header {
+    $padding: $gutter * 7;
+
     @include ko-gradient-box;
 
-    $padding: $gutter * 7;
     margin-bottom: $gutter / 2;
     padding: $padding + $ko-application-header-height $padding $padding;
     position: relative;
@@ -27,12 +28,14 @@
   }
 
   &__scroll-indicator {
+    $width: 3rem;
+
     bottom: $gutter / 2;
     display: block;
     left: 50%;
-    margin-left: -10px;
+    margin-left: -($width / 2);
     position: absolute;
-    width: 20px;
+    width: $width;
 
     &:hover &-icon {
       color: #fff;
@@ -42,7 +45,7 @@
       @include ko-icon('angle-down');
 
       color: $ko-border-color;
-      font-size: 3rem;
+      font-size: $width;
       display: inline-block;
       transition: color 200ms;
     }

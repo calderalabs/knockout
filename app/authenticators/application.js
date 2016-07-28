@@ -1,13 +1,13 @@
 import Ember from 'ember';
 import Base from 'auth0-ember-simple-auth/authenticators/lock';
 
-const { $ } = Ember;
+const { $, RSVP } = Ember;
 
 export default Base.extend({
   init() {
     this._super(...arguments);
 
-    const widget = this.get('lock');
+    const lock = this.get('lock');
 
     const customize = function(action) {
       $('.a0-separator, .a0-iconlist').removeClass('a0-hide');
@@ -23,18 +23,28 @@ export default Base.extend({
 
         twitchLink.on('click', function(e) {
           e.preventDefault();
-          widget.emit('signin submit', widget.options, { provider: 'oauth2' });
-          widget._signinSocial(e, 'twitch', null, widget.$panel);
+          lock.emit('signin submit', lock.options, { provider: 'oauth2' });
+          lock._signinSocial(e, 'twitch', null, lock.$panel);
         });
       }
     };
 
-    widget.on('signin ready', function() {
+    lock.on('signin ready', function() {
       customize('Login');
     });
 
-    widget.on('signup ready', function() {
+    lock.on('signup ready', function() {
       customize('Signup');
+    });
+  },
+
+  authenticate(...args) {
+    return new RSVP.Promise((resolve, reject) => {
+      this.get('lock').once('close', Ember.run.bind(this, reject));
+
+      this._super(...args).then(() => {
+        resolve(...arguments);
+      });
     });
   }
 });

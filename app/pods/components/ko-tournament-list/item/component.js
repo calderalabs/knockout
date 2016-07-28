@@ -1,9 +1,9 @@
 import Ember from 'ember';
+import AuthenticatedActionsMixin from 'knockout/mixins/authenticated-actions';
 
-const { Component, computed, inject } = Ember;
+const { Component, computed } = Ember;
 
-export default Component.extend({
-  session: inject.service(),
+export default Component.extend(AuthenticatedActionsMixin, {
   tagName: 'li',
   classNameBindings: [':ko-tournament-list-item', '_isFollowed:ko-tournament-list-item--followed'],
   tournament: null,
@@ -16,10 +16,9 @@ export default Component.extend({
   id: computed.readOnly('tournament.id'),
   matchesCount: computed.readOnly('tournament.matchesCount'),
   isFollowed: computed.readOnly('tournament.isFollowed'),
-  hasCurrentUser: computed.readOnly('session.hasCurrentUser'),
   hasNewMatches: computed.gt('newMatchesCount', 0),
 
-  actions: {
+  authenticatedActions: {
     toggleFollow(shouldActivate, event) {
       const tournament = this.get('tournament');
       event.stopPropagation();
