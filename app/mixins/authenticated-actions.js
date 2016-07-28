@@ -11,12 +11,12 @@ export default Mixin.create({
       _.forOwn(value, function(fn, name) {
         proto.actions = proto.actions || {};
 
-        proto.actions[name] = function(...args) {
+        proto.actions[name] = function() {
           const session = this.get('session');
-          const event = args[args.length - 1];
+          const event = arguments[arguments.length - 1];
 
           if (session.get('hasCurrentUser')) {
-            return fn(...args);
+            return fn.apply(this, arguments);
           }
 
           event.preventDefault();
