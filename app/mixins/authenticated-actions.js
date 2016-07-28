@@ -13,10 +13,14 @@ export default Mixin.create({
 
         proto.actions[name] = function(...args) {
           const session = this.get('session');
+          const event = args[args.length - 1];
 
           if (session.get('hasCurrentUser')) {
             return fn(...args);
           }
+
+          event.preventDefault();
+          event.stopPropagation();
 
           return session.authenticate('authenticator:application');
         };
