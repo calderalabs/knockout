@@ -31,7 +31,7 @@
     right: 0;
 
     &--shown .ko-player__toggle-header-icon {
-      @include ko-icon('angle-double-up');
+      @include ko-icon('angle-double-down');
       font-size: 1.3rem;
     }
 
@@ -67,7 +67,7 @@
     }
 
     &-icon {
-      @include ko-icon('angle-double-down');
+      @include ko-icon('angle-double-up');
       font-size: 1.3rem;
     }
   }
