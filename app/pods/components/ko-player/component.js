@@ -11,7 +11,7 @@ export default Component.extend(VelocityMixin, AuthenticatedActionsMixin, {
   shouldShowHeader: true,
   teamOneFullName: computed.readOnly('_matchGroup.teamOne.fullName'),
   teamTwoFullName: computed.readOnly('_matchGroup.teamTwo.fullName'),
-  vodUrl: computed.readOnly('_match.vod.url'),
+  vodUrl: computed.readOnly('_match.vod'),
   matchNumber: computed.readOnly('_match.number'),
   matchGroupStage: computed.readOnly('_matchGroup.stage'),
   tournamentName: computed.readOnly('_tournament.name'),

@@ -4,12 +4,11 @@ import Ember from 'ember';
 
 const { computed } = Ember;
 const { Model, belongsTo, hasMany, attr } = DS;
-const { fragment } = MF;
 
 export default Model.extend({
   number: attr('number'),
   likesCount: attr('number'),
-  vod: fragment('vod'),
+  vod: attr('string'),
   matchGroup: belongsTo('match-group'),
   winner: belongsTo('team'),
   watchings: hasMany('watching'),
