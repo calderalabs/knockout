@@ -3,61 +3,34 @@
   height: 100%;
   position: relative;
 
-  &__actions {
-    @include span-columns(2, $display: table);
-    vertical-align: middle;
-  }
-
-  &__info {
-    @include span-columns(8, $display: table);
-
-    padding-right: (100% / 12) * 2;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  &__close {
-    pointer-events: all;
-    position: absolute;
-    right: $gutter / 2;
-    top: $gutter / 2;
-  }
-
   &__header {
-    bottom: 0;
+    top: 0;
     left: 0;
     pointer-events: none;
     position: absolute;
     right: 0;
 
-    &--shown .ko-player__toggle-header-icon {
-      @include ko-icon('angle-double-down');
-      font-size: 1.3rem;
-    }
-
     &-content {
       background-color: rgba(0, 0, 0, .8);
-      display: table;
-      padding: $gutter;
+      padding: $av-gutter;
       pointer-events: all;
-      vertical-align: middle;
-      width: 100%;
     }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__close {
+    text-align: right;
   }
 
   &__vod {
     height: 100%;
   }
 
-  &__details {
-    color: $ko-border-color;
-    font-size: 1rem;
-    font-weight: lighter;
-    margin-top: $gutter / 2;
-  }
-
   &__toggle-header {
-    margin-bottom: $gutter / 2;
+    margin-top: $av-gutter / 2;
     text-align: center;
 
     &-button {
@@ -65,22 +38,5 @@
       display: inline-block;
       pointer-events: all;
     }
-
-    &-icon {
-      @include ko-icon('angle-double-up');
-      font-size: 1.3rem;
-    }
-  }
-
-  &__watch {
-    margin-right: $gutter / 2;
-
-    &-icon {
-      @include ko-icon('eye');
-    }
-  }
-
-  &__like-icon {
-    @include ko-icon('thumbs-up');
   }
 }

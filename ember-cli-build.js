@@ -12,9 +12,7 @@ module.exports = function(defaults) {
 
     sassOptions: {
       includePaths: [
-        'bower_components/bourbon/app/assets/stylesheets',
-        'bower_components/neat/app/assets/stylesheets',
-        'bower_components/font-awesome/scss'
+        'bower_components/avalanche-css'
       ]
     },
 
@@ -32,18 +30,15 @@ module.exports = function(defaults) {
           return content.replace(/\{\{INTERCOM_APP_ID\}\}/g, config.intercomAppId);
         }
       }
-    }
-  });
+    },
 
-  ['eot', 'svg', 'ttf', 'woff', 'woff2'].forEach(function(ext) {
-    app.import('bower_components/font-awesome/fonts/fontawesome-webfont.' + ext, {
-      destDir: '/assets/fonts'
-    });
+    'ember-font-awesome': {
+      useScss: true
+    }
   });
 
   app.import('bower_components/css-social-buttons/css/zocial.css');
   app.import('bower_components/css-social-buttons/css/zocial.otf', { destDir: '/assets/fonts' });
-  app.import('bower_components/font-awesome/fonts/FontAwesome.otf', { destDir: '/assets/fonts' });
 
   return app.toTree();
 };

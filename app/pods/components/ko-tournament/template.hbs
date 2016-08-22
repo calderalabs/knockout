@@ -1,59 +1,65 @@
-{{#ko-header title=name titleComponent=(component "ko-tournament/title" tournament=tournament)}}
-  {{#ko-header/nav-item}}
-    {{#link-to "tournament" id (query-params viewType="timeline")}}Timeline{{/link-to}}
-  {{/ko-header/nav-item}}
-
-  {{#ko-header/nav-item}}
-    {{#link-to "tournament" id (query-params viewType="popular")}}Popular{{/link-to}}
-  {{/ko-header/nav-item}}
-
-  {{#if shouldShowNewNavItem}}
+<div class="ko-main-container">
+  {{#ko-header title=name titleComponent=(component "ko-tournament/title" tournament=tournament)}}
     {{#ko-header/nav-item}}
-      {{#link-to "tournament" id (query-params viewType="new")}}New{{/link-to}}
+      {{#link-to "tournament" id (query-params viewType="timeline")}}Timeline{{/link-to}}
     {{/ko-header/nav-item}}
-  {{/if}}
-{{/ko-header}}
 
-{{#if isShowingTimeline}}
-  {{#each timeline as |day|}}
-    <section class="ko-tournament__day">
-      <h1 class="ko-tournament__timeline-title ko-title">{{day.title}}</h1>
+    {{#ko-header/nav-item}}
+      {{#link-to "tournament" id (query-params viewType="popular")}}Popular{{/link-to}}
+    {{/ko-header/nav-item}}
 
-      <ul class="ko-tournament__match-group-list">
-        {{#each day.matchGroups as |matchGroup|}}
-          {{ko-tournament/match-group-list-item matchGroup=matchGroup}}
-        {{/each}}
-      </ul>
-    </section>
-  {{/each}}
-{{else}}
-  <section class="ko-tournament__match-list">
-    <header class="ko-tournament__list-header">
-      {{#if isShowingPopular}}
-        <h1 class="ko-tournament__list-title ko-title">Popular Matches</h1>
-      {{else if isShowingNew}}
-        <h1 class="ko-tournament__list-title ko-title">New Matches</h1>
-
-        <div class="ko-tournament__mark-watched">
-          <button class="ko-tournament__mark-watched-button ko-button {{unless hasNewMatches "ko-button--disabled"}}" onclick={{action "markAllAsWatched"}}>Mark all as watched</button>
-        </div>
-      {{/if}}
-    </header>
-
-    {{#if arrangedMatches}}
-      <ul class="ko-tournament__match-list-content">
-        {{#each arrangedMatches as |match|}}
-          {{ko-tournament/match-list-item
-            shouldShowGroupInfo=true
-            match=match}}
-        {{/each}}
-      </ul>
-    {{else}}
-      {{#if isShowingNew}}
-        {{#ko-empty-list message="You're up to date with this tournament!" iconClass="ko-tournament__new-list-empty-icon"}}
-          {{#link-to (query-params viewType="timeline") class="ko-button"}}Browse Timeline{{/link-to}}
-        {{/ko-empty-list}}
-      {{/if}}
+    {{#if shouldShowNewNavItem}}
+      {{#ko-header/nav-item}}
+        {{#link-to "tournament" id (query-params viewType="new")}}New{{/link-to}}
+      {{/ko-header/nav-item}}
     {{/if}}
-  </section>
-{{/if}}
+  {{/ko-header}}
+
+  {{#if isShowingTimeline}}
+    {{#each timeline as |day|}}
+      <section class="ko-tournament__day">
+        <h1 class="ko-title">{{day.title}}</h1>
+
+        <ul class="ko-tournament__match-group-list">
+          {{#each day.matchGroups as |matchGroup|}}
+            {{ko-tournament/match-group-list-item matchGroup=matchGroup}}
+          {{/each}}
+        </ul>
+      </section>
+    {{/each}}
+  {{else}}
+    <section class="ko-tournament__match-list">
+      <header class="ko-tournament__list-header">
+        {{#if isShowingPopular}}
+          <h1 class="ko-title">Popular Matches</h1>
+        {{else if isShowingNew}}
+          <h1 class="ko-title">New Matches</h1>
+
+          <div class="ko-tournament__mark-watched">
+            <button
+              class="ko-tournament__mark-watched-button {{unless hasNewMatches "ko-tournament__mark-watched-button--disabled"}}"
+              onclick={{action "markAllAsWatched"}}>
+              Mark all as watched
+            </button>
+          </div>
+        {{/if}}
+      </header>
+
+      {{#if arrangedMatches}}
+        <ul class="ko-tournament__match-list-content">
+          {{#each arrangedMatches as |match|}}
+            {{ko-tournament/match-list-item
+              shouldShowGroupInfo=true
+              match=match}}
+          {{/each}}
+        </ul>
+      {{else}}
+        {{#if isShowingNew}}
+          {{#ko-empty-list message="You're up to date with this tournament!" iconType="up-to-date"}}
+            {{#link-to (query-params viewType="timeline") class="ko-tournament__timeline-link"}}Browse Timeline{{/link-to}}
+          {{/ko-empty-list}}
+        {{/if}}
+      {{/if}}
+    </section>
+  {{/if}}
+</div>

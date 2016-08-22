@@ -3,6 +3,10 @@
   text-transform: uppercase;
   user-select: none;
 
+  &--large {
+    font-size: 3rem;
+  }
+
   &__primary-text {
     color: $ko-action-color;
   }

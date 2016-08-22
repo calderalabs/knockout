@@ -1,2 +1,9 @@
-<h1 class="ko-header-title__content ko-title">{{title}}</h1>
-{{yield}}
+<div class="grid grid--auto grid--middle grid--flush">
+  <div class="grid__cell">
+    <h1 class="ko-title ko-title--inline">{{title}}</h1>
+  </div>
+
+  <div class="grid__cell">
+    {{yield}}
+  </div>
+</div>

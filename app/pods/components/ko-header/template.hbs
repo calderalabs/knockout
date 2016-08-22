@@ -1,9 +1,14 @@
-{{component titleComponent title=title}}
-
-{{#if hasBlock}}
-  <nav class="ko-header__nav">
-    <ul class="ko-header__nav-list">
-      {{yield}}
-    </ul>
-  </nav>
-{{/if}}
+<div class="grid grid--flush">
+  <div class="grid__cell grid__cell--8/12">
+    {{component titleComponent title=title}}
+  </div>
+  {{#if hasBlock}}
+    <div class="grid__cell grid__cell--4/12">
+      <nav class="ko-header__nav">
+        <ul class="grid grid--auto">
+          {{yield}}
+        </ul>
+      </nav>
+    </div>
+  {{/if}}
+</div>

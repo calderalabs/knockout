@@ -1,70 +1,96 @@
 <header class="ko-index__header">
-  <h1 class="ko-index__title">{{ko-logo}}</h1>
-  <h2 class="ko-index__tagline">Enjoy eSports tournaments your own way.</h2>
+  <div class="ko-main-container">
+    <h1 class="ko-index__title">{{ko-logo class="ko-logo--large"}}</h1>
+    <h2 class="ko-index__tagline">Enjoy eSports tournaments your own way.</h2>
 
-  {{#link-to "tournaments" class="ko-button ko-index__browse-tournaments"}}
-    Browse Tournaments
-  {{/link-to}}
+    {{#link-to "tournaments"}}
+      {{#ko-button class="ko-button--active"}}
+        Browse Tournaments
+      {{/ko-button}}
+    {{/link-to}}
 
-  <a class="ko-index__scroll-indicator" href="#features" data-scroll>
-    <i class="ko-index__scroll-indicator-icon"></i>
-  </a>
+    <div class="ko-index__scroll-indicator">
+      <a href="#features" class="ko-index__scroll-indicator-link" data-scroll>
+        {{fa-icon "angle-down" size=3 class="fa--action"}}
+      </a>
+    </div>
+  </div>
 </header>
 
 <section class="ko-index__features" id="features">
-  <h1 class="ko-index__features-title ko-title">Features</h1>
+  <h1 class="ko-title ko-title--header">Features</h1>
 
-  <ul class="ko-index__feature-list">
-    <li class="ko-index__feature-item">
-      <div class="ko-index__feature-image">
-        <img class="ko-index__feature-image-content" src="assets/images/spoilers-feature.png" />
+  <ul class="grid">
+    <li class="grid__cell grid__cell--4/12">
+      <div class="ko-box ko-box--gradient ko-box--dark">
+        <div class="ko-index__feature-image">
+          <img class="ko-index__feature-image-content" src="assets/images/spoilers-feature.png" />
+        </div>
+
+        <div class="ko-title ko-title--highlighted">Spoiler-free</div>
+        <div class="ko-index__feature-description">Enjoy tournaments at your own pace with a peaceful mind. Never again get your hype spoiled.</div>
       </div>
-
-      <div class="ko-index__feature-title ko-title">Spoiler-free</div>
-      <div class="ko-index__feature-description">Enjoy tournaments at your own pace with a peaceful mind. Never again get your hype spoiled.</div>
     </li>
 
-    <li class="ko-index__feature-item">
-      <div class="ko-index__feature-image">
-        <img class="ko-index__feature-image-content" src="assets/images/following-feature.png" />
-      </div>
+    <li class="grid__cell grid__cell--4/12">
+      <div class="ko-box ko-box--gradient ko-box--dark">
+        <div class="ko-index__feature-image">
+          <img class="ko-index__feature-image-content" src="assets/images/following-feature.png" />
+        </div>
 
-      <div class="ko-index__feature-title ko-title">Automatic Watchlist</div>
-      <div class="ko-index__feature-description">Get a complete digest of what happened since the last time you were around.</div>
+        <div class="ko-title ko-title--highlighted">Automatic Watchlist</div>
+        <div class="ko-index__feature-description">Get a complete digest of what happened since the last time you were around.</div>
+      </div>
     </li>
 
-    <li class="ko-index__feature-item">
-      <div class="ko-index__feature-image">
-        <img class="ko-index__feature-image-content" src="assets/images/embedded-vods-feature.png" />
-      </div>
+    <li class="grid__cell grid__cell--4/12">
+      <div class="ko-box ko-box--gradient ko-box--dark">
+        <div class="ko-index__feature-image">
+          <img class="ko-index__feature-image-content" src="assets/images/embedded-vods-feature.png" />
+        </div>
 
-      <div class="ko-index__feature-title ko-title">Embedded VODs</div>
-      <div class="ko-index__feature-description">Just click on a match to start watching the VOD without leaving the tournament page.</div>
+        <div class="ko-title ko-title--highlighted">Embedded VODs</div>
+        <div class="ko-index__feature-description">Just click on a match to start watching the VOD without leaving the tournament page.</div>
+      </div>
     </li>
   </ul>
 </section>
 
-<section class="ko-index__features">
-  <h1 class="ko-index__features-title ko-title">Coming Soon</h1>
+<section class="ko-index__features ko-index__features--upcoming">
+  <h1 class="ko-title ko-title--header">Coming Soon</h1>
 
-  <ul class="ko-index__feature-list ko-index__feature-list--upcoming">
-    <li class="ko-index__feature-item">
-      <div class="ko-index__feature-title ko-title">Interviews and Extra Content</div>
+  <ul class="grid">
+    <li class="grid__cell grid__cell--4/12">
+      <div class="ko-box">
+        <div class="ko-title ko-title--dark">Interviews and Extra Content</div>
 
-      <div class="ko-index__feature-description">
-        Don't miss on any content just because you're not there when it happened.
-        Discover fun content inbetween games while browsing a tournament timeline.
+        <div class="ko-index__feature-description">
+          Don't miss on any content just because you're not there when it happened.
+          Discover fun content inbetween games while browsing a tournament timeline.
+        </div>
       </div>
     </li>
 
-    <li class="ko-index__feature-item">
-      <div class="ko-index__feature-title ko-title">VOD Reactions</div>
-      <div class="ko-index__feature-description">Be a part of the conversation after the show is over.<br />Share what you felt while watching your favorite moments of a match.</div>
+    <li class="grid__cell grid__cell--4/12">
+      <div class="ko-box">
+        <div class="ko-title ko-title--dark">VOD Reactions</div>
+
+        <div class="ko-index__feature-description">
+          Be a part of the conversation after the show is over.<br />
+          Share what you felt while watching your favorite moments of a match.
+        </div>
+      </div>
     </li>
 
-    <li class="ko-index__feature-item">
-      <div class="ko-index__feature-title ko-title">Recommended Matches</div>
-      <div class="ko-index__feature-description">Sometimes you don't have enough time to watch it all.<br />Read a personalized list of what is hot based on the tournaments you're following and your preferences.</div>
+    <li class="grid__cell grid__cell--4/12">
+      <div class="ko-box">
+        <div class="ko-title ko-title--dark">Recommended Matches</div>
+
+        <div class="ko-index__feature-description">
+          Sometimes you don't have enough time to watch it all.<br />
+          Read a personalized list of what is hot based on the tournaments you're following and your preferences.
+        </div>
+      </div>
     </li>
   </ul>
 </section>
@@ -74,5 +100,7 @@
     <img src="assets/images/calderalabs-logo.png" />
   </a>
 
-  <small class="ko-index__copyright">Copyright © 2016 Caldera Labs Ltd.</small>
+  <div>
+    <small>Copyright © 2016 Caldera Labs Ltd.</small>
+  </div>
 </footer>

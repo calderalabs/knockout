@@ -1,4 +1,10 @@
-$fa-font-path: '/assets/fonts';
+$av-width-class-namespace: 'grid__cell--';
+$av-enable-grid-middle: true;
+$av-enable-grid-auto: true;
+$av-enable-grid-flush: true;
+$av-widths: (12);
+$av-gutter: 1.618em;
+
 $ko-active-color: #5921e6;
 $ko-action-color: #ffa14d;
 $ko-background-color: #222;

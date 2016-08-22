@@ -1,12 +1,12 @@
-{{#link-to "tournament" id (query-params viewType=linkViewType) class="ko-tournament-list-item__link ko-link"}}
+{{#link-to "tournament" id (query-params viewType=linkViewType) class="ko-link"}}
   <article class="ko-tournament-list-item__content">
     <header class="ko-tournament-list-item__header">
-      <h1 class="ko-tournament-list-item__name ko-title">{{name}}</h1>
+      <h1 class="ko-title">{{name}}</h1>
 
       {{#if shouldShowNewBadge}}
         <div class="ko-tournament-list-item__new-badge">
           {{#if hasNewMatches}}
-            {{#ko-badge isPrimary=true}}{{newMatchesCount}} New{{/ko-badge}}
+            <div class="ko-badge ko-badge--primary">{{newMatchesCount}} New</div>
           {{/if}}
         </div>
       {{/if}}
@@ -15,8 +15,8 @@
     <footer class="ko-tournament-list-item__footer">
       <div class="ko-tournament-list-item__footer-content">
         <div class="ko-tournament-list-item__info">
-          {{#ko-badge isPrimary=true}}{{gameName}}{{/ko-badge}}
-          {{#ko-badge}}{{matchesCount}} matches{{/ko-badge}}
+          <div class="ko-badge ko-badge--primary">{{gameName}}</div>
+          <div class="ko-badge">{{matchesCount}} matches</div>
         </div>
 
         {{#ko-toggle

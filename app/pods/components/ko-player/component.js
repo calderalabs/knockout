@@ -17,10 +17,19 @@ export default Component.extend(VelocityMixin, AuthenticatedActionsMixin, {
   tournamentName: computed.readOnly('_tournament.name'),
   isLiked: computed.readOnly('_match.isLiked'),
   isWatched: computed.readOnly('_match.isWatched'),
+
+  toggleHeaderIconType: computed('shouldShowHeader', function() {
+    if (this.get('shouldShowHeader')) {
+      return 'angle-double-down';
+    }
+
+    return 'angle-double-up';
+  }),
+
   _matchGroup: computed.readOnly('_match.matchGroup'),
   _match: computed.readOnly('player.match'),
   _tournament: computed.readOnly('_matchGroup.tournament'),
-
+  
   actions: {
     toggleHeader() {
       this.toggleProperty('shouldShowHeader');

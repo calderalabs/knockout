@@ -4,5 +4,5 @@ const { Component } = Ember;
 
 export default Component.extend({
   tagName: 'li',
-  classNames: ['ko-header-nav-item']
+  classNames: ['grid__cell']
 });

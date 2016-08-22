@@ -1,0 +1,9 @@
+{{#if isButton}}
+  {{#ko-button class="ko-button--toggle"}}
+    {{fa-icon iconType}}
+    {{yield}}
+  {{/ko-button}}
+{{else}}
+  {{fa-icon iconType}}
+  {{yield}}
+{{/if}}

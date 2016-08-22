@@ -4,7 +4,7 @@ const { Component, computed } = Ember;
 
 export default Component.extend({
   tagName: 'section',
-  classNames: ['ko-following ko-main-section'],
+  classNames: ['ko-following'],
   followings: null,
   tournaments: computed.mapBy('followings', 'tournament')
 });

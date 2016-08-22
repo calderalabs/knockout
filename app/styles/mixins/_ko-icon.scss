@@ -1,6 +1,0 @@
-@mixin ko-icon($name) {
-  @include fa-icon;
-  // scss-lint:disable PlaceholderInExtend
-  @extend .fa-#{$name};
-  // scss-lint:enable PlaceholderInExtend
-}

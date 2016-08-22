@@ -8,14 +8,13 @@
     "jquery": "^1.12.4",
     "pretender": "~1.1.0",
     "Faker": "~3.1.0",
-    "font-awesome": "^4.5.0",
-    "neat": "^1.7.2",
     "lodash": "^4.5.0",
     "tooltipster": "^3.3.0",
     "auth0-lock": "^9.2.1",
     "jsrsasign": "^5.0.12",
     "blob-polyfill": "^1.0.20150320",
     "css-social-buttons": "^1.2.0",
-    "bourbon": "^4.2.7"
+    "font-awesome": "~4.5.0",
+    "avalanche-css": "^1.1.2"
   }
 }

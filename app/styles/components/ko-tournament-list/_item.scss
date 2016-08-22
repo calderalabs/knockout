@@ -3,7 +3,7 @@
   @include omega(4n);
 
   height: 200px;
-  margin-bottom: $gutter;
+  margin-bottom: $av-gutter;
 
   &:hover {
     .ko-tournament-list-item__follow {
@@ -40,10 +40,10 @@
   }
 
   &__footer {
-    bottom: $gutter / 2;
-    left: $gutter / 2;
+    bottom: $av-gutter / 2;
+    left: $av-gutter / 2;
     position: absolute;
-    right: $gutter / 2;
+    right: $av-gutter / 2;
 
     &-content {
       @include span-columns(12);

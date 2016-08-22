@@ -1,5 +1,6 @@
 .ko-link {
   @include ko-glow($ko-active-color);
+  display: inline-block;
 
   &.active {
     @include ko-glow--hover;

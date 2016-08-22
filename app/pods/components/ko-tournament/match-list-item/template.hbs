@@ -50,20 +50,20 @@
       <div class="ko-tournament-match-list-item__info-content">
         <div class="ko-tournament-match-list-item__badge-list">
           {{#if isNew}}
-            {{#ko-badge isPrimary=true class="ko-tournament-match-list-item__badge"}}
+            <div class="ko-badge ko-badge--primary ko-tournament-match-list-item__badge">
                 New
-            {{/ko-badge}}
+            </div>
           {{/if}}
 
           {{#if shouldShowGroupInfo}}
-            {{#ko-badge class="ko-tournament-match-list-item__badge"}}
+            <div class="ko-badge ko-badge--primary ko-tournament-match-list-item__badge">
               BO{{bestOf}}
-            {{/ko-badge}}
+            </div>
           {{/if}}
 
-          {{#ko-badge class="ko-tournament-match-list-item__badge"}}
+          <div class="ko-badge ko-badge--primary ko-tournament-match-list-item__badge">
             {{likesCount}} likes
-          {{/ko-badge}}
+          </div>
         </div>
       </div>
     </div>

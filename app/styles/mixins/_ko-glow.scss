@@ -2,9 +2,7 @@
   @include ko-gradient-border($color);
 
   cursor: pointer;
-  position: relative;
   transition: color 200ms;
-  text-transform: uppercase;
 
   &::before {
     opacity: 0;

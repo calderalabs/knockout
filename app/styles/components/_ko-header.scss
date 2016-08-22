@@ -1,15 +1,8 @@
 .ko-header {
-  @include span-columns(12);
-  height: 2rem;
-  margin-bottom: $gutter;
+  height: 2em;
+  margin-bottom: $av-gutter;
 
   &__nav {
-    @include span-columns(4);
     text-align: right;
-
-    &-list {
-      display: inline-block;
-      overflow: auto;
-    }
   }
 }

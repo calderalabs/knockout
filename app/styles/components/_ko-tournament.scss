@@ -22,8 +22,8 @@
     align-items: flex-end;
     display: flex;
     flex-direction: row;
-    margin: $gutter 0;
-    padding-bottom: $gutter / 2;
+    margin: $av-gutter 0;
+    padding-bottom: $av-gutter / 2;
 
     &::before {
       height: 4px;

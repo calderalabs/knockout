@@ -1,55 +1,25 @@
 .ko-tournament-match-group-list-item {
-  @include span-columns(12);
-  margin-bottom: $gutter;
+  overflow: auto;
+  margin-bottom: $av-gutter;
 
-  &__content {
-    @include span-columns(12);
+  &__teams {
+    margin-bottom: $av-gutter / 2;
+    padding: $av-gutter;
   }
 
   &__header {
-    @include span-columns(4);
-    @include ko-gradient-box;
-
     text-align: center;
-  }
-
-  &__score,
-  &__team-logo {
-    display: inline-block;
-    vertical-align: middle;
+    margin-right: $av-gutter;
   }
 
   &__score {
     font-size: 1.3rem;
     font-weight: bolder;
-    margin: 4px;
-    padding: $gutter / 2;
-    text-transform: uppercase;
-  }
-
-  &__teams {
-    padding: $gutter / 2;
-    text-align: center;
-  }
-
-  &__stage,
-  &__format {
-    text-align: center;
-  }
-
-  &__stage {
-    padding: $gutter / 2;
-    text-transform: uppercase;
   }
 
   &__format {
     color: $ko-border-color;
     font-size: .8rem;
-    margin-bottom: $gutter / 2;
-    text-transform: uppercase;
-  }
-
-  &__match-list {
-    @include span-columns(8);
+    margin-bottom: $av-gutter / 2;
   }
 }

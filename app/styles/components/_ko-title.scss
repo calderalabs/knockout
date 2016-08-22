@@ -1,0 +1,38 @@
+.ko-title {
+  font-size: 1.8rem;
+  margin-bottom: $av-gutter / 2;
+
+  &--secondary {
+    font-size: 1.7rem;
+  }
+
+  &--inline {
+    margin-bottom: 0;
+    margin-right: $av-gutter / 2;
+    display: inline-block;
+  }
+
+  &--header {
+    @include ko-gradient-border($ko-border-color);
+
+    padding-bottom: $av-gutter / 2;
+    text-align: center;
+    font-size: 1.5rem;
+
+    &::before {
+      height: 3px;
+    }
+  }
+
+  &--highlighted {
+    color: $ko-action-color;
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+
+  &--dark {
+    color: $ko-border-color;
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+}

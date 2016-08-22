@@ -1,11 +1,15 @@
-{{#if followings}}
-  {{ko-header title="Followed Tournaments"}}
-{{/if}}
+<div class="ko-main-container">
+  {{#if followings}}
+    {{ko-header title="Followed Tournaments"}}
+  {{/if}}
 
-{{#ko-tournament-list tournaments=tournaments title="Followed Tournaments" as |tournament|}}
-  {{ko-tournament-list/item tournament=tournament shouldShowNewBadge=true linkViewType="new"}}
-{{else}}
-  {{#ko-empty-list message="You are currently not following any tournaments." iconClass="ko-following__empty-list-icon"}}
-    {{#link-to "tournaments" class="ko-button"}}Browse Tournaments{{/link-to}}
-  {{/ko-empty-list}}
-{{/ko-tournament-list}}
+  {{#ko-tournament-list tournaments=tournaments title="Followed Tournaments" as |tournament|}}
+    {{ko-tournament-list/item tournament=tournament shouldShowNewBadge=true linkViewType="new"}}
+  {{else}}
+    {{#ko-empty-list message="You are currently not following any tournaments." iconType="heart"}}
+      {{#link-to "tournaments"}}
+        {{#ko-button}}Browse Tournaments{{/ko-button}}
+      {{/link-to}}
+    {{/ko-empty-list}}
+  {{/ko-tournament-list}}
+</div>

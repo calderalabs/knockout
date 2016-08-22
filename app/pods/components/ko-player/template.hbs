@@ -1,41 +1,56 @@
-<div class="ko-player__header {{if shouldShowHeader "ko-player__header--shown"}}">
-  <div class="ko-player__toggle-header">
-    <a class="ko-player__toggle-header-button ko-button" onclick={{action "toggleHeader"}}>
-      <i class="ko-player__toggle-header-icon"></i>
-    </a>
-  </div>
-
+<div class="ko-player__header">
   {{#liquid-if shouldShowHeader}}
     <header class="ko-player__header-content">
-      <div class="ko-player__actions">
-        {{#ko-toggle
-          class="ko-player__watch ko-toggle-button ko-button"
-          isActive=isWatched
-          onToggle=(action "toggleWatch")}}
-          <i class="ko-player__watch-icon ko-toggle-button__icon"></i>Watched
-        {{/ko-toggle}}
+      <div class="grid grid--middle">
+        <div class="grid__cell grid__cell--3/12">
+          {{#ko-toggle
+            type="button"
+            iconType="eye"
+            isActive=isWatched
+            onToggle=(action "toggleWatch")}}Watched{{/ko-toggle}}
 
-        {{#ko-toggle
-          class="ko-player__like ko-toggle-button ko-button"
-          isActive=isLiked
-          onToggle=(action "toggleLike")}}
-          <i class="ko-player__like-icon ko-toggle-button__icon"></i>Like
-        {{/ko-toggle}}
-      </div>
+          {{#ko-toggle
+            type="button"
+            iconType="thumbs-up"
+            isActive=isLiked
+            onToggle=(action "toggleLike")}}Like{{/ko-toggle}}
+        </div>
 
-      <div class="ko-player__info">
-        <h1 class="ko-title">{{teamOneFullName}} vs {{teamTwoFullName}}</h1>
+        <div class="grid__cell grid__cell--6/12">
+          <div class="ko-player__title">
+            <h1 class="ko-title">{{teamOneFullName}} vs {{teamTwoFullName}}</h1>
 
-        <h2 class="ko-title ko-player__details">
-          Game {{matchNumber}}, {{matchGroupStage}}, {{tournamentName}}
-        </h2>
+            <h2 class="ko-title ko-title--secondary">
+              Game {{matchNumber}}, {{matchGroupStage}}, {{tournamentName}}
+            </h2>
+          </div>
+        </div>
+
+        <div class="grid__cell grid__cell--3/12">
+          <div class="ko-player__close">
+            {{#link-to (query-params matchId=null) class="ko-link"}}
+              {{#ko-button}}Close{{/ko-button}}
+            {{/link-to}}
+          </div>
+        </div>
       </div>
     </header>
   {{/liquid-if}}
+
+  <div class="ko-player__toggle-header">
+    {{#ko-button
+      click=(action "toggleHeader")
+      class="ko-player__toggle-header-button"}}
+      {{fa-icon toggleHeaderIconType}}
+    {{/ko-button}}
+  </div>
 </div>
 
-<div class="ko-player__close">
-  {{#link-to (query-params matchId=null) class="ko-button"}}Close{{/link-to}}
-</div>
-
-<iframe class="ko-player__vod" src={{vodUrl}} width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
+<iframe
+  class="ko-player__vod"
+  src={{vodUrl}}
+  width="100%"
+  height="100%"
+  frameborder="0"
+  scrolling="no"
+  allowfullscreen></iframe>

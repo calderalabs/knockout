@@ -1,5 +1,11 @@
 .ko-badge {
-  @include ko-badge($ko-text-color);
+  font-size: .7rem;
+  font-weight: bolder;
+  background-color: rgba(0, 0, 0, .2);
+  display: inline-block;
+  color: $ko-text-color;
+  padding: 4px;
+  text-transform: uppercase;
 
   &--primary {
     color: $ko-action-color;

@@ -1,0 +1,11 @@
+.ko-box {
+  padding: $av-gutter / 2;
+
+  &--gradient {
+    @include ko-gradient-box;
+  }
+
+  &--dark {
+    background: radial-gradient(circle at top center, #111 1%, #222 100%);
+  }
+}

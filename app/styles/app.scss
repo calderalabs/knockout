@@ -1,43 +1,36 @@
 @import url(https://fonts.googleapis.com/css?family=Exo+2:400,300,500);
 
-@import 'bourbon';
-@import 'neat-settings';
-@import 'neat';
 @import 'settings';
+@import 'avalanche';
 @import 'font-awesome';
 @import 'reset';
 @import 'ember-power-select';
 @import 'auth0';
 
-@import 'mixins/ko-badge';
 @import 'mixins/ko-glow';
 @import 'mixins/ko-gradient-border';
 @import 'mixins/ko-gradient-box';
-@import 'mixins/ko-icon';
 
-@import 'globals/ko-button';
-@import 'globals/ko-link';
-@import 'globals/ko-main-section';
-@import 'globals/ko-title';
-@import 'globals/ko-toggle-button';
+@import 'addons/ember-cli-tooltipster';
+@import 'addons/ember-font-awesome';
 
 @import 'components/ko-application';
 @import 'components/ko-badge';
+@import 'components/ko-button';
 @import 'components/ko-empty-list';
-@import 'components/ko-following';
+@import 'components/ko-box';
 @import 'components/ko-header';
-@import 'components/ko-header/nav-item';
-@import 'components/ko-header/title';
 @import 'components/ko-index';
+@import 'components/ko-link';
 @import 'components/ko-logo';
-@import 'components/ko-application';
+@import 'components/ko-main-container';
 @import 'components/ko-player';
+@import 'components/ko-toggle';
 @import 'components/ko-spoiler';
-@import 'components/ko-tournament-list';
-@import 'components/ko-tournament-list/item';
-@import 'components/ko-tournament';
+@import 'components/ko-title';
+//@import 'components/ko-tournament-list';
+//@import 'components/ko-tournament-list/item';
+//@import 'components/ko-tournament';
 @import 'components/ko-tournament/match-group-list-item';
-@import 'components/ko-tournament/match-list-item';
-@import 'components/ko-tournament/title';
-@import 'components/power-select';
-@import 'components/tool-tipster';
+//@import 'components/ko-tournament/match-list-item';
+//@import 'components/ko-tournament/title';

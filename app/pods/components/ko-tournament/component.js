@@ -8,7 +8,7 @@ export default Component.extend({
   session: inject.service(),
   player: inject.service(),
   tagName: 'section',
-  classNames: ['ko-tournament ko-main-section'],
+  classNames: ['ko-tournament'],
   tournament: null,
   viewType: null,
   name: computed.readOnly('tournament.name'),
