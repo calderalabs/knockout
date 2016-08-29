@@ -1,6 +1,8 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var env = process.env.EMBER_ENV;
+var config = require('./config/environment')(env);
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -14,6 +16,15 @@ module.exports = function(defaults) {
         'bower_components/neat/app/assets/stylesheets',
         'bower_components/font-awesome/scss'
       ]
+    },
+
+    inlineContent: {
+      'mixpanel' : {
+        file: './mixpanel.js',
+        postProcess: function(content) {
+          return content.replace(/\{\{MIXPANEL_TOKEN\}\}/g, config.mixpanelToken);
+        }
+      }
     }
   });
 
