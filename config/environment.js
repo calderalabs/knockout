@@ -30,7 +30,21 @@ module.exports = function(environment) {
     'auth0-ember-simple-auth': {
       clientID: 'he3Ottq1UOvvw2NkkSNTtJTRwzmA3Fxx',
       domain: 'calderalabs.eu.auth0.com'
-    }
+    },
+
+    metricsAdapters: [
+      {
+        name: 'Mixpanel',
+        environments: ['production'],
+        config: {
+          token: '04aacf93214fd55166bd7041a78863b9'
+        }
+      }
+    ],
+
+    intercom: {
+      appId: 'vhuzi198'
+    },
   };
 
   if (environment === 'test') {
@@ -44,6 +58,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.APP.apiBaseUrl = 'https://knockout-api.herokuapp.com';
     ENV['auth0-ember-simple-auth'].clientID = 'CWs4Z5GyCoTUKtdaVqvYju1Q0S2pHq7B';
+    ENV['intercom'].appId = 'nkoaoqik';
   }
 
   return ENV;
