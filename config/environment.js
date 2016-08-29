@@ -45,6 +45,10 @@ module.exports = function(environment) {
     intercom: {
       appId: 'vhuzi198'
     },
+
+    'ember-metrics': {
+      includeAdapters: ['mixpanel']
+    }
   };
 
   if (environment === 'test') {
