@@ -45,4 +45,6 @@
   {{yield}}
 </main>
 
-{{intercom-io}}
+{{#unless isPlaying}}
+  {{ko-intercom}}
+{{/unless}}

@@ -24,6 +24,13 @@ module.exports = function(defaults) {
         postProcess: function(content) {
           return content.replace(/\{\{MIXPANEL_TOKEN\}\}/g, config.mixpanelToken);
         }
+      },
+
+      'intercom' : {
+        file: './intercom.js',
+        postProcess: function(content) {
+          return content.replace(/\{\{INTERCOM_APP_ID\}\}/g, config.intercomAppId);
+        }
       }
     }
   });

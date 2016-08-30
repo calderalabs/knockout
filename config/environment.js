@@ -32,10 +32,7 @@ module.exports = function(environment) {
       domain: 'calderalabs.eu.auth0.com'
     },
 
-    intercom: {
-      appId: 'vhuzi198'
-    },
-
+    intercomAppId: 'vhuzi198',
     mixpanelToken: 'c6216cdee7e0449d26b1d2d3acd1a420'
   };
 
@@ -50,8 +47,8 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.APP.apiBaseUrl = 'https://knockout-api.herokuapp.com';
     ENV['auth0-ember-simple-auth'].clientID = 'CWs4Z5GyCoTUKtdaVqvYju1Q0S2pHq7B';
-    ENV['intercom'].appId = 'nkoaoqik';
     ENV['mixpanelToken'] = '04aacf93214fd55166bd7041a78863b9';
+    ENV['intercomAppId'] = 'nkoaoqik';
   }
 
   return ENV;
