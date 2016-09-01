@@ -8,8 +8,9 @@ export default Component.extend({
 
   didInsertElement() {
     let userInfo = {};
+    let user = this.get('session.currentUser');
 
-    if(this.get('session.currentUser')) {
+    if(user) {
       userInfo = {
         user_id: user.get('id'),
         name: user.get('name'),
