@@ -1,25 +1,17 @@
 .ko-tournament-match-group-list-item {
-  overflow: auto;
   margin-bottom: $av-gutter;
-
-  &__teams {
-    margin-bottom: $av-gutter / 2;
-    padding: $av-gutter;
-  }
 
   &__header {
     text-align: center;
     margin-right: $av-gutter;
   }
 
-  &__score {
-    font-size: 1.3rem;
-    font-weight: bolder;
+  &__stage {
+    margin-bottom: $av-gutter / 2;
   }
 
   &__format {
     color: $ko-border-color;
     font-size: .8rem;
-    margin-bottom: $av-gutter / 2;
   }
 }

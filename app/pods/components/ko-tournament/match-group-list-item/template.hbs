@@ -2,39 +2,43 @@
   <div class="grid__cell grid__cell--4/12">
     <header class="ko-tournament-match-group-list-item__header">
       <div class="ko-box ko-box--gradient">
-        {{#ko-spoiler
-          name="teams"
-          spoilerable=matchGroup
-          title="Show Teams"}}
-          <div class="ko-tournament-match-group-list-item__teams">
-            <div class="grid grid--auto grid--middle">
-              <div class="grid__cell">
-                {{#tool-tipster title=teamOneFullName}}
-                  <img src={{teamOneLogoUrl}} />
-                {{/tool-tipster}}
-              </div>
+          {{#ko-spoiler
+            name="teams"
+            spoilerable=matchGroup
+            title="Show Teams"}}
+            <div class="ko-box">
+              <div class="grid grid--auto grid--middle">
+                <div class="grid__cell">
+                  {{#tool-tipster title=teamOneFullName}}
+                    <img src={{teamOneLogoUrl}} />
+                  {{/tool-tipster}}
+                </div>
 
-              <div class="grid__cell">
-                {{#ko-spoiler
-                  name="score"
-                  spoilerable=matchGroup
-                  title="Show Score"
-                  class="ko-tournament-match-group-list-item__score"}}
-                  {{teamOneScore}} - {{teamTwoScore}}
-                {{/ko-spoiler}}
-              </div>
+                <div class="grid__cell">
+                  {{#ko-spoiler
+                    name="score"
+                    spoilerable=matchGroup
+                    title="Show Score"
+                    class="ko-tournament-match-group-list-item__score"}}
+                    <div class="ko-box">
+                      {{teamOneScore}} - {{teamTwoScore}}
+                    </div>
+                  {{/ko-spoiler}}
+                </div>
 
-              <div class="grid__cell">
-                {{#tool-tipster title=teamTwoFullName}}
-                  <img src={{teamTwoLogoUrl}} />
-                {{/tool-tipster}}
+                <div class="grid__cell">
+                  {{#tool-tipster title=teamTwoFullName}}
+                    <img src={{teamTwoLogoUrl}} />
+                  {{/tool-tipster}}
+                </div>
               </div>
             </div>
-          </div>
-        {{/ko-spoiler}}
+          {{/ko-spoiler}}
 
-        <div>{{stage}}</div>
-        <div class="ko-tournament-match-group-list-item__format">Best of {{bestOf}}</div>
+        <div class="ko-box">
+          <div class="ko-tournament-match-group-list-item__stage">{{stage}}</div>
+          <div class="ko-tournament-match-group-list-item__format">Best of {{bestOf}}</div>
+        </div>
       </div>
     </header>
   </div>

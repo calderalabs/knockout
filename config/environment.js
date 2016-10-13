@@ -16,11 +16,11 @@ module.exports = function(environment) {
     },
 
     APP: {
-      apiBaseUrl: 'http://localhost:4000'
+      apiBaseUrl: 'http://localhost:4200'
     },
 
     'ember-cli-mirage': {
-      enabled: false
+      enabled: true
     },
 
     'ember-simple-auth': {
