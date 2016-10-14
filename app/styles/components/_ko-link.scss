@@ -2,6 +2,10 @@
   @include ko-glow($ko-active-color);
   display: inline-block;
 
+  &--block {
+    display: block;
+  }
+
   &.active {
     @include ko-glow--hover;
   }

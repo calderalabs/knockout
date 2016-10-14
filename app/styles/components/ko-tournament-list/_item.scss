@@ -1,41 +1,15 @@
 .ko-tournament-list-item {
-  @include span-columns(3);
-  @include omega(4n);
+  margin: 0 $av-gutter $av-gutter 0;
 
-  height: 200px;
-  margin-bottom: $av-gutter;
-
-  &:hover {
-    .ko-tournament-list-item__follow {
-      opacity: 1;
-    }
-  }
-
-  &__link {
-    display: block;
-    height: 100%;
+  &:hover &__follow {
+    opacity: 1;
   }
 
   &__content {
-    @include ko-gradient-box;
-    height: 100%;
-  }
-
-  &__header {
-    @include span-columns(12);
-  }
-
-  &__name {
-    @include span-columns(10);
-
-    font-size: 1.2em;
-    font-weight: lighter;
+    height: 200px;
   }
 
   &__new-badge {
-    @include span-columns(2);
-
-    padding: 0;
     text-align: right;
   }
 
@@ -44,44 +18,11 @@
     left: $av-gutter / 2;
     position: absolute;
     right: $av-gutter / 2;
-
-    &-content {
-      @include span-columns(12);
-    }
-  }
-
-  &__info {
-    @include span-columns(10);
   }
 
   &__follow {
-    @include span-columns(2);
-
     opacity: 0;
     text-align: right;
     transition: opacity 200ms;
-
-    &.ko-toggle--active &-icon {
-      &,
-      &:hover {
-        color: $ko-active-color;
-      }
-    }
-
-    &.ko-toggle--running &-icon {
-      &,
-      &:hover {
-        color: $ko-border-color;
-      }
-    }
-
-    &-icon {
-      @include ko-icon('heart');
-      transition: color 200ms;
-
-      &:hover {
-        color: #fff;
-      }
-    }
   }
 }

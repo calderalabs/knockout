@@ -4,7 +4,7 @@ import { task } from 'ember-concurrency';
 const { Component, computed, on } = Ember;
 
 export default Component.extend({
-  classNames: ['ko-toggle'],
+  classNameBindings: [':ko-toggle', 'isActive:ko-toggle--active'],
   isActive: false,
   onToggle: null,
   type: null,

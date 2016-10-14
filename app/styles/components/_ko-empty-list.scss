@@ -4,8 +4,13 @@
 
   &__icon {
     @include ko-gradient-box;
+
     display: inline-block;
     padding: $av-gutter * 4;
     margin-bottom: 40px;
+  }
+
+  &__title {
+    margin: $av-gutter 0;
   }
 }

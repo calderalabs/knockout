@@ -5,7 +5,7 @@ const { Component, computed } = Ember;
 
 export default Component.extend(AuthenticatedActionsMixin, {
   tagName: 'li',
-  classNameBindings: [':ko-tournament-list-item', '_isFollowed:ko-tournament-list-item--followed'],
+  classNames: ['grid__cell grid__cell--3/12'],
   tournament: null,
   shouldShowNewBadge: false,
   linkViewType: 'timeline',

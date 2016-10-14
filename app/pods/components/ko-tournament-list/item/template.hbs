@@ -1,31 +1,41 @@
-{{#link-to "tournament" id (query-params viewType=linkViewType) class="ko-link"}}
-  <article class="ko-tournament-list-item__content">
-    <header class="ko-tournament-list-item__header">
-      <h1 class="ko-title">{{name}}</h1>
+<div class="ko-tournament-list-item">
+  {{#link-to "tournament" id (query-params viewType=linkViewType) class="ko-link ko-link--block"}}
+    <div class="ko-box ko-box--gradient">
+      <article class="ko-tournament-list-item__content">
+        <header class="grid grid--flush">
+          <div class="grid__cell {{if shouldShowNewBadge "grid__cell--8/12" "grid__cell--12/12"}}">
+            <h1 class="ko-title ko-title--secondary">{{name}}</h1>
+          </div>
 
-      {{#if shouldShowNewBadge}}
-        <div class="ko-tournament-list-item__new-badge">
-          {{#if hasNewMatches}}
-            <div class="ko-badge ko-badge--primary">{{newMatchesCount}} New</div>
+          {{#if shouldShowNewBadge}}
+            {{#if hasNewMatches}}
+              <div class="grid__cell grid__cell--4/12">
+                <div class="ko-tournament-list-item__new-badge">
+                  <div class="ko-badge ko-badge--primary">{{newMatchesCount}} New</div>
+                </div>
+              </div>
+            {{/if}}
           {{/if}}
-        </div>
-      {{/if}}
-    </header>
+        </header>
 
-    <footer class="ko-tournament-list-item__footer">
-      <div class="ko-tournament-list-item__footer-content">
-        <div class="ko-tournament-list-item__info">
-          <div class="ko-badge ko-badge--primary">{{gameName}}</div>
-          <div class="ko-badge">{{matchesCount}} matches</div>
-        </div>
+        <footer class="ko-tournament-list-item__footer">
+          <div class="grid grid--flush">
+            <div class="grid__cell grid__cell--6/12">
+              <div class="ko-badge ko-badge--primary">{{gameName}}</div>
+              <div class="ko-badge">{{matchesCount}} matches</div>
+            </div>
 
-        {{#ko-toggle
-          class="ko-tournament-list-item__follow"
-          isActive=isFollowed
-          onToggle=(action "toggleFollow")}}
-          <i class="ko-tournament-list-item__follow-icon"></i>
-        {{/ko-toggle}}
-      </div>
-    </footer>
-  </article>
-{{/link-to}}
+            <div class="grid__cell grid__cell--6/12">
+              <div class="ko-tournament-list-item__follow">
+                {{ko-toggle
+                  isActive=isFollowed
+                  onToggle=(action "toggleFollow")
+                  iconType="heart"}}
+              </div>
+            </div>
+          </div>
+        </footer>
+      </article>
+    </div>
+  {{/link-to}}
+</div>

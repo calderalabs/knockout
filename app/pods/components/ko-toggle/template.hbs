@@ -1,7 +1,8 @@
 {{#if isButton}}
-  {{#ko-button class="ko-button--toggle"}}
-    {{#ko-toggle/content iconType=iconType}}{{yield}}{{/ko-toggle/content}}
+  {{#ko-button class="ko-button--toggle" iconType=iconType isActive=isActive}}
+    {{yield}}
   {{/ko-button}}
 {{else}}
-  {{#ko-toggle/content iconType=iconType}}{{yield}}{{/ko-toggle/content}}
+  {{fa-icon iconType class=(if isActive "fa--active")}}
+  {{yield}}
 {{/if}}
