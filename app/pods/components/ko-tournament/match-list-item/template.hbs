@@ -1,71 +1,80 @@
-<div class="ko-tournament-match-list-item__link" onclick={{action "transitionToMatch"}}>
-  <article class="ko-tournament-match-list-item__content">
-    {{#if shouldShowGroupInfo}}
-      <div class="ko-tournament-match-list-item__info">
-        {{#ko-spoiler
-          name="teams"
-          spoilerable=matchGroup
-          title="Show Teams"
-          class="ko-tournament-match-list-item__info-content"}}
-          {{#tool-tipster title=teamOneFullName class="ko-tournament-match-list-item__team-logo"}}
-            <img class="ko-tournament-match-list-item__team-logo-content" src={{teamOneLogoUrl}} />
-          {{/tool-tipster}}
+<a class="ko-tournament-match-list-item__link" onclick={{action "transitionToMatch"}}>
+  <article>
+    <div class="grid grid--middle">
+      {{#if shouldShowGroupInfo}}
+        <div class="grid__cell grid__cell--3/12">
+          <div class="ko-box">
+            {{#ko-spoiler
+              name="teams"
+              spoilerable=matchGroup
+              title="Show Teams"}}
+              <div class="grid grid--auto">
+                <div class="grid__cell">
+                  {{#tool-tipster title=teamOneFullName}}
+                    <img src={{teamOneLogoUrl}} />
+                  {{/tool-tipster}}
+                </div>
 
-          <span class="ko-tournament-match-list-item__team-separator">vs</span>
+                <div class="grid__cell">vs</div>
 
-          {{#tool-tipster title=teamTwoFullName class="ko-tournament-match-list-item__team-logo"}}
-            <img class="ko-tournament-match-list-item__team-logo-content" src={{teamTwoLogoUrl}} />
-          {{/tool-tipster}}
-        {{/ko-spoiler}}
-      </div>
-    {{/if}}
-
-    <div class="ko-tournament-match-list-item__info">
-      <div class="ko-tournament-match-list-item__info-content">
-        Game {{number}}{{#if shouldShowGroupInfo}}, {{stage}}{{/if}}
-      </div>
-    </div>
-
-    <div class="ko-tournament-match-list-item__info">
-      {{#if isNull}}
-        {{#ko-spoiler
-          name="null-matches"
-          spoilerable=matchGroup
-          title="Show Winner"
-          class="ko-tournament-match-list-item__info-content"}}
-          Not Played
-        {{/ko-spoiler}}
-      {{else}}
-        {{#ko-spoiler
-          name="winner"
-          spoilerable=match
-          title="Show Winner"
-          class="ko-tournament-match-list-item__info-content"}}
-          {{winnerFullName}} Wins
-        {{/ko-spoiler}}
+                <div class="grid__cell">
+                  {{#tool-tipster title=teamTwoFullName}}
+                    <img src={{teamTwoLogoUrl}} />
+                  {{/tool-tipster}}
+                </div>
+              </div>
+            {{/ko-spoiler}}
+          </div>
+        </div>
       {{/if}}
-    </div>
 
-    <div class="ko-tournament-match-list-item__info">
-      <div class="ko-tournament-match-list-item__info-content">
-        <div class="ko-tournament-match-list-item__badge-list">
-          {{#if isNew}}
-            <div class="ko-badge ko-badge--primary ko-tournament-match-list-item__badge">
-                New
+      <div class="grid__cell {{if shouldShowGroupInfo "grid__cell--3/12" "grid__cell--4/12"}}">
+        <div class="ko-box">
+          Game {{number}}{{#if shouldShowGroupInfo}}, {{stage}}{{/if}}
+        </div>
+      </div>
+
+      <div class="grid__cell {{if shouldShowGroupInfo "grid__cell--3/12" "grid__cell--4/12"}}">
+        {{#if isNull}}
+          {{#ko-spoiler
+            name="null-matches"
+            spoilerable=matchGroup
+            title="Show Winner"
+            class="ko-tournament-match-list-item__info-content"}}
+            <div class="ko-box">Not Played</div>
+          {{/ko-spoiler}}
+        {{else}}
+          {{#ko-spoiler
+            name="winner"
+            spoilerable=match
+            title="Show Winner"
+            class="ko-tournament-match-list-item__info-content"}}
+            <div class="ko-box">{{winnerFullName}} Wins</div>
+          {{/ko-spoiler}}
+        {{/if}}
+      </div>
+
+      <div class="grid__cell {{if shouldShowGroupInfo "grid__cell--3/12" "grid__cell--4/12"}}">
+        <div class="ko-box">
+          <div class="grid grid--auto">
+            {{#if isNew}}
+              <div class="grid__cell">
+                <div class="ko-badge ko-badge--primary">New</div>
+              </div>
+            {{/if}}
+
+            {{#if shouldShowGroupInfo}}
+              <div class="grid__cell">
+                <div class="ko-badge ko-badge--primary">BO{{bestOf}}</div>
+              </div>
+            {{/if}}
+
+            <div class="grid__cell">
+              <div class="ko-badge ko-badge--primary">{{likesCount}} likes</div>
             </div>
-          {{/if}}
-
-          {{#if shouldShowGroupInfo}}
-            <div class="ko-badge ko-badge--primary ko-tournament-match-list-item__badge">
-              BO{{bestOf}}
-            </div>
-          {{/if}}
-
-          <div class="ko-badge ko-badge--primary ko-tournament-match-list-item__badge">
-            {{likesCount}} likes
           </div>
         </div>
       </div>
     </div>
   </article>
-</div>
+</a>

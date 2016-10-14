@@ -6,6 +6,11 @@
   }
 
   &--dark {
-    background: radial-gradient(circle at top center, #111 1%, #222 100%);
+    @include ko-gradient-box(#111, #222);
+  }
+
+  &--footer {
+    @include ko-gradient-box(#111, #000);
+    padding: $av-gutter * 4;
   }
 }

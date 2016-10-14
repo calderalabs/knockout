@@ -1,10 +1,6 @@
 .ko-tournament-match-list-item {
   @include ko-gradient-border($ko-border-color);
-  overflow: auto;
-
-  &--with-group-info &__info {
-    @include span-columns(3, $display: table);
-  }
+  text-align: center;
 
   &::before {
     height: 1px;
@@ -39,58 +35,6 @@
 
     &:hover::before {
       display: none;
-    }
-  }
-
-  &__content {
-    display: table;
-    width: 100%;
-  }
-
-  &__info {
-    @include span-columns(4, $display: table);
-
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-
-    &-content {
-      padding: $av-gutter / 3 0;
-    }
-  }
-
-  &__team {
-    &-logo {
-      display: inline-block;
-      height: 30px;
-      overflow: hidden;
-      vertical-align: middle;
-      width: 30px;
-
-      &-content {
-        height: 100%;
-      }
-    }
-
-    &-separator {
-      display: inline-block;
-      margin: 0 $av-gutter / 2;
-      vertical-align: middle;
-    }
-  }
-
-  &__badge {
-    display: block;
-    float: left;
-    margin-right: $av-gutter / 2;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &-list {
-      display: inline-block;
-      overflow: auto;
     }
   }
 }

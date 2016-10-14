@@ -12,18 +12,6 @@
     display: inline-block;
   }
 
-  &--header {
-    @include ko-gradient-border($ko-border-color);
-
-    padding-bottom: $av-gutter / 2;
-    text-align: center;
-    font-size: 1.5rem;
-
-    &::before {
-      height: 3px;
-    }
-  }
-
   &--highlighted {
     color: $ko-action-color;
     font-size: 1.3rem;

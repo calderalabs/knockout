@@ -41,6 +41,18 @@
     }
   }
 
+  &__features-title {
+    @include ko-gradient-border($ko-border-color);
+
+    padding-bottom: $av-gutter / 2;
+    text-align: center;
+    font-size: 1.5rem;
+
+    &::before {
+      height: 3px;
+    }
+  }
+
   &__feature-description {
     font-size: 1.2rem;
     font-weight: 300;
@@ -62,10 +74,7 @@
   }
 
   &__footer {
-    @include ko-gradient-box(#111, #000);
-
     color: #444;
-    padding: $av-gutter * 4;
     text-align: center;
   }
 
