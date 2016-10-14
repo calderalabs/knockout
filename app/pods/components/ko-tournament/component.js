@@ -18,7 +18,7 @@ export default Component.extend({
   isShowingPopular: computed.equal('viewType', 'popular'),
   isShowingNew: computed.equal('viewType', 'new'),
   shouldShowNewNavItem: computed.and('session.hasCurrentUser', 'isFollowed'),
-  hasNewMatches: computed.gt('_newMatches.length', 0),
+  hasNoNewMatches: computed.equal('_newMatches.length', 0),
   _newMatches: computed.filterBy('_matches', 'isNew'),
   _matches: computed.readOnly('tournament.matches'),
 

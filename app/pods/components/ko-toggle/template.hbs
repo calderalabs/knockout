@@ -1,9 +1,7 @@
 {{#if isButton}}
   {{#ko-button class="ko-button--toggle"}}
-    {{fa-icon iconType}}
-    {{yield}}
+    {{#ko-toggle/content iconType=iconType}}{{yield}}{{/ko-toggle/content}}
   {{/ko-button}}
 {{else}}
-  {{fa-icon iconType}}
-  {{yield}}
+  {{#ko-toggle/content iconType=iconType}}{{yield}}{{/ko-toggle/content}}
 {{/if}}

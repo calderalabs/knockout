@@ -17,10 +17,10 @@
 
   {{#if isShowingTimeline}}
     {{#each timeline as |day|}}
-      <section class="ko-tournament__day">
-        <h1 class="ko-title">{{day.title}}</h1>
+      <section>
+        <h1 class="ko-tournament__section-title">{{day.title}}</h1>
 
-        <ul class="ko-tournament__match-group-list">
+        <ul>
           {{#each day.matchGroups as |matchGroup|}}
             {{ko-tournament/match-group-list-item matchGroup=matchGroup}}
           {{/each}}
@@ -28,19 +28,25 @@
       </section>
     {{/each}}
   {{else}}
-    <section class="ko-tournament__match-list">
-      <header class="ko-tournament__list-header">
+    <section>
+      <header>
         {{#if isShowingPopular}}
-          <h1 class="ko-title">Popular Matches</h1>
+          <h1 class="ko-tournament__section-title">Popular Matches</h1>
         {{else if isShowingNew}}
-          <h1 class="ko-title">New Matches</h1>
+          <div class="ko-tournament__section-title">
+            <div class="grid grid--middle grid--flush">
+              <h1 class="grid__cell grid__cell--8/12">New Matches</h1>
 
-          <div class="ko-tournament__mark-watched">
-            <button
-              class="ko-tournament__mark-watched-button {{unless hasNewMatches "ko-tournament__mark-watched-button--disabled"}}"
-              onclick={{action "markAllAsWatched"}}>
-              Mark all as watched
-            </button>
+              <div class="grid__cell grid__cell--4/12">
+                <div class="ko-tournament__mark-all-as-watched">
+                  {{#ko-button
+                    isDisabled=hasNoNewMatches
+                    click=(action "markAllAsWatched")}}
+                    Mark all as watched
+                  {{/ko-button}}
+                </div>
+              </div>
+            </div>
           </div>
         {{/if}}
       </header>
@@ -55,8 +61,10 @@
         </ul>
       {{else}}
         {{#if isShowingNew}}
-          {{#ko-empty-list message="You're up to date with this tournament!" iconType="up-to-date"}}
-            {{#link-to (query-params viewType="timeline") class="ko-tournament__timeline-link"}}Browse Timeline{{/link-to}}
+          {{#ko-empty-list message="You're up to date with this tournament!" iconType="rocket"}}
+            {{#ko-button}}
+              {{#link-to (query-params viewType="timeline")}}Browse Timeline{{/link-to}}
+            {{/ko-button}}
           {{/ko-empty-list}}
         {{/if}}
       {{/if}}

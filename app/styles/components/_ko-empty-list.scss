@@ -3,11 +3,9 @@
   text-align: center;
 
   &__icon {
-    margin-bottom: 20px;
-  }
-
-  &__message {
-    font-size: 1.3rem;
-    margin: $av-gutter 0;
+    @include ko-gradient-box;
+    display: inline-block;
+    padding: $av-gutter * 4;
+    margin-bottom: 40px;
   }
 }

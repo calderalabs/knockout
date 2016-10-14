@@ -1,49 +1,17 @@
 .ko-tournament {
-  &__day {
-    @include span-columns(12);
-  }
-
-  &-match-group-list {
-    @include span-columns(12);
-  }
-
-  &__match-list {
-    @include span-columns(12);
-
-    &-content {
-      @include span-columns(12);
-    }
-  }
-
-  &__list-header,
-  &__timeline-title {
+  &__section-title {
     @include ko-gradient-border($ko-border-color);
 
-    align-items: flex-end;
-    display: flex;
-    flex-direction: row;
     margin: $av-gutter 0;
     padding-bottom: $av-gutter / 2;
+    font-size: 1.2rem;
 
     &::before {
       height: 4px;
     }
   }
 
-  &__list-title {
-    flex-grow: 1;
-  }
-
-  &__mark-watched {
+  &__mark-all-as-watched {
     text-align: right;
-
-    &-button {
-      font-size: .8rem;
-      padding: 8px 16px;
-    }
-  }
-
-  &__new-list-empty-icon::before {
-    content: $fa-var-rocket;
   }
 }
